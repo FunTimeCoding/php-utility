@@ -1,0 +1,38 @@
+<?php
+
+namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy;
+
+class BubbleSortStrategy implements SortStrategyInterface
+{
+    /**
+     * @param int[] $elements
+     *
+     * @return int[]
+     */
+    public function sort(array $elements)
+    {
+        $size = count($elements);
+
+        for ($outer = 0; $outer < $size; $outer++) {
+            for ($inner = 0; $inner < $size - 1 - $outer; $inner++) {
+                if ($elements[$inner + 1] < $elements[$inner]) {
+                    $this->swap($elements, $inner, $inner + 1);
+                }
+            }
+        }
+
+        return $elements;
+    }
+
+    /**
+     * @param int[] $elements
+     * @param int   $leftElement
+     * @param int   $rightElement
+     */
+    private function swap(array &$elements, $leftElement, $rightElement)
+    {
+        $tempNumber = $elements[$leftElement];
+        $elements[$leftElement] = $elements[$rightElement];
+        $elements[$rightElement] = $tempNumber;
+    }
+}

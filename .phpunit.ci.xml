@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.6/phpunit.xsd"
+         processIsolation="true" backupGlobals="false"
+         bootstrap="vendor/autoload.php"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         checkForUnintentionallyCoveredCode="true" beStrictAboutTestSize="true"
+         beStrictAboutOutputDuringTests="true">
+    <testsuites>
+        <testsuite name="all">
+            <directory>test</directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory>test/Unit</directory>
+        </testsuite>
+        <testsuite name="integration">
+            <directory>test/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <blacklist>
+            <directory suffix="Test.php">test</directory>
+        </blacklist>
+    </filter>
+    <logging>
+        <log type="junit" target="build/log/junit.xml"/>
+        <log type="coverage-clover" target="build/log/clover.xml"/>
+        <log type="coverage-html" target="build/coverage-html"/>
+    </logging>
+</phpunit>
