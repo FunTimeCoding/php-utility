@@ -1,10 +1,10 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Framework;
 
 use Symfony\Component\Yaml\Parser;
 
-class YamlConfig
+class YamlConfig implements ConfigInterface
 {
     private $config = array();
 

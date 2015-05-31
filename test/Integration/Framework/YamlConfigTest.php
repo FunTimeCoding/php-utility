@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
-use FunTimeCoding\PhpUtility\LanguageExample\YamlConfig;
+use FunTimeCoding\PhpUtility\Framework\YamlConfig;
 use PHPUnit_Framework_TestCase;
 
 class YamlConfigTest extends PHPUnit_Framework_TestCase
