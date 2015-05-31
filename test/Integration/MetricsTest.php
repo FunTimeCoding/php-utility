@@ -1,9 +1,9 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Integration\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
 
 use DirectoryIterator;
-use FunTimeCoding\PhpSkeleton\Framework\Kernel;
+use FunTimeCoding\PhpUtility\Framework\Kernel;
 use PHPUnit_Framework_TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;

@@ -1,12 +1,12 @@
 {
-    "name": "funtimecoding/php-skeleton",
-    "description": "Stub description for example-project.",
+    "name": "funtimecoding/php-utility",
+    "description": "Stub description for php-utility.",
     "license": "MIT",
     "autoload": {
-        "psr-4": {"FunTimeCoding\\PhpSkeleton\\": "src/"}
+        "psr-4": {"FunTimeCoding\\PhpUtility\\": "src/"}
     },
     "autoload-dev": {
-        "psr-4": {"FunTimeCoding\\PhpSkeleton\\Test\\": "test/"}
+        "psr-4": {"FunTimeCoding\\PhpUtility\\Test\\": "test/"}
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",

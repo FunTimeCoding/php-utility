@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
 
 interface SortStrategyInterface
 {

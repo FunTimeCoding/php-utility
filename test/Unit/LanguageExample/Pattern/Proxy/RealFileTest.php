@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Proxy;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Proxy;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Proxy\RealFile;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy\RealFile;
 use PHPUnit_Framework_TestCase;
 
 class RealFileTest extends PHPUnit_Framework_TestCase

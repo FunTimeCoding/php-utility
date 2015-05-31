@@ -1,9 +1,9 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Adapter\MaleToFemaleAdapter;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Adapter\Socket;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\MaleToFemaleAdapter;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Socket;
 use PHPUnit_Framework_TestCase;
 
 class MaleToFemaleAdapterTest extends PHPUnit_Framework_TestCase

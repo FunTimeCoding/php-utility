@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 class MediaWikiTestHelper
 {

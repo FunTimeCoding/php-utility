@@ -1,10 +1,10 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 use DOMDocument;
 use DOMXPath;
-use FunTimeCoding\PhpSkeleton\LanguageExample\MediaWikiHelper;
+use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiHelper;
 use PHPUnit_Framework_TestCase;
 
 class MediaWikiHelperTest extends PHPUnit_Framework_TestCase

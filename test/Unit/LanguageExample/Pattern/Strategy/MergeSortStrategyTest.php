@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Strategy;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Strategy;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy\MergeSortStrategy;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\MergeSortStrategy;
 use PHPUnit_Framework_TestCase;
 
 class MergeSortStrategyTest extends PHPUnit_Framework_TestCase

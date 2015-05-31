@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Integration\Framework;
+namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
-use FunTimeCoding\PhpSkeleton\Framework\Kernel;
+use FunTimeCoding\PhpUtility\Framework\Kernel;
 use PHPUnit_Framework_TestCase;
 
 class KernelTest extends PHPUnit_Framework_TestCase

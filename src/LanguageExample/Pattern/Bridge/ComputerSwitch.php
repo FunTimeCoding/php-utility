@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Bridge;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge;
 
 class ComputerSwitch implements SwitchBridgeInterface
 {

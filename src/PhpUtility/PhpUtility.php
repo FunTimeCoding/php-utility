@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\ExampleNamespace;
+namespace FunTimeCoding\PhpUtility\PhpUtility;
 
-class ExampleApplication
+class PhpUtility
 {
     /**
      * @return int

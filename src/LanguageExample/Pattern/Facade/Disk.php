@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Facade;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade;
 
 class Disk
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Facade;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Facade;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Facade\Processor;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade\Processor;
 use PHPUnit_Framework_TestCase;
 
 class ProcessorTest extends PHPUnit_Framework_TestCase

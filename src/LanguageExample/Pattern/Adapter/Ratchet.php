@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Adapter;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter;
 
 class Ratchet
 {

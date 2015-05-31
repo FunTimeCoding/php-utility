@@ -1,10 +1,10 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Strategy;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Strategy;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy\BubbleSortStrategy;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy\QuickSortStrategy;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Strategy\SortContext;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\BubbleSortStrategy;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\QuickSortStrategy;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\SortContext;
 use PHPUnit_Framework_TestCase;
 
 class SortContextTest extends PHPUnit_Framework_TestCase

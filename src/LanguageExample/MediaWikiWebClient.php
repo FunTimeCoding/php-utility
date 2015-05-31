@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample;
+namespace FunTimeCoding\PhpUtility\LanguageExample;
 
 use Exception;
 

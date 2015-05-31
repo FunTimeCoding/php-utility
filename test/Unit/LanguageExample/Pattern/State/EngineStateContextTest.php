@@ -1,10 +1,10 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Observer;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\State\EngineStateContext;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\State\StoppedState;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\State\RunningState;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\StoppedState;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\RunningState;
 use PHPUnit_Framework_TestCase;
 
 class EngineStateContextTest extends PHPUnit_Framework_TestCase

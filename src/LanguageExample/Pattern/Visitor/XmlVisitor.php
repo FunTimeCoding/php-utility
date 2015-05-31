@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Visitor;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor;
 
 class XmlVisitor implements VisitorInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Framework;
+namespace FunTimeCoding\PhpUtility\Framework;
 
 use Exception;
 

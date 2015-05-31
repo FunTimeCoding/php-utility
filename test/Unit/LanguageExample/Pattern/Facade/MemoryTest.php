@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Facade;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Facade;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Facade\Memory;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade\Memory;
 use PHPUnit_Framework_TestCase;
 
 class MemoryTest extends PHPUnit_Framework_TestCase

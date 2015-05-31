@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Bridge;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Bridge;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Bridge\ComputerSwitch;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge\ComputerSwitch;
 use PHPUnit_Framework_TestCase;
 
 class ComputerSwitchTest extends PHPUnit_Framework_TestCase

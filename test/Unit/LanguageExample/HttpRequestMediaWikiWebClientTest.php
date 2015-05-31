@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\HttpRequestMediaWikiWebClient;
+use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
 use PHPUnit_Framework_TestCase;
 
 class HttpRequestMediaWikiWebClientTest extends PHPUnit_Framework_TestCase

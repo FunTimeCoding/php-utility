@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Proxy;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy;
 
 class RealFile implements FileInterface
 {

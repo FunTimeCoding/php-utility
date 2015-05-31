@@ -1,18 +1,18 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\ExampleNamespace;
+namespace FunTimeCoding\PhpUtility\Test\Unit\PhpUtility;
 
-use FunTimeCoding\PhpSkeleton\ExampleNamespace\ExampleApplication;
+use FunTimeCoding\PhpUtility\PhpUtility\PhpUtility;
 use PHPUnit_Framework_TestCase;
 
-class ExampleApplicationTest extends PHPUnit_Framework_TestCase
+class PhpUtilityTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @outputBuffering enabled
      */
     public function testMainMethod()
     {
-        $app = new ExampleApplication();
+        $app = new PhpUtility();
 
         $this->assertSame(0, $app->main());
 

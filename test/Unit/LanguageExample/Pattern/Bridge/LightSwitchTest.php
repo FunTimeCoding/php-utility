@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Bridge;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Bridge;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Bridge\LightSwitch;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge\LightSwitch;
 use PHPUnit_Framework_TestCase;
 
 class LightSwitchTest extends PHPUnit_Framework_TestCase

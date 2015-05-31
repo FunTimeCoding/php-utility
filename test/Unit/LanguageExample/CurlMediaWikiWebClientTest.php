@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\CurlMediaWikiWebClient;
+use FunTimeCoding\PhpUtility\LanguageExample\CurlMediaWikiWebClient;
 use PHPUnit_Framework_TestCase;
 
 class CurlMediaWikiWebClientTest extends PHPUnit_Framework_TestCase

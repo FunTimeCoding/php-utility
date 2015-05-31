@@ -1,8 +1,8 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Observer;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Observer\ConcreteObserver;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Observer\ConcreteObserver;
 use PHPUnit_Framework_TestCase;
 
 class ConcreteObserverTest extends PHPUnit_Framework_TestCase

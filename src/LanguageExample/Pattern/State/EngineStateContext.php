@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\State;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\State;
 
 class EngineStateContext
 {

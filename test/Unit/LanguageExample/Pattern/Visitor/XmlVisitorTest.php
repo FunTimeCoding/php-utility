@@ -1,9 +1,9 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Unit\LanguageExample\Pattern\Visitor;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Visitor\Node;
-use FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Visitor\XmlVisitor;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\Node;
+use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\XmlVisitor;
 use PHPUnit_Framework_TestCase;
 
 class XmlVisitorTest extends PHPUnit_Framework_TestCase

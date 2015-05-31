@@ -1,11 +1,11 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\Test\Integration\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
 
-use FunTimeCoding\PhpSkeleton\LanguageExample\CurlMediaWikiWebClient;
-use FunTimeCoding\PhpSkeleton\LanguageExample\HttpRequestMediaWikiWebClient;
-use FunTimeCoding\PhpSkeleton\LanguageExample\MediaWikiWebClient;
-use FunTimeCoding\PhpSkeleton\LanguageExample\YamlConfig;
+use FunTimeCoding\PhpUtility\LanguageExample\CurlMediaWikiWebClient;
+use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
+use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient;
+use FunTimeCoding\PhpUtility\LanguageExample\YamlConfig;
 use PHPUnit_Framework_TestCase;
 
 class MediaWikiWebClientTest extends PHPUnit_Framework_TestCase

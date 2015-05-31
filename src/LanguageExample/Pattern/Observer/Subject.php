@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\Observer;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Observer;
 
 class Subject
 {

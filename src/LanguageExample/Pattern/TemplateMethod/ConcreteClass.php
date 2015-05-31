@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpSkeleton\LanguageExample\Pattern\TemplateMethod;
+namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\TemplateMethod;
 
 class ConcreteClass extends AbstractClass
 {
