@@ -3,7 +3,6 @@
 namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
 
 use DirectoryIterator;
-use FunTimeCoding\PhpUtility\Framework\Kernel;
 use PHPUnit_Framework_TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -15,9 +14,9 @@ class MetricsTest extends PHPUnit_Framework_TestCase
         // Iterate over all *Test.php and find 'PHPUnit_Framework_Testcase', which do not get detected by phploc.
         // Note the lower case c in Testcase. It should be 'PHPUnit_Framework_TestCase'.
 
-        $kernel = new Kernel();
-        $testDirectory = $kernel->getProjectRoot().DIRECTORY_SEPARATOR.'test';
+        $testDirectory = realpath(__DIR__.DIRECTORY_SEPARATOR.'..');
         $this->assertStringStartsWith('/', $testDirectory);
+        $this->assertEquals('test', basename($testDirectory));
 
         $files = array();
         $directoryIterator = new RecursiveDirectoryIterator($testDirectory, RecursiveDirectoryIterator::SKIP_DOTS);
