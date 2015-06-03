@@ -1,7 +1,6 @@
 <?php
 
 $finder = Symfony\CS\Finder\DefaultFinder::create(Symfony\CS\FixerInterface::PSR2_LEVEL)
-    ->exclude('vendor')
     ->exclude('build')
     ->in(__DIR__);
 
