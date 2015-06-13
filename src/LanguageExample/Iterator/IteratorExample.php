@@ -53,9 +53,11 @@ class IteratorExample
      */
     public function filterIterator()
     {
-        $someUser = new User('Someone');
+        $someUser = new User();
+        $someUser->setName('Someone');
         $someUser->setAge(21);
-        $anotherUser = new User('Another');
+        $anotherUser = new User();
+        $anotherUser->setName('Another');
         $anotherUser->setAge(31);
         $users = array($someUser, $anotherUser);
 
