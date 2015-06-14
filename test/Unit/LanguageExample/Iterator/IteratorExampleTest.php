@@ -26,6 +26,27 @@ OUTPUT;
     }
 
     /**
+     * @see http://php.net/manual/en/class.recursivearrayiterator.php
+     */
+    public function testRecursiveArrayIterator()
+    {
+        $example = new IteratorExample();
+
+        $example->recursiveArrayIterator();
+
+        $expected = <<<OUTPUT
+0 apple
+1 banana
+2 strawberry
+0 blueberry
+1 plum
+2 orange
+
+OUTPUT;
+        $this->expectOutputString($expected);
+    }
+
+    /**
      * @outputBuffering enabled
      */
     public function testTraversableIterator()

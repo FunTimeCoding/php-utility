@@ -5,6 +5,8 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 use ArrayIterator;
 use ArrayObject;
 use IteratorIterator;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
 
 class IteratorExample
 {
@@ -22,6 +24,31 @@ class IteratorExample
             $key = $iterator->key();
             $value = $iterator->current();
             echo $key . ' ' . $value . PHP_EOL;
+            $iterator->next();
+        }
+    }
+
+    public function recursiveArrayIterator()
+    {
+        $fruits = array(
+            array(
+                'apple',
+                'banana',
+                'strawberry'
+            ),
+            array(
+                'blueberry',
+                'plum',
+                'orange'
+            ),
+        );
+
+        $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
+
+        while ($iterator->valid()) {
+            $key = $iterator->key();
+            $value = $iterator->current();
+            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
             $iterator->next();
         }
     }
