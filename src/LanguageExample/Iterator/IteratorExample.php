@@ -3,8 +3,6 @@
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
 use ArrayIterator;
-use ArrayObject;
-use IteratorIterator;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 
@@ -19,6 +17,7 @@ class IteratorExample
         );
 
         $iterator = new ArrayIterator($fruits);
+        $iterator->rewind();
 
         while ($iterator->valid()) {
             $key = $iterator->key();
@@ -28,7 +27,7 @@ class IteratorExample
         }
     }
 
-    public function recursiveArrayIterator()
+    public function recursiveArrayIteratorWithForeach()
     {
         $fruits = array(
             array(
@@ -45,6 +44,29 @@ class IteratorExample
 
         $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
 
+        foreach($iterator as $key => $value) {
+            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
+        }
+    }
+
+    public function recursiveArrayIteratorWithWhile()
+    {
+        $fruits = array(
+            array(
+                'apple',
+                'banana',
+                'strawberry'
+            ),
+            array(
+                'blueberry',
+                'plum',
+                'orange'
+            ),
+        );
+
+        $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
+        $iterator->rewind();
+
         while ($iterator->valid()) {
             $key = $iterator->key();
             $value = $iterator->current();
@@ -53,31 +75,23 @@ class IteratorExample
         }
     }
 
-    /**
-     * Should turn the cupboard into an iterator and traverse it.
-     *
-     * @see http://php.net/manual/en/class.iteratoriterator.php
-     */
-    public function traversableIterator()
+    public function iterator()
     {
         $cupboard = new Cupboard();
         $cupboard->lowerDrawer = 'books';
         $cupboard->upperDrawer = 'clothes';
-        $iterator = new IteratorIterator($cupboard);
 
-        while ($iterator->valid()) {
-            $key = $iterator->key();
-            $value = $iterator->current();
+        // TODO: use foreach
+        $cupboard->rewind();
+
+        while ($cupboard->valid()) {
+            $key = $cupboard->key();
+            $value = $cupboard->current();
             echo $key . ' ' . $value . PHP_EOL;
-            $iterator->next();
+            $cupboard->next();
         }
     }
 
-    /**
-     * Should filter out users that are not in the specified age bracket.
-     *
-     * @see http://php.net/manual/en/class.filteriterator.php
-     */
     public function filterIterator()
     {
         $someUser = new User();
@@ -87,9 +101,9 @@ class IteratorExample
         $anotherUser->setName('Another');
         $anotherUser->setAge(31);
         $users = array($someUser, $anotherUser);
-
-        $object = new ArrayObject($users);
-        $iterator = new UserAgeFilterIterator($object->getIterator(), 25, 40);
+        $innerIterator = new ArrayIterator($users);
+        $iterator = new UserAgeFilterIterator($innerIterator, 25, 40);
+        $iterator->rewind();
 
         while ($iterator->valid()) {
             /** @var User $user */

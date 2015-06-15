@@ -29,7 +29,6 @@ class UserAgeFilterIterator extends FilterIterator
     {
         /** @var User $current */
         $current = $this->getInnerIterator()->current();
-        echo 'Iterating: ' . $current->getName() . PHP_EOL;
         $result = true;
         $age = $current->getAge();
 
@@ -39,7 +38,6 @@ class UserAgeFilterIterator extends FilterIterator
             $result = false;
         }
 
-        return true;
         return $result;
     }
 }

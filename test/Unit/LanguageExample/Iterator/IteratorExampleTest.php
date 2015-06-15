@@ -26,13 +26,34 @@ OUTPUT;
     }
 
     /**
-     * @see http://php.net/manual/en/class.recursivearrayiterator.php
+     * @outputBuffering enabled
      */
-    public function testRecursiveArrayIterator()
+    public function testRecursiveArrayIteratorWithForeach()
     {
         $example = new IteratorExample();
 
-        $example->recursiveArrayIterator();
+        $example->recursiveArrayIteratorWithForeach();
+
+        $expected = <<<OUTPUT
+0 apple
+1 banana
+2 strawberry
+0 blueberry
+1 plum
+2 orange
+
+OUTPUT;
+        $this->expectOutputString($expected);
+    }
+
+    /**
+     * @outputBuffering enabled
+     */
+    public function testRecursiveArrayIteratorWithWhile()
+    {
+        $example = new IteratorExample();
+
+        $example->recursiveArrayIteratorWithWhile();
 
         $expected = <<<OUTPUT
 0 apple
@@ -53,7 +74,7 @@ OUTPUT;
     {
         $example = new IteratorExample();
 
-        $example->traversableIterator();
+        $example->iterator();
 
         $expected = <<<OUTPUT
 lowerDrawer books
