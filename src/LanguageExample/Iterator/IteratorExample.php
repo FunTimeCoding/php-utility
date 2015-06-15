@@ -15,15 +15,10 @@ class IteratorExample
             'banana',
             'strawberry'
         );
-
         $iterator = new ArrayIterator($fruits);
-        $iterator->rewind();
 
-        while ($iterator->valid()) {
-            $key = $iterator->key();
-            $value = $iterator->current();
+        foreach ($iterator as $key => $value) {
             echo $key . ' ' . $value . PHP_EOL;
-            $iterator->next();
         }
     }
 
@@ -41,11 +36,10 @@ class IteratorExample
                 'orange'
             ),
         );
-
         $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
 
-        foreach($iterator as $key => $value) {
-            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
+        foreach ($iterator as $key => $value) {
+            echo $key . ' ' . $value . PHP_EOL;
         }
     }
 
@@ -63,14 +57,13 @@ class IteratorExample
                 'orange'
             ),
         );
-
         $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
         $iterator->rewind();
 
         while ($iterator->valid()) {
             $key = $iterator->key();
             $value = $iterator->current();
-            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
+            echo $key . ' ' . $value . PHP_EOL;
             $iterator->next();
         }
     }
@@ -81,14 +74,8 @@ class IteratorExample
         $cupboard->lowerDrawer = 'books';
         $cupboard->upperDrawer = 'clothes';
 
-        // TODO: use foreach
-        $cupboard->rewind();
-
-        while ($cupboard->valid()) {
-            $key = $cupboard->key();
-            $value = $cupboard->current();
+        foreach ($cupboard as $key => $value) {
             echo $key . ' ' . $value . PHP_EOL;
-            $cupboard->next();
         }
     }
 
@@ -101,15 +88,11 @@ class IteratorExample
         $anotherUser->setName('Another');
         $anotherUser->setAge(31);
         $users = array($someUser, $anotherUser);
-        $innerIterator = new ArrayIterator($users);
-        $iterator = new UserAgeFilterIterator($innerIterator, 25, 40);
-        $iterator->rewind();
+        $iterator = new UserAgeFilterIterator(new ArrayIterator($users), 25, 40);
 
-        while ($iterator->valid()) {
+        foreach ($iterator as $user) {
             /** @var User $user */
-            $user = $iterator->current();
             echo $user->getName() . ' ' . $user->getAge() . PHP_EOL;
-            $iterator->next();
         }
     }
 }

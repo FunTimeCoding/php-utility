@@ -70,15 +70,15 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testTraversableIterator()
+    public function testIterator()
     {
         $example = new IteratorExample();
 
         $example->iterator();
 
         $expected = <<<OUTPUT
-lowerDrawer books
 upperDrawer clothes
+lowerDrawer books
 
 OUTPUT;
         $this->expectOutputString($expected);
