@@ -6,7 +6,14 @@ use Iterator;
 
 class Cupboard implements Iterator
 {
+    /**
+     * @var string
+     */
     public $upperDrawer = 'empty';
+
+    /**
+     * @var string
+     */
     public $lowerDrawer = 'empty';
 
     /**
@@ -41,6 +48,9 @@ class Cupboard implements Iterator
         $this->length = count($attributes);
     }
 
+    /**
+     * @return string
+     */
     public function current()
     {
         $this->updateIteratorAttributes();
@@ -54,6 +64,9 @@ class Cupboard implements Iterator
         $this->position++;
     }
 
+    /**
+     * @return string
+     */
     public function key()
     {
         $this->updateIteratorAttributes();
@@ -61,6 +74,9 @@ class Cupboard implements Iterator
         return $this->keys[$this->position];
     }
 
+    /**
+     * @return bool
+     */
     public function valid()
     {
         $this->updateIteratorAttributes();
