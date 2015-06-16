@@ -171,11 +171,6 @@ class IteratorExample
         }
     }
 
-    /**
-     * FIXME: What is the point of this? Does it cache the elements it traversed for faster reiteration next time?
-     *
-     * @see http://php.net/manual/en/class.cachingiterator.php
-     */
     public function cachingIterator()
     {
         $fruits = array(
@@ -268,11 +263,6 @@ class IteratorExample
         }
     }
 
-    /**
-     * FIXME: What is the point of this?
-     *
-     * @see http://php.net/manual/en/class.multipleiterator.php
-     */
     public function multipleIterator()
     {
         $fruits = array(
@@ -291,8 +281,8 @@ class IteratorExample
         $iterator->attachIterator($fruitIterator, 'fruit');
         $iterator->attachIterator($animalIterator, 'animal');
 
-        foreach ($iterator as $key => $value) {
-            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
+        foreach ($iterator as $element) {
+            echo print_r($element['fruit'], true) . ' ' . print_r($element['animal'], true) . PHP_EOL;
         }
     }
 

@@ -199,12 +199,9 @@ OUTPUT;
         $example->multipleIterator();
 
         $expected = <<<OUTPUT
-0 apple
-1 banana
-2 strawberry
-0 bird
-1 dog
-2 horse
+apple bird
+banana dog
+strawberry horse
 
 OUTPUT;
         $this->expectOutputString($expected);
