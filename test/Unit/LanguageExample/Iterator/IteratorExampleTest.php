@@ -101,6 +101,8 @@ OUTPUT;
      */
     public function testCallbackFilterIterator()
     {
+        $this->markTestSkipped('CallbackFilterIterator requires php 5.6');
+
         $example = new IteratorExample();
 
         $example->callbackFilterIterator();
@@ -117,6 +119,8 @@ OUTPUT;
      */
     public function testRecursiveCallbackFilterIterator()
     {
+        $this->markTestSkipped('RecursiveCallbackFilterIterator requires php 5.6');
+
         $example = new IteratorExample();
 
         $example->recursiveCallbackFilterIterator();
@@ -140,6 +144,8 @@ OUTPUT;
 
         $expected = <<<OUTPUT
 0 apple
+1 banana
+2 strawberry
 
 OUTPUT;
         $this->expectOutputString($expected);
