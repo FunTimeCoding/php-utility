@@ -57,5 +57,5 @@ fi
 "${COMPOSER_PATH}" install --no-interaction --no-progress
 rm -rf "${WORKSPACE}/build"
 "${WORKSPACE}/run-style-check.sh" --ci-mode
-"${WORKSPACE}/run-metrics.sh" --ci-mode
 "${WORKSPACE}/run-tests.sh" --ci-mode
+"${WORKSPACE}/run-metrics.sh" --ci-mode

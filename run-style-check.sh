@@ -1,5 +1,4 @@
-#!/bin/sh
-# TODO: Properly handle the exit code of PMD so that '-e' can be appended to the shebang again.
+#!/bin/sh -e
 
 CI_MODE=0
 
@@ -13,14 +12,13 @@ fi
 echo "================================================================================"
 echo ""
 echo "Running Mess Detector. Documentation: http://phpmd.org/documentation/index.html"
+CODE="0"
 
 if [ "${CI_MODE}" = "1" ]; then
-    vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml
+    vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml || CODE="${?}"
 else
-    vendor/bin/phpmd src,test text .phpmd.xml
+    vendor/bin/phpmd src,test text .phpmd.xml || CODE="${?}"
 fi
-
-CODE="$?"
 
 if [ "${CODE}" = "2" ]; then
     echo "Violations occurred."
@@ -64,7 +62,7 @@ fi
 
 echo ""
 echo "Running ShellCheck."
-find . -name '*.sh' -and -not -path '*/vendor/*' -exec sh -c "shellcheck {} || true" \;
+find . -name '*.sh' -and -not -path '*/vendor/*' -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;
 echo ""
 echo "================================================================================"
 echo ""
