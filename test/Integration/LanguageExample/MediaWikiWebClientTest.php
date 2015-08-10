@@ -15,7 +15,7 @@ class MediaWikiWebClientTest extends PHPUnit_Framework_TestCase
         $httpRequestClient = new HttpRequestMediaWikiWebClient('mediawiki.dev');
         $curlClient = new CurlMediaWikiWebClient('mediawiki.dev');
 
-        $config = new YamlConfig('~/.php-skeleton.yml');
+        $config = new YamlConfig('~/.php-utility.yml');
         $username = $config->getValue('wpName');
         $password = $config->getValue('wpPassword');
 

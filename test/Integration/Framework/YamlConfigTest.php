@@ -9,7 +9,7 @@ class YamlConfigTest extends PHPUnit_Framework_TestCase
 {
     public function testReadConfig()
     {
-        $config = new YamlConfig('~/.php-skeleton.yml');
+        $config = new YamlConfig('~/.php-utility.yml');
 
         $name = $config->getValue('wpName');
         $password = $config->getValue('wpPassword');
