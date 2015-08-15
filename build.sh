@@ -1,34 +1,36 @@
 #!/bin/sh -e
 
-getopt -o w:hcv -l workspace:,help,clean,verbose --name "${0}" -- "$@" > /dev/null
 CLEAN=0
 
 while true; do
     case ${1} in
-        -w|--workspace)
-            WORKSPACE="${2-}"
-            shift 2
-            ;;
         -h|--help)
-            echo "Usage: [-h][-c|--clean][-w|--workspace WORKSPACE]"
+            echo "Usage: [-h|--help][-v|--verbose][-c|--clean][-w|--workspace WORKSPACE]"
+
             exit 0
-            ;;
-        -c|--clean)
-            CLEAN=1
-            shift
             ;;
         -v|--verbose)
             set -x
             shift
             ;;
+        -c|--clean)
+            CLEAN=1
+            shift
+            ;;
+        -w|--workspace)
+            WORKSPACE="${2-}"
+            shift 2
+            ;;
         --)
             shift
+
             break
             ;;
         *)
             if [ ! "${1}" = "" ]; then
                 echo "Unknown option: ${1}"
             fi
+
             break
             ;;
     esac
