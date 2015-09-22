@@ -2,6 +2,9 @@
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter;
 
+/**
+ * An adapter pattern should be pointed out by its class name.
+ */
 class MaleToFemaleAdapter
 {
     /**
