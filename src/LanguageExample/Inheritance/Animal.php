@@ -5,5 +5,6 @@ class Animal implements CanEatInterface
 {
     public function eat(AnimalFood $food)
     {
+        $food->nom();
     }
 }
