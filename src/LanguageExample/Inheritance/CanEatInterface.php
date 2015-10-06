@@ -3,5 +3,5 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
 
 interface CanEatInterface
 {
-    public function eat(CatFood $c);
+    public function eat(AnimalFood $food);
 }

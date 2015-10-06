@@ -5,12 +5,12 @@ class InheritanceMain
 {
     public function main()
     {
-        $c = new CatFood();
-        $a = new Cat();
-        $a->eat($c);
+        $animalFood = new AnimalFood();
+        $animal = new Animal();
+        $animal->eat($animalFood);
 
-        $d = new MoreSpecificCatFood();
-        $b = new MoreSpecificCat();
-        $b->eat($d);
+        $catFood = new CatFood();
+        $cat = new Cat();
+        $cat->eat($catFood);
     }
 }

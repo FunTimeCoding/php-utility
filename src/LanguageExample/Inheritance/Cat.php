@@ -1,9 +1,15 @@
 <?php
 namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
 
-class Cat implements CanEatInterface
+class Cat extends Animal
 {
-    public function eat(CatFood $c)
+    public function eat(AnimalFood $food)
     {
+
+    }
+
+    public function meow()
+    {
+
     }
 }

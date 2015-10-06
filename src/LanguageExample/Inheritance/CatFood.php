@@ -1,7 +1,7 @@
 <?php
 namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
 
-class CatFood
+class CatFood extends AnimalFood
 {
 
 }
