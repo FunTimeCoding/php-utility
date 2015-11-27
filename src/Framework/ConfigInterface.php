@@ -8,5 +8,5 @@ interface ConfigInterface
      * @param string $key
      * @return string
      */
-    public function getValue($key);
+    public function get($key);
 }

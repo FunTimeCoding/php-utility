@@ -1,0 +1,6 @@
+wpName: randomUser
+wpPassword: insecurePassword
+
+development:
+    username: randomUser
+    password: insecurePassword
