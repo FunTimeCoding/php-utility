@@ -13,8 +13,8 @@ class BubbleSortStrategy implements SortStrategyInterface
     {
         $size = count($elements);
 
-        for ($outer = 0; $outer < $size; $outer++) {
-            for ($inner = 0; $inner < $size - 1 - $outer; $inner++) {
+        for ($outer = 0; $outer < $size; ++$outer) {
+            for ($inner = 0; $inner < $size - 1 - $outer; ++$inner) {
                 if ($elements[$inner + 1] < $elements[$inner]) {
                     $this->swap($elements, $inner, $inner + 1);
                 }

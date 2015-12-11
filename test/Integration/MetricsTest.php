@@ -72,6 +72,6 @@ class MetricsTest extends PHPUnit_Framework_TestCase
     {
         $length = strlen($needle);
 
-        return (substr($haystack, 0, $length) === $needle);
+        return substr($haystack, 0, $length) === $needle;
     }
 }

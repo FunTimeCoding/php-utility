@@ -93,7 +93,7 @@ OUTPUT;
 
         $example->filterIterator();
 
-        $this->expectOutputString('Another 31' . PHP_EOL);
+        $this->expectOutputString('Another 31'.PHP_EOL);
     }
 
     /**

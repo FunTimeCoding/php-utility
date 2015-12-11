@@ -40,8 +40,8 @@ class MySplObjectHashStorage implements Iterator, Attachable
         $this->hashes = spl_object_hash($object);
         $this->objects[$this->position] = $object;
         $this->objectData[$this->position] = $data;
-        $this->length++;
-        $this->position++;
+        ++$this->length;
+        ++$this->position;
     }
 
     /**
@@ -54,7 +54,7 @@ class MySplObjectHashStorage implements Iterator, Attachable
 
     public function next()
     {
-        $this->position++;
+        ++$this->position;
     }
 
     /**

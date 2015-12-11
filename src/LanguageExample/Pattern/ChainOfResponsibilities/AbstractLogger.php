@@ -38,7 +38,7 @@ abstract class AbstractLogger
 
     /**
      * @param string $message
-     * @param int $logLevel
+     * @param int    $logLevel
      */
     public function message($message, $logLevel)
     {
@@ -52,7 +52,7 @@ abstract class AbstractLogger
     }
 
     /**
-     * @var string $message
+     * @var string
      */
     abstract protected function writeMessage($message);
 }

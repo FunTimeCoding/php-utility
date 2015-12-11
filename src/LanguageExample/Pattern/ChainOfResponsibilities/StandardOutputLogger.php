@@ -13,10 +13,10 @@ class StandardOutputLogger extends AbstractLogger
     }
 
     /**
-     * @var string $message
+     * @var string
      */
     protected function writeMessage($message)
     {
-        echo 'Writing to standard output file descriptor: ' . $message . PHP_EOL;
+        echo 'Writing to standard output file descriptor: '.$message.PHP_EOL;
     }
 }

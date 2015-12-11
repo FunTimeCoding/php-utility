@@ -12,8 +12,8 @@ class UserAgeFilterIterator extends FilterIterator
 
     /**
      * @param Iterator $iterator
-     * @param int $minimum
-     * @param int $maximum
+     * @param int      $minimum
+     * @param int      $maximum
      */
     public function __construct(Iterator $iterator, $minimum = -1, $maximum = -1)
     {
@@ -34,7 +34,7 @@ class UserAgeFilterIterator extends FilterIterator
 
         if ($this->minimum != -1 && $age < $this->minimum) {
             $result = false;
-        } else if ($this->maximum != -1 && $age > $this->maximum) {
+        } elseif ($this->maximum != -1 && $age > $this->maximum) {
             $result = false;
         }
 

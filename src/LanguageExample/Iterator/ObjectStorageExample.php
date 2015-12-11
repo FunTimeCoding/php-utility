@@ -56,8 +56,8 @@ class ObjectStorageExample
     public function printIterator(Iterator $iterator)
     {
         foreach ($iterator as $key => $value) {
-            echo 'Object: ' . print_r($key, true) . PHP_EOL;
-            echo 'Data: ' . print_r($value, true) . PHP_EOL;
+            echo 'Object: '.print_r($key, true).PHP_EOL;
+            echo 'Data: '.print_r($value, true).PHP_EOL;
         }
     }
 }

@@ -61,7 +61,7 @@ class Cupboard implements Iterator
     public function next()
     {
         $this->updateIteratorAttributes();
-        $this->position++;
+        ++$this->position;
     }
 
     /**

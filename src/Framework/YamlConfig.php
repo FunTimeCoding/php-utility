@@ -32,7 +32,7 @@ class YamlConfig implements ConfigInterface
             $path = str_replace('~', $info['dir'], $path);
         }
 
-        return (string)$path;
+        return (string) $path;
     }
 
     /**
@@ -40,6 +40,7 @@ class YamlConfig implements ConfigInterface
      * @param array $heap
      *
      * @return mixed
+     *
      * @throws Exception
      */
     public function getFromMultidimensionalArray(array $keys, array $heap)
@@ -58,7 +59,7 @@ class YamlConfig implements ConfigInterface
                 throw new Exception('Not found: '.$key);
             }
 
-            $depth++;
+            ++$depth;
         }
 
         return $heap;

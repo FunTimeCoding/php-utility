@@ -31,19 +31,19 @@ class QuickSortStrategy implements SortStrategyInterface
 
         while ($leftTemp <= $rightTemp) {
             while ($elements[$leftTemp] < $separator) {
-                $leftTemp++;
+                ++$leftTemp;
             }
 
             while ($elements[$rightTemp] > $separator) {
-                $rightTemp--;
+                --$rightTemp;
             }
 
             if ($leftTemp <= $rightTemp) {
                 $tempNumber = $elements[$leftTemp];
                 $elements[$leftTemp] = $elements[$rightTemp];
                 $elements[$rightTemp] = $tempNumber;
-                $leftTemp++;
-                $rightTemp--;
+                ++$leftTemp;
+                --$rightTemp;
             }
         }
 

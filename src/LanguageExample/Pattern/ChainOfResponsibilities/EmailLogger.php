@@ -13,10 +13,10 @@ class EmailLogger extends AbstractLogger
     }
 
     /**
-     * @var string $message
+     * @var string
      */
     protected function writeMessage($message)
     {
-        echo 'Sending by email: ' . $message . PHP_EOL;
+        echo 'Sending by email: '.$message.PHP_EOL;
     }
 }

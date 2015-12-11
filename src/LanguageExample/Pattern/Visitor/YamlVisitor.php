@@ -27,7 +27,7 @@ class YamlVisitor implements VisitorInterface
             }
         } else {
             echo $name.':'.PHP_EOL;
-            $this->indentation++;
+            ++$this->indentation;
 
             foreach ($children as $child) {
                 $child->accept($this);
@@ -44,7 +44,7 @@ class YamlVisitor implements VisitorInterface
     {
         $result = '';
 
-        for ($spaces = 0; $spaces < $number; $spaces++) {
+        for ($spaces = 0; $spaces < $number; ++$spaces) {
             $result .= ' ';
         }
 

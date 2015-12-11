@@ -1,4 +1,5 @@
 <?php
+
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Inheritance\InheritanceMain;

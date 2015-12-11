@@ -26,7 +26,7 @@ class IteratorExample
         $iterator = new ArrayIterator($fruits);
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -47,7 +47,7 @@ class IteratorExample
         $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fruits));
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -72,7 +72,7 @@ class IteratorExample
         while ($iterator->valid()) {
             $key = $iterator->key();
             $value = $iterator->current();
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
             $iterator->next();
         }
     }
@@ -84,7 +84,7 @@ class IteratorExample
         $cupboard->upperDrawer = 'clothes';
 
         foreach ($cupboard as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -100,8 +100,8 @@ class IteratorExample
         $iterator = new UserAgeFilterIterator(new ArrayIterator($users), 25, 40);
 
         foreach ($iterator as $user) {
-            /** @var User $user */
-            echo $user->getName() . ' ' . $user->getAge() . PHP_EOL;
+            /* @var User $user */
+            echo $user->getName().' '.$user->getAge().PHP_EOL;
         }
     }
 
@@ -125,7 +125,7 @@ class IteratorExample
         $iterator = new CallbackFilterIterator($innerIterator, $appleFilterCallback);
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -153,12 +153,12 @@ class IteratorExample
         $appleFilterCallback = function ($current, $key, $iterator) {
             $result = false;
 
-            /**
-             * @var $iterator RecursiveArrayIterator
+            /*
+             * @var RecursiveArrayIterator
              */
             if ($iterator->hasChildren()) {
                 $result = true;
-            } else if (is_string($current) && $current == 'apple') {
+            } elseif (is_string($current) && $current == 'apple') {
                 $result = true;
             }
 
@@ -167,7 +167,7 @@ class IteratorExample
         $iterator = new RecursiveCallbackFilterIterator($innerIterator, $appleFilterCallback);
 
         foreach ($iterator as $key => $value) {
-            echo print_r($key, true) . ' ' . print_r($value, true) . PHP_EOL;
+            echo print_r($key, true).' '.print_r($value, true).PHP_EOL;
         }
     }
 
@@ -182,7 +182,7 @@ class IteratorExample
         $iterator = new CachingIterator($innerIterator);
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -198,7 +198,7 @@ class IteratorExample
         $limitIterator = new LimitIterator($infiniteIterator, 0, 6);
 
         foreach ($limitIterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -221,7 +221,7 @@ class IteratorExample
         $iterator = new RecursiveTreeIterator($innerIterator);
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -244,7 +244,7 @@ class IteratorExample
         $iterator->append($animalIterator);
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -259,7 +259,7 @@ class IteratorExample
         $iterator = new RegexIterator($arrayIterator, '/banana/');
 
         foreach ($iterator as $key => $value) {
-            echo $key . ' ' . $value . PHP_EOL;
+            echo $key.' '.$value.PHP_EOL;
         }
     }
 
@@ -282,7 +282,7 @@ class IteratorExample
         $iterator->attachIterator($animalIterator, 'animal');
 
         foreach ($iterator as $element) {
-            echo print_r($element['fruit'], true) . ' ' . print_r($element['animal'], true) . PHP_EOL;
+            echo print_r($element['fruit'], true).' '.print_r($element['animal'], true).PHP_EOL;
         }
     }
 
@@ -295,9 +295,8 @@ class IteratorExample
         );
         $arrayIterator = new ArrayIterator($fruits);
 
-        $pickFruit = function (ArrayIterator $iterator)
-        {
-            echo 'Picking: ' . $iterator->current() . PHP_EOL;
+        $pickFruit = function (ArrayIterator $iterator) {
+            echo 'Picking: '.$iterator->current().PHP_EOL;
 
             return true;
         };
@@ -316,6 +315,7 @@ class IteratorExample
             'strawberry',
         );
         $arrayIterator = new ArrayIterator($fruits);
+
         return iterator_to_array($arrayIterator);
     }
 
@@ -330,6 +330,7 @@ class IteratorExample
             'strawberry',
         );
         $arrayIterator = new ArrayIterator($fruits);
+
         return iterator_count($arrayIterator);
     }
 }

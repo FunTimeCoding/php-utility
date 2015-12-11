@@ -17,7 +17,7 @@ class StandardOutputLoggerTest extends PHPUnit_Framework_TestCase
 
         $logger->message('test_error', AbstractLogger::LEVEL_ERROR);
 
-        $this->expectOutputString('Writing to standard output file descriptor: test_error' . PHP_EOL);
+        $this->expectOutputString('Writing to standard output file descriptor: test_error'.PHP_EOL);
     }
 
     /**
