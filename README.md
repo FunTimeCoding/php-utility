@@ -1,18 +1,10 @@
 # PhpUtility
 
+## Development
 
-## Operation
+This section explains how to use scripts that are intended to ease the development of this project.
 
-Run scripts.
-
-```sh
-bin/example-script
-```
-
-
-## Testing
-
-Install test tools.
+Install develoment tools.
 
 ```sh
 curl -sS https://getcomposer.org/installer | php
@@ -27,7 +19,7 @@ Run code style check, metrics and tests.
 ./run-tests.sh
 ```
 
-Build project like Jenkins.
+Build the project like Jenkins.
 
 ```sh
 ./build.sh

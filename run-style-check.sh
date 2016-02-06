@@ -1,78 +1,100 @@
 #!/bin/sh -e
 
-CI_MODE=0
+CONTINUOUS_INTEGRATION_MODE=false
+FIX_STYLE=false
 
 if [ "${1}" = "--ci-mode" ]; then
     shift
     mkdir -p build/log
-    CI_MODE=1
+    CONTINUOUS_INTEGRATION_MODE=true
+fi
+
+if [ "${1}" = "--fix" ]; then
+    shift
+    FIX_STYLE=true
 fi
 
 #     12345678901234567890123456789012345678901234567890123456789012345678901234567890
 echo "================================================================================"
-echo ""
-echo "Running Mess Detector. Documentation: http://phpmd.org/documentation/index.html"
-CODE="0"
+echo
+echo "Run Mess Detector. Documentation: http://phpmd.org/documentation/index.html"
+RETURN_CODE="0"
 
-if [ "${CI_MODE}" = "1" ]; then
-    vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml || CODE="${?}"
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml || RETURN_CODE="${?}"
 else
-    vendor/bin/phpmd src,test text .phpmd.xml || CODE="${?}"
+    vendor/bin/phpmd src,test text .phpmd.xml || RETURN_CODE="${?}"
 fi
 
-if [ "${CODE}" = "2" ]; then
+if [ "${RETURN_CODE}" = "2" ]; then
     echo "Violations occurred."
-elif [ "${CODE}" = "1" ]; then
-    echo "An error occured."
+elif [ "${RETURN_CODE}" = "1" ]; then
+    echo "An error occurred."
 else
     echo "No mess detected."
 fi
 
-echo ""
+echo
 echo "================================================================================"
-echo ""
-echo "Running Code Sniffer."
+echo
+echo "Run Code Sniffer."
 
-if [ "${CI_MODE}" = "1" ]; then
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=PSR2 src test
 else
     vendor/bin/phpcs --standard=PSR2 src test
 fi
 
-echo ""
+echo
 echo "================================================================================"
-echo ""
+echo
 
-if [ "${CI_MODE}" = "1" ]; then
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     vendor/bin/phpcpd --log-pmd build/log/pmd-cpd.xml src test
 else
     vendor/bin/phpcpd src test
 fi
 
-echo ""
+echo
 echo "================================================================================"
 
-if [ "${CI_MODE}" = "1" ]; then
-    echo ""
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    echo
     mkdir -p build/pdepend
     vendor/bin/pdepend --jdepend-xml=build/log/jdepend.xml --summary-xml=build/log/jdepend-summary.xml --jdepend-chart=build/pdepend/dependencies.svg --overview-pyramid=build/pdepend/pyramid.svg src,test
-    echo ""
+    echo
     echo "================================================================================"
 fi
 
-echo ""
-echo "Running ShellCheck."
-find . -name '*.sh' -and -not -path '*/vendor/*' -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;
-echo ""
-echo "================================================================================"
-echo ""
+echo
 
-echo "Running PHP-CS-Fixer."
-if [ "${CI_MODE}" = "1" ]; then
-    vendor/bin/php-cs-fixer fix . --dry-run | tee build/log/php-cs-fixer.txt
+if [ "$(command -v shellcheck || true)" = "" ]; then
+    echo "Skip ShellCheck because it is not installed."
 else
-    vendor/bin/php-cs-fixer fix . --dry-run
+    echo "Run ShellCheck."
+    # shellcheck disable=SC2016
+    find . -name '*.sh' -and -not -path '*/vendor/*' -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;
 fi
 
-echo ""
+echo
+echo "================================================================================"
+echo
+echo "Dry-run PHP-CS-Fixer."
+
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    FOUND_CONCERNS=false
+    vendor/bin/php-cs-fixer fix . --dry-run | tee build/log/php-cs-fixer.txt || FOUND_CONCERNS=true
+else
+    FOUND_CONCERNS=false
+    vendor/bin/php-cs-fixer fix . --dry-run || FOUND_CONCERNS=true
+
+    if [ "${FOUND_CONCERNS}" = true ]; then
+        if [ "${FIX_STYLE}" = true ]; then
+            echo "Now really run PHP-CS-Fixer."
+            vendor/bin/php-cs-fixer fix . || true
+        fi
+    fi
+fi
+
+echo
 echo "================================================================================"
