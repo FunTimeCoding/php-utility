@@ -32,14 +32,14 @@ class YamlConfig implements ConfigInterface
             $path = str_replace('~', $info['dir'], $path);
         }
 
-        return (string) $path;
+        return (string)$path;
     }
 
     /**
      * @param array $keys
      * @param array $heap
      *
-     * @return mixed
+     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      *
      * @throws Exception
      */
@@ -56,7 +56,8 @@ class YamlConfig implements ConfigInterface
                     $heap = $heap[$key];
                 }
             } else {
-                throw new Exception('Not found: '.$key);
+                $heap = '';
+                break;
             }
 
             ++$depth;
@@ -68,14 +69,18 @@ class YamlConfig implements ConfigInterface
     /**
      * @param string|array $key
      *
-     * @return mixed
+     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      */
     public function get($key)
     {
         if (is_array($key)) {
             $result = $this->getFromMultidimensionalArray($key, $this->config);
         } else {
-            $result = $this->config[$key];
+            if (array_key_exists($key, $this->config)) {
+                $result = $this->config[$key];
+            } else {
+                $result = '';
+            }
         }
 
         return $result;

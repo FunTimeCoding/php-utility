@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
+namespace FunTimeCoding\PhpUtility\Test\Integration;
 
 use DirectoryIterator;
 use PHPUnit_Framework_TestCase;

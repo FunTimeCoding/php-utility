@@ -50,12 +50,17 @@ class YamlConfigTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('randomUser', $result);
     }
 
-    /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Not found: invalidKey
-     */
+    public function testInvalidKey()
+    {
+        $result = $this->config->get('invalidKey');
+
+        $this->assertEquals('', $result);
+    }
+
     public function testInvalidSubKey()
     {
-        $this->config->get(array('development', 'invalidKey'));
+        $result = $this->config->get(array('development', 'invalidKey'));
+
+        $this->assertEquals('', $result);
     }
 }
