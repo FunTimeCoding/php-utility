@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Command;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\LightReceiver;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class LightReceiverTest extends PHPUnit_Framework_TestCase
+class LightReceiverTest extends TestCase
 {
     /**
      * @outputBuffering enabled

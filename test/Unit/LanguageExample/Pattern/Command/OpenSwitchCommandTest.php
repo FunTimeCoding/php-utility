@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Command;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\OpenSwitchCommand;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\SwitchableInterface;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class OpenSwitchCommandTest extends PHPUnit_Framework_TestCase
+class OpenSwitchCommandTest extends TestCase
 {
     public function testExecute()
     {

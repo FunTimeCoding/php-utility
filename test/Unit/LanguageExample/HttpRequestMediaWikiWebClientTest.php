@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class HttpRequestMediaWikiWebClientTest extends PHPUnit_Framework_TestCase
+class HttpRequestMediaWikiWebClientTest extends TestCase
 {
     public function testCanInstantiate()
     {

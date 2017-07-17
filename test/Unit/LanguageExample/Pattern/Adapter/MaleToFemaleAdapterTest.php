@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\MaleToFemaleAdapter;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Socket;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MaleToFemaleAdapterTest extends PHPUnit_Framework_TestCase
+class MaleToFemaleAdapterTest extends TestCase
 {
     public function testDrive()
     {

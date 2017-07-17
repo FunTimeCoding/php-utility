@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\Node;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\YamlVisitor;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class YamlVisitorTest extends PHPUnit_Framework_TestCase
+class YamlVisitorTest extends TestCase
 {
     /**
      * @outputBuffering enabled

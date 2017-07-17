@@ -5,9 +5,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\StoppedState;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\RunningState;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class EngineStateContextTest extends PHPUnit_Framework_TestCase
+class EngineStateContextTest extends TestCase
 {
     /**
      * @outputBuffering enabled

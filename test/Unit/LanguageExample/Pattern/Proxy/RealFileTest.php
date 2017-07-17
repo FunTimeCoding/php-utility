@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Proxy;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy\RealFile;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class RealFileTest extends PHPUnit_Framework_TestCase
+class RealFileTest extends TestCase
 {
     public function testAfterLoading()
     {

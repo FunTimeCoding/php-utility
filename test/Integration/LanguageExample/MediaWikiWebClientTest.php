@@ -6,9 +6,9 @@ use FunTimeCoding\PhpUtility\LanguageExample\CurlMediaWikiWebClient;
 use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
 use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient;
 use FunTimeCoding\PhpUtility\Framework\YamlConfig;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MediaWikiWebClientTest extends PHPUnit_Framework_TestCase
+class MediaWikiWebClientTest extends TestCase
 {
     public function testLoginWithHttpRequestLibrary()
     {

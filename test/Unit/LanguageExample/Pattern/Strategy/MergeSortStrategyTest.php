@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Strategy;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\MergeSortStrategy;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MergeSortStrategyTest extends PHPUnit_Framework_TestCase
+class MergeSortStrategyTest extends TestCase
 {
     public function testSort()
     {

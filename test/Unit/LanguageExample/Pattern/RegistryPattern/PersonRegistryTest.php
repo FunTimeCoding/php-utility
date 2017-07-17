@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\RegistryPat
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\RegistryPattern\Person;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\RegistryPattern\PersonRegistry;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class PersonRegistryTest extends PHPUnit_Framework_TestCase
+class PersonRegistryTest extends TestCase
 {
     public function testGetPerson()
     {

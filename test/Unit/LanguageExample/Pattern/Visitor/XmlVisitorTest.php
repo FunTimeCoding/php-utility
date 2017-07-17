@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\Node;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\XmlVisitor;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class XmlVisitorTest extends PHPUnit_Framework_TestCase
+class XmlVisitorTest extends TestCase
 {
     /**
      * @outputBuffering enabled

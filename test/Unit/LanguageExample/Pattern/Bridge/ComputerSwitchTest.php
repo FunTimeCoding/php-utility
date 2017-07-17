@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Bridge;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge\ComputerSwitch;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ComputerSwitchTest extends PHPUnit_Framework_TestCase
+class ComputerSwitchTest extends TestCase
 {
     /**
      * @outputBuffering enabled

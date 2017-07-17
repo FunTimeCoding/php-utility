@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Iterator;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Iterator\IteratorExample;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class IteratorExampleTest extends PHPUnit_Framework_TestCase
+class IteratorExampleTest extends TestCase
 {
     /**
      * @outputBuffering enabled

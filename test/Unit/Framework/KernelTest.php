@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\Framework;
 
 use FunTimeCoding\PhpUtility\Framework\Kernel;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class KernelTest extends PHPUnit_Framework_TestCase
+class KernelTest extends TestCase
 {
     public function testNormalExitCode()
     {

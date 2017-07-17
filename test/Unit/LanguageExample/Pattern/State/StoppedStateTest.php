@@ -6,9 +6,9 @@ use Exception;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\StoppedState;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\RunningState;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class StoppedStateTest extends PHPUnit_Framework_TestCase
+class StoppedStateTest extends TestCase
 {
     /**
      * @outputBuffering enabled

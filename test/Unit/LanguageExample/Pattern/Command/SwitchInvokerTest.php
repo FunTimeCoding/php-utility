@@ -6,9 +6,9 @@ use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\CloseSwitchCommand;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\LightReceiver;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\OpenSwitchCommand;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\SwitchInvoker;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class SwitchInvokerTest extends PHPUnit_Framework_TestCase
+class SwitchInvokerTest extends TestCase
 {
     /**
      * @outputBuffering enabled

@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\ChainOfResp
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities\AbstractLogger;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities\EmailLogger;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class EmailLoggerTest extends PHPUnit_Framework_TestCase
+class EmailLoggerTest extends TestCase
 {
     /**
      * @outputBuffering enabled

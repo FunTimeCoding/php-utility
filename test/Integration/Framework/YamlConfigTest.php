@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
 use Exception;
 use FunTimeCoding\PhpUtility\Framework\YamlConfig;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class YamlConfigTest extends PHPUnit_Framework_TestCase
+class YamlConfigTest extends TestCase
 {
     /**
      * @var YamlConfig

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.8/phpunit.xsd"
-         processIsolation="true" backupGlobals="false"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.2/phpunit.xsd"
          bootstrap="vendor/autoload.php"
+         beStrictAboutChangesToGlobalState="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutResourceUsageDuringSmallTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         checkForUnintentionallyCoveredCode="true" beStrictAboutTestSize="true"
-         beStrictAboutOutputDuringTests="true">
+         beStrictAboutTodoAnnotatedTests="true"
+         beStrictAboutCoversAnnotation="true"
+         processIsolation="true"
+         backupGlobals="false">
     <testsuites>
         <testsuite name="all">
             <directory>test</directory>
@@ -18,9 +22,13 @@
         </testsuite>
     </testsuites>
     <filter>
-        <blacklist>
-            <directory suffix="Test.php">test</directory>
-        </blacklist>
+        <whitelist>
+            <directory suffix=".php">.</directory>
+            <exclude>
+                <directory suffix="Test.php">test</directory>
+                <directory suffix=".php">vendor</directory>
+            </exclude>
+        </whitelist>
     </filter>
     <logging>
         <log type="junit" target="build/log/junit.xml"/>

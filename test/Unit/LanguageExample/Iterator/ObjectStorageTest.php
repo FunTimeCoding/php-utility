@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Iterator;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Iterator\ObjectStorageExample;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ObjectStorageTest extends PHPUnit_Framework_TestCase
+class ObjectStorageTest extends TestCase
 {
     /**
      * @outputBuffering enabled

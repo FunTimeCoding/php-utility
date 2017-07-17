@@ -4,7 +4,7 @@
 
 This section explains how to use scripts that are intended to ease the development of this project.
 
-Install develoment tools.
+Install development tools.
 
 ```sh
 curl -sS https://getcomposer.org/installer | php

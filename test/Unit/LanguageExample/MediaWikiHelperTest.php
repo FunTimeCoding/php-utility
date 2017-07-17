@@ -5,9 +5,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 use DOMDocument;
 use DOMXPath;
 use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiHelper;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MediaWikiHelperTest extends PHPUnit_Framework_TestCase
+class MediaWikiHelperTest extends TestCase
 {
     public function testQueryData()
     {

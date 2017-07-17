@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Socket;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class SocketTest extends PHPUnit_Framework_TestCase
+class SocketTest extends TestCase
 {
     public function testCanInstantiate()
     {

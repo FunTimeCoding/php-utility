@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Observer\ConcreteObserver;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ConcreteObserverTest extends PHPUnit_Framework_TestCase
+class ConcreteObserverTest extends TestCase
 {
     /**
      * @outputBuffering enabled

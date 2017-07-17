@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Ratchet;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Socket;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class RatchetTest extends PHPUnit_Framework_TestCase
+class RatchetTest extends TestCase
 {
     public function testCanInstantiate()
     {

@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\ChainOfResp
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities\AbstractLogger;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities\StandardErrorLogger;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class StandardErrorLoggerTest extends PHPUnit_Framework_TestCase
+class StandardErrorLoggerTest extends TestCase
 {
     /**
      * @outputBuffering enabled

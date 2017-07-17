@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Proxy;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy\ProxyFile;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy\RealFile;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ProxyFileTest extends PHPUnit_Framework_TestCase
+class ProxyFileTest extends TestCase
 {
     public function testNotYetLoaded()
     {

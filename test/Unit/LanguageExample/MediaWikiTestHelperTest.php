@@ -2,9 +2,9 @@
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MediaWikiTestHelperTest extends PHPUnit_Framework_TestCase
+class MediaWikiTestHelperTest extends TestCase
 {
     public function testValid()
     {

@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor\Node;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class NodeTest extends PHPUnit_Framework_TestCase
+class NodeTest extends TestCase
 {
     public function testValue()
     {

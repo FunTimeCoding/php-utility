@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Inheritance\InheritanceMain;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class InheritanceMainTest extends PHPUnit_Framework_TestCase
+class InheritanceMainTest extends TestCase
 {
     /**
      * @outputBuffering enabled

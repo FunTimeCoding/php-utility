@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Facade;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade\Memory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MemoryTest extends PHPUnit_Framework_TestCase
+class MemoryTest extends TestCase
 {
     public function testRead()
     {

@@ -3,9 +3,9 @@
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Bridge;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge\LightSwitch;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class LightSwitchTest extends PHPUnit_Framework_TestCase
+class LightSwitchTest extends TestCase
 {
     /**
      * @outputBuffering enabled
