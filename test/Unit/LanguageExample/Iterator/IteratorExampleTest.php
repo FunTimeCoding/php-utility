@@ -28,48 +28,6 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testRecursiveArrayIteratorWithForeach()
-    {
-        $example = new IteratorExample();
-
-        $example->recursiveArrayIterator();
-
-        $expected = <<<OUTPUT
-0 apple
-1 banana
-2 strawberry
-0 blueberry
-1 plum
-2 orange
-
-OUTPUT;
-        $this->expectOutputString($expected);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
-    public function testRecursiveArrayIteratorWithWhile()
-    {
-        $example = new IteratorExample();
-
-        $example->recursiveArrayIteratorWithWhileLoop();
-
-        $expected = <<<OUTPUT
-0 apple
-1 banana
-2 strawberry
-0 blueberry
-1 plum
-2 orange
-
-OUTPUT;
-        $this->expectOutputString($expected);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
     public function testIterator()
     {
         $example = new IteratorExample();
@@ -79,55 +37,6 @@ OUTPUT;
         $expected = <<<OUTPUT
 upperDrawer clothes
 lowerDrawer books
-
-OUTPUT;
-        $this->expectOutputString($expected);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
-    public function testFilterIterator()
-    {
-        $example = new IteratorExample();
-
-        $example->filterIterator();
-
-        $this->expectOutputString('Another 31'.PHP_EOL);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
-    public function testCallbackFilterIterator()
-    {
-        $this->markTestSkipped('CallbackFilterIterator requires php 5.6');
-
-        $example = new IteratorExample();
-
-        $example->callbackFilterIterator();
-
-        $expected = <<<OUTPUT
-0 apple
-
-OUTPUT;
-        $this->expectOutputString($expected);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
-    public function testRecursiveCallbackFilterIterator()
-    {
-        $this->markTestSkipped('RecursiveCallbackFilterIterator requires php 5.6');
-
-        $example = new IteratorExample();
-
-        $example->recursiveCallbackFilterIterator();
-
-        $expected = <<<OUTPUT
-0 apple
-0 apple
 
 OUTPUT;
         $this->expectOutputString($expected);
@@ -167,29 +76,6 @@ OUTPUT;
 0 apple
 1 banana
 2 strawberry
-
-OUTPUT;
-        $this->expectOutputString($expected);
-    }
-
-    /**
-     * @outputBuffering enabled
-     */
-    public function testRecursiveTreeIterator()
-    {
-        $example = new IteratorExample();
-
-        $example->recursiveTreeIterator();
-
-        $expected = <<<OUTPUT
-0 |-Array
-0 | |-a
-1 | \-Array
-0 |   |-b
-1 |   \-c
-1 \-Array
-0   |-d
-1   \-e
 
 OUTPUT;
         $this->expectOutputString($expected);
@@ -274,12 +160,12 @@ OUTPUT;
 
         $result = $example->iteratorToArray();
 
-        $expected = array(
+        $expected = [
             'apple',
             'banana',
             'strawberry',
-        );
-        $this->assertequals($expected, $result);
+        ];
+        $this->assertEquals($expected, $result);
     }
 
     public function testIteratorCount()
@@ -288,6 +174,6 @@ OUTPUT;
 
         $result = $example->iteratorCount();
 
-        $this->assertequals(3, $result);
+        $this->assertEquals(3, $result);
     }
 }

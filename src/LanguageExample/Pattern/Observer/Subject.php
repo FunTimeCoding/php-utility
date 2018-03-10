@@ -7,7 +7,7 @@ class Subject
     /**
      * @var ObserverInterface[]
      */
-    private $observers = array();
+    private $observers = [];
 
     /**
      * @param ObserverInterface $observer

@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\State;
 
 use Exception;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;

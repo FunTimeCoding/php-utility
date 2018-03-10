@@ -10,13 +10,13 @@ class MediaWikiHelper
     /**
      * @return array
      */
-    public function getLoginUrlQueryData()
+    public function getLoginLocatorQueryData()
     {
-        return array(
+        return [
             'title' => 'Special:UserLogin',
             'action' => 'submitlogin',
             'type' => 'login',
-        );
+        ];
     }
 
     /**

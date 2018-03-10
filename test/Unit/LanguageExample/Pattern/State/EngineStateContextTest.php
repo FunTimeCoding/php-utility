@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Observer;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\State;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\StoppedState;

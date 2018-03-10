@@ -11,3 +11,4 @@ getcomposer
 phpstan
 phpmd
 shellcheck
+guzzlehttp

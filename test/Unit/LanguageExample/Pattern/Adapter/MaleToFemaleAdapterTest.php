@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Adapter;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\MaleToFemaleAdapter;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter\Socket;

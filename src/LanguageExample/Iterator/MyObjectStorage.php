@@ -38,7 +38,7 @@ class MyObjectStorage implements Iterator, Attachable
     }
 
     /**
-     * @param $object
+     * @param mixed $object
      * @param mixed|null $data
      */
     public function attach($object, $data = null)

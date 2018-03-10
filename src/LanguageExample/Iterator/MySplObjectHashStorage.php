@@ -19,20 +19,20 @@ class MySplObjectHashStorage implements Iterator, Attachable
     /**
      * @var array
      */
-    private $hashes = array();
+    private $hashes = [];
 
     /**
      * @var CustomStorageObject[]
      */
-    private $objects = array();
+    private $objects = [];
 
     /**
      * @var array
      */
-    private $objectData = array();
+    private $objectData = [];
 
     /**
-     * @param $object
+     * @param mixed $object
      * @param mixed|null $data
      */
     public function attach($object, $data = null)

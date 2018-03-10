@@ -3,13 +3,18 @@
     "description": "Stub description for php-utility.",
     "license": "MIT",
     "autoload": {
-        "psr-4": {"FunTimeCoding\\PhpUtility\\": "src/"}
+        "psr-4": {
+            "FunTimeCoding\\PhpUtility\\": "src/"
+        }
     },
     "autoload-dev": {
-        "psr-4": {"FunTimeCoding\\PhpUtility\\Test\\": "test/"}
+        "psr-4": {
+            "FunTimeCoding\\PhpUtility\\Test\\": "test/"
+        }
     },
     "require": {
-        "symfony/yaml": "4.*"
+        "symfony/yaml": "4.*",
+        "guzzlehttp/guzzle": "6.*"
     },
     "require-dev": {
         "phpunit/phpunit": "7.*",

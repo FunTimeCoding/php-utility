@@ -13,10 +13,10 @@ class SortContextTest extends TestCase
     {
         $context = new SortContext(new BubbleSortStrategy());
         $context->setStrategy(new QuickSortStrategy());
-        $elements = array(1, 5, 4, 2, 3);
+        $elements = [1, 5, 4, 2, 3];
 
         $result = $context->sort($elements);
 
-        $this->assertEquals(array(1, 2, 3, 4, 5), $result);
+        $this->assertEquals([1, 2, 3, 4, 5], $result);
     }
 }

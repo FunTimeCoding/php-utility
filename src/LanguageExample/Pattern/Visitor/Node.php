@@ -17,7 +17,7 @@ class Node implements NodeInterface
     /**
      * @var NodeInterface[]
      */
-    private $children = array();
+    private $children = [];
 
     /**
      * @param string $name

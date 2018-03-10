@@ -13,12 +13,11 @@ class PersonRegistryTest extends TestCase
         $testName = 'alex';
         $person = new Person($testName);
         $registry = new PersonRegistry();
-        $otherPersonWithSameName = new Person($testName);
 
         $registry->addPerson($person);
         $gottenPerson = $registry->getPersonByName($testName);
 
         $this->assertSame($person, $gottenPerson);
-        $this->assertNotSame($otherPersonWithSameName, $gottenPerson);
+        $this->assertNotSame(new Person($testName), $gottenPerson);
     }
 }

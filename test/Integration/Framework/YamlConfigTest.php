@@ -45,7 +45,7 @@ class YamlConfigTest extends TestCase
 
     public function testAccessSubKey()
     {
-        $result = $this->config->get(array('development', 'username'));
+        $result = $this->config->get(['development', 'username']);
 
         $this->assertEquals('randomUser', $result);
     }
@@ -59,7 +59,7 @@ class YamlConfigTest extends TestCase
 
     public function testInvalidSubKey()
     {
-        $result = $this->config->get(array('development', 'invalidKey'));
+        $result = $this->config->get(['development', 'invalidKey']);
 
         $this->assertEquals('', $result);
     }

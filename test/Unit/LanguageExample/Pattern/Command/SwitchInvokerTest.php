@@ -1,6 +1,6 @@
 <?php
 
-namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Command;
+namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Command;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\CloseSwitchCommand;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\LightReceiver;

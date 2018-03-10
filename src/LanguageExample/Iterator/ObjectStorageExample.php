@@ -17,13 +17,13 @@ class ObjectStorageExample
     {
         $appleKey = new CustomStorageObject();
         $appleKey->name = 'apple';
-        $appleValue = array('apple');
+        $appleValue = ['apple'];
 
         $bananaKey = new CustomStorageObject();
         $bananaKey->name = 'banana';
-        $bananaValue = array('banana');
+        $bananaValue = ['banana'];
 
-        $iterator = new MyObjectStorage(array($appleKey, $bananaKey), array($appleValue, $bananaValue));
+        $iterator = new MyObjectStorage([$appleKey, $bananaKey], [$appleValue, $bananaValue]);
         $this->printIterator($iterator);
     }
 
@@ -41,12 +41,12 @@ class ObjectStorageExample
     {
         $appleKey = new CustomStorageObject();
         $appleKey->name = 'apple';
-        $appleValue = array('apple');
+        $appleValue = ['apple'];
         $iterator->attach($appleKey, $appleValue);
 
         $bananaKey = new CustomStorageObject();
         $bananaKey->name = 'banana';
-        $bananaValue = array('banana');
+        $bananaValue = ['banana'];
         $iterator->attach($bananaKey, $bananaValue);
     }
 

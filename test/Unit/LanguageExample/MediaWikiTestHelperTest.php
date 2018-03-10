@@ -10,11 +10,11 @@ class MediaWikiTestHelperTest extends TestCase
     {
         $helper = new MediaWikiTestHelper();
 
-        $queryData = array(
+        $queryData = [
             'title' => 'value_not_tested',
             'action' => 'value_not_tested',
             'type' => 'value_not_tested',
-        );
+        ];
 
         $this->assertTrue($helper->validateQueryData($queryData));
     }
@@ -23,10 +23,10 @@ class MediaWikiTestHelperTest extends TestCase
     {
         $helper = new MediaWikiTestHelper();
 
-        $actionMissing = array(
+        $actionMissing = [
             'action' => 'value_not_tested',
             'type' => 'value_not_tested',
-        );
+        ];
 
         $this->assertFalse($helper->validateQueryData($actionMissing));
     }
@@ -35,10 +35,10 @@ class MediaWikiTestHelperTest extends TestCase
     {
         $helper = new MediaWikiTestHelper();
 
-        $actionMissing = array(
+        $actionMissing = [
             'title' => 'value_not_tested',
             'type' => 'value_not_tested',
-        );
+        ];
 
         $this->assertFalse($helper->validateQueryData($actionMissing));
     }
@@ -47,10 +47,10 @@ class MediaWikiTestHelperTest extends TestCase
     {
         $helper = new MediaWikiTestHelper();
 
-        $actionMissing = array(
+        $actionMissing = [
             'title' => 'value_not_tested',
             'action' => 'value_not_tested',
-        );
+        ];
 
         $this->assertFalse($helper->validateQueryData($actionMissing));
     }

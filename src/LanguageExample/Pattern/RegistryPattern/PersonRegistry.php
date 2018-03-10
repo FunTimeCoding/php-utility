@@ -7,7 +7,7 @@ class PersonRegistry
     /**
      * @var Person[]
      */
-    private $personList = array();
+    private $personList = [];
 
     public function addPerson(Person $person)
     {
@@ -17,7 +17,7 @@ class PersonRegistry
     /**
      * @param string $name
      *
-     * @return Person
+     * @return Person|null
      */
     public function getPersonByName($name)
     {
@@ -27,6 +27,6 @@ class PersonRegistry
             }
         }
 
-        return;
+        return null;
     }
 }

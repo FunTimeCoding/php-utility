@@ -11,8 +11,6 @@ class Ratchet
      */
     public function driveMale(Socket $socket)
     {
-        $adaptor = new MaleToFemaleAdapter($socket);
-
-        return $adaptor->driveMale();
+        return (new MaleToFemaleAdapter($socket))->driveMale();
     }
 }

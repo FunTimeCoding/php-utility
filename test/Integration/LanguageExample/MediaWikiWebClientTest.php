@@ -15,11 +15,11 @@ class MediaWikiWebClientTest extends TestCase
         $httpRequestClient = new HttpRequestMediaWikiWebClient('mediawiki.dev');
         $curlClient = new CurlMediaWikiWebClient('mediawiki.dev');
 
-        $config = new YamlConfig('~/.php-utility.yml');
+        $config = new YamlConfig('~/.php-utility.yaml');
         $username = $config->get('wpName');
         $password = $config->get('wpPassword');
 
-        $clients = array($httpRequestClient, $curlClient);
+        $clients = [$httpRequestClient, $curlClient];
 
         foreach ($clients as $client) {
             /* @var MediaWikiWebClient $client */

@@ -22,7 +22,7 @@ class KernelTest extends TestCase
         $projectRoot = $kernel->getProjectRoot();
 
         $command = 'php '.$projectRoot.'/web/index.php';
-        $output = array();
+        $output = [];
         $returnCode = -1;
         exec($command, $output, $returnCode);
 

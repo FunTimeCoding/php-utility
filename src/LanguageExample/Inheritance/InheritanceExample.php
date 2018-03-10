@@ -10,9 +10,9 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
  * 3. expect the same or stronger postcondition.
  * 4. not introduce new or different exceptions.
  */
-class InheritanceMain
+class InheritanceExample
 {
-    public function main()
+    public function inherit()
     {
         $animalFood = new AnimalFood();
         $animal = new Animal();
@@ -23,10 +23,4 @@ class InheritanceMain
         $cat->eat($catFood);
         $cat->meow();
     }
-}
-
-if (count(debug_backtrace()) == 0) {
-    require_once __DIR__.'/../../../vendor/autoload.php';
-    $application = new InheritanceMain();
-    $application->main();
 }

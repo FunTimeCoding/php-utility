@@ -8,6 +8,11 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter;
 class MaleToFemaleAdapter
 {
     /**
+     * @var Socket
+     */
+    private $socket;
+
+    /**
      * @param Socket $socket
      */
     public function __construct(Socket $socket)

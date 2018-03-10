@@ -14,7 +14,7 @@ class MediaWikiHelperTest extends TestCase
         $helper = new MediaWikiHelper();
         $testHelper = new MediaWikiTestHelper();
 
-        $queryData = $helper->getLoginUrlQueryData();
+        $queryData = $helper->getLoginLocatorQueryData();
 
         $this->assertTrue($testHelper->validateQueryData($queryData));
     }

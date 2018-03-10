@@ -25,7 +25,7 @@ class MergeSortStrategy implements SortStrategyInterface
             return $elements;
         }
 
-        $left = $right = array();
+        $left = $right = [];
         $middle = (int) round(count($elements) / 2);
 
         for ($cursor = 0; $cursor < $middle; ++$cursor) {
@@ -50,7 +50,7 @@ class MergeSortStrategy implements SortStrategyInterface
      */
     private function merge(array $left, array $right)
     {
-        $result = array();
+        $result = [];
 
         while (count($left) > 0 || count($right) > 0) {
             if (count($left) > 0 && count($right) > 0) {

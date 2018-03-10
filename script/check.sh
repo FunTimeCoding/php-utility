@@ -21,9 +21,11 @@ EXCLUDE_FILTER='^.*\/(build|tmp|vendor|\.git|\.vagrant|\.idea)\/.*$'
 MARKDOWN_FILES=$(${FIND} . -type f -name '*.md' -regextype posix-extended ! -regex "${EXCLUDE_FILTER}")
 BLACKLIST=""
 DICTIONARY=en_US
+mkdir -p tmp
+cat documentation/dictionary/*.dic > tmp/combined.dic
 
 for FILE in ${MARKDOWN_FILES}; do
-    WORDS=$(hunspell -d "${DICTIONARY}" -p documentation/dictionary/php-utility.dic -l "${FILE}" | sort | uniq)
+    WORDS=$(hunspell -d "${DICTIONARY}" -p tmp/combined.dic -l "${FILE}" | sort | uniq)
 
     if [ ! "${WORDS}" = "" ]; then
         echo "${FILE}"
@@ -50,7 +52,7 @@ done
 TEX_FILES=$(${FIND} . -type f -name '*.tex' -regextype posix-extended ! -regex "${EXCLUDE_FILTER}")
 
 for FILE in ${TEX_FILES}; do
-    WORDS=$(hunspell -d "${DICTIONARY}" -p documentation/dictionary/php-utility.dic -l -t "${FILE}")
+    WORDS=$(hunspell -d "${DICTIONARY}" -p tmp/combined.dic -l -t "${FILE}")
 
     if [ ! "${WORDS}" = "" ]; then
         echo "${FILE}"
@@ -149,7 +151,7 @@ RETURN_CODE=0
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml || RETURN_CODE="${?}"
 else
-    vendor/bin/phpmd src,test text .phpmd.xml || RETURN_CODE="${?}"
+    OUTPUT=$(vendor/bin/phpmd src,test text .phpmd.xml) || RETURN_CODE="${?}"
 fi
 
 # 0 means no mess detected.
@@ -158,18 +160,27 @@ if [ "${RETURN_CODE}" = 2 ]; then
     echo
     echo "(WARNING) Mess detector violations found."
     echo
+    if [ "${CONTINUOUS_INTEGRATION_MODE}" = false ]; then
+        echo "${OUTPUT}"
+    fi
+
+    echo
 elif [ "${RETURN_CODE}" = 1 ]; then
     CONCERN_FOUND=true
     echo
     echo "(CRITICAL) Mess detector error occurred."
     echo
+    if [ "${CONTINUOUS_INTEGRATION_MODE}" = false ]; then
+        echo "${OUTPUT}"
+    fi
+
+    echo
 fi
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --no-progress --errorFormat checkstyle --level max src test web > build/log/checkstyle-phpstan.xml
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --errorFormat checkstyle --level max src test > build/log/checkstyle-phpstan.xml
 else
-    OUTPUT=$(vendor/bin/phpstan analyse --no-progress --no-ansi --level max src test web)
-    echo "${OUTPUT}" | grep --quiet "No errors" && FOUND=false || FOUND=true
+    OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --no-ansi --level max src test) && FOUND=false || FOUND=true
 
     if [ "${FOUND}" = true ]; then
         CONCERN_FOUND=true
@@ -190,7 +201,6 @@ fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then
     CONCERN_FOUND=true
-    echo
     echo "Code sniffer concerns found."
     echo
 fi

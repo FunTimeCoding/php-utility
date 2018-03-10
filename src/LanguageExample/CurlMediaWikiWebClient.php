@@ -87,7 +87,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     {
         $helper = new MediaWikiHelper();
 
-        $url = $this->wikiUrl.'?'.http_build_query($helper->getLoginUrlQueryData());
+        $url = $this->wikiUrl.'?'.http_build_query($helper->getLoginLocatorQueryData());
         $body = $this->makeCurlGetRequestAndWriteCookies($url);
         $xpath = $helper->createDomXpathForBody($body);
         $token = $helper->searchTokenInDomXpath($xpath);
@@ -126,13 +126,13 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
      */
     public function createFormDataWithToken($token)
     {
-        return array(
+        return [
             'wpName' => $this->username,
             'wpPassword' => $this->password,
             'wpLoginAttempt' => 'Log in',
             'wpLoginToken' => $token,
             'wpRemember' => '1',
-        );
+        ];
     }
 
     /**

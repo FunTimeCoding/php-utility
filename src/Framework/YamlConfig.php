@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Parser;
 
 class YamlConfig implements ConfigInterface
 {
-    private $config = array();
+    private $config = [];
 
     /**
      * @param string $filename
