@@ -8,3 +8,6 @@ phploc
 phpmd
 friendsofphp
 getcomposer
+phpstan
+phpmd
+shellcheck

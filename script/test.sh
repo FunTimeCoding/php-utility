@@ -1,17 +1,18 @@
 #!/bin/sh -e
 
-if [ "${1}" = "--ci-mode" ]; then
+if [ "${1}" = --ci-mode ]; then
     shift
     mkdir -p build/log
-    vendor/bin/phpunit --testsuite unit -c .phpunit.ci.xml
+    vendor/bin/phpunit --testsuite unit --configuration .phpunit.ci.xml
 else
-    SUITE="unit"
+    SUITE=unit
 
     if [ ! "${1}" = "" ]; then
         SUITE="${1}"
+
         shift
     fi
 
-    echo "Test suite: ${SUITE}"
+    echo "SUITE: ${SUITE}"
     vendor/bin/phpunit --testsuite "${SUITE}" "$@"
 fi

@@ -1,5 +1,16 @@
 # PhpUtility
 
+## Usage
+
+This section explains how to use this project.
+
+Run the main entry point program.
+
+```sh
+bin/pu
+```
+
+
 ## Development
 
 This section explains how to use scripts that are intended to ease the development of this project.
@@ -7,22 +18,21 @@ This section explains how to use scripts that are intended to ease the developme
 Install development tools.
 
 ```sh
-curl -sS https://getcomposer.org/installer | php
-./composer.phar install
+composer install
 ```
 
 Run code style check, metrics and tests.
 
 ```sh
-./run-style-check.sh
-./run-metrics.sh
-./run-tests.sh
+script/style-check.sh
+script/metrics.sh
+script/test.sh
 ```
 
 Build the project like Jenkins.
 
 ```sh
-./build.sh
+script/build.sh
 ```
 
 
