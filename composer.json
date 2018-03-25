@@ -24,6 +24,8 @@
         "phploc/phploc": "4.*",
         "phpmd/phpmd": "2.*",
         "friendsofphp/php-cs-fixer": "2.*",
-        "phpstan/phpstan": "0.*"
+        "phpstan/phpstan": "0.*",
+        "phpstan/phpstan-strict-rules": "0.*",
+        "phpstan/phpstan-phpunit": "0.*"
     }
 }

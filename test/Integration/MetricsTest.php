@@ -9,11 +9,11 @@ use RecursiveIteratorIterator;
 
 class MetricsTest extends TestCase
 {
+    /**
+     * Wrong lowercase c in TestCase makes phploc miss that class.
+     */
     public function testInheritanceCapitalization()
     {
-        // Iterate over all *Test.php and find 'PHPUnit_Framework_Testcase', which do not get detected by phploc.
-        // Note the lower case c in Testcase. It should be 'PHPUnit_Framework_TestCase'.
-
         $testDirectory = realpath(__DIR__.DIRECTORY_SEPARATOR.'..');
         $this->assertStringStartsWith('/', $testDirectory);
         $this->assertEquals('test', basename($testDirectory));

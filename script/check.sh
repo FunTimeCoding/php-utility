@@ -178,9 +178,9 @@ elif [ "${RETURN_CODE}" = 1 ]; then
 fi
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --errorFormat checkstyle --level max src test > build/log/checkstyle-phpstan.xml
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --errorFormat checkstyle --level max src test web > build/log/checkstyle-phpstan.xml
 else
-    OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --no-ansi --level max src test) && FOUND=false || FOUND=true
+    OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --no-ansi --level max src test web) && FOUND=false || FOUND=true
 
     if [ "${FOUND}" = true ]; then
         CONCERN_FOUND=true

@@ -11,4 +11,8 @@ getcomposer
 phpstan
 phpmd
 shellcheck
+Debian
+virtualbox
+PhpUtility
+Sury
 guzzlehttp
