@@ -82,7 +82,7 @@ class FrontEnd
                         $output = $twig->render('index.html.twig');
                     } elseif ($handler == self::SETTINGS_HANDLER) {
                         $output = $twig->render('settings.html.twig');
-                    } else if ($handler == self::FORM_GET_HANDLER) {
+                    } elseif ($handler == self::FORM_GET_HANDLER) {
                         $twig->addExtension(new FormExtension());
                         $factory = Forms::createFormFactoryBuilder()
                             // TODO: Comment in once the form works.
@@ -99,7 +99,7 @@ class FrontEnd
                             'form.html.twig',
                             ['form' => $form->createView()]
                         );
-                    } else if ($handler == self::FORM_POST_HANDLER) {
+                    } elseif ($handler == self::FORM_POST_HANDLER) {
                         $output = 'Implement once the FORM_GET_HANDLER works.';
                     } else {
                         $output = 'Handler not implemented: ' . $handler;

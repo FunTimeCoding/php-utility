@@ -3,6 +3,7 @@ includes:
 	- vendor/phpstan/phpstan-phpunit/extension.neon
 	- vendor/phpstan/phpstan-phpunit/rules.neon
 	- vendor/phpstan/phpstan-phpunit/strictRules.neon
-parameters:
-       ignoreErrors:
-               - '#PHPUnit\\Framework\\MockObject\\MockObject given#'
+# Comment this out to ignore MockObject errors.
+#parameters:
+#	ignoreErrors:
+#		- '#PHPUnit\\Framework\\MockObject\\MockObject given#'
