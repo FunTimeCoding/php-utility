@@ -24,6 +24,12 @@ apt-get --quiet 2 install nginx-light
 cp /vagrant/configuration/site.conf /etc/nginx/sites-available/default
 systemctl restart nginx
 
+# Let vagrant user read web server logs.
+usermod --append --groups adm vagrant
+
 # Download Composer manually because the Debian package depends on PHP 7.0.
 wget --no-verbose --output-document /usr/local/bin/composer https://getcomposer.org/download/1.6.3/composer.phar
 chmod +x /usr/local/bin/composer
+
+cp /vagrant/configuration/php-utility.yaml /home/vagrant/.php-utility.yaml
+chown vagrant:vagrant /home/vagrant/.php-utility.yaml

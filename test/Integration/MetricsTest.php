@@ -40,7 +40,7 @@ class MetricsTest extends TestCase
                     if ($this->startsWith($line, 'class ')) {
                         $found = true;
                         $line = trim($line);
-                        $this->assertStringEndsWith(' extends PHPUnit_Framework_TestCase', $line);
+                        $this->assertStringEndsWith(' extends TestCase', $line);
 
                         break;
                     }
