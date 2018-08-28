@@ -6,4 +6,4 @@ ADD script/vagrant/provision.sh /root/provision.sh
 RUN chmod +x /root/provision.sh
 RUN /root/provision.sh
 ADD . /php-utility
-CMD ["/php-utility/bin/ps"]
+CMD ["/php-utility/bin/pu"]
