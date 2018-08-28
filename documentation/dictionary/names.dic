@@ -1,5 +1,7 @@
-FunTimeCoding
 Reitzel
+virtualbox
+debian
+FunTimeCoding
 squizlabs
 codesniffer
 phpcpd
@@ -12,8 +14,8 @@ phpstan
 phpmd
 shellcheck
 Debian
-virtualbox
 PhpUtility
 Sury
+php
 guzzlehttp
 nikic

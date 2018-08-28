@@ -14,6 +14,12 @@ Vagrant.configure('2') do |config|
     File.write('tmp/ethernet-device.txt', bridge + "\n")
   end
 
+  if not File.exist?('tmp/hostname.txt')
+    # Use separate variable to make replacing easier for skeleton scripts.
+    hostname = 'pu'
+    File.write('tmp/hostname.txt', hostname + "\n")
+  end
+
   config.vm.network :public_network, bridge: bridge
   config.vm.network :private_network, ip: '192.168.42.3'
 

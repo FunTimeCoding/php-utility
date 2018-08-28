@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-vagrant up
+docker push

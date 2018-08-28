@@ -1,2 +1,4 @@
-php
+shellcheck
+OPTIND
 mkdir
+tmp

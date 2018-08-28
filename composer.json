@@ -14,6 +14,7 @@
         }
     },
     "require": {
+        "php": "7.2.*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",
@@ -32,6 +33,7 @@
         "friendsofphp/php-cs-fixer": "2.*",
         "phpstan/phpstan": "0.*",
         "phpstan/phpstan-strict-rules": "0.*",
-        "phpstan/phpstan-phpunit": "0.*"
+        "phpstan/phpstan-phpunit": "0.*",
+        "phan/phan": "1.*"
     }
 }

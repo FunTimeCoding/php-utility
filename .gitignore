@@ -1,4 +1,6 @@
 build
-vendor
 tmp
+.vagrant
+vendor
+composer.phar
 .php_cs.cache
