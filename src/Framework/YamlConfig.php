@@ -70,6 +70,7 @@ class YamlConfig implements ConfigInterface
      * @param string|array $key
      *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
+     * @throws Exception
      */
     public function get($key)
     {

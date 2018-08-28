@@ -7,6 +7,7 @@ use Exception;
 class RunningState implements EngineStateInterface
 {
     /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @param EngineStateContext $context
      *
      * @throws Exception

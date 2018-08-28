@@ -7,6 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class KernelTest extends TestCase
 {
+    /**
+     * @throws \Exception
+     */
     public function testGetProjectRoot()
     {
         $kernel = new Kernel();
@@ -16,6 +19,9 @@ class KernelTest extends TestCase
         $this->assertNotEmpty($projectRoot);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testCommandLineCallOfIndex()
     {
         $kernel = new Kernel();

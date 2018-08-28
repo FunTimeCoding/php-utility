@@ -25,6 +25,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
      * @param string $page
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getPage($page)
     {
@@ -40,6 +41,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
 
     /**
      * @throws Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function login()
     {

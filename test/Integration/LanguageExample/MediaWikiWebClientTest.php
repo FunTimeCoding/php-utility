@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class MediaWikiWebClientTest extends TestCase
 {
+    /**
+     * @throws \Exception
+     */
     public function testLoginWithHttpRequestLibrary()
     {
         $httpRequestClient = new HttpRequestMediaWikiWebClient('mediawiki.dev');

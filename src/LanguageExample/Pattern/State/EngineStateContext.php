@@ -27,6 +27,9 @@ class EngineStateContext
         $this->state->start($this);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function stop()
     {
         $this->state->stop($this);

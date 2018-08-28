@@ -16,6 +16,7 @@ class StoppedState implements EngineStateInterface
     }
 
     /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @param EngineStateContext $context
      *
      * @throws Exception

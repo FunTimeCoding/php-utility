@@ -2,7 +2,6 @@
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
-use Exception;
 use FunTimeCoding\PhpUtility\Framework\YamlConfig;
 use PHPUnit\Framework\TestCase;
 
@@ -20,6 +19,9 @@ class YamlConfigTest extends TestCase
         $this->config = new YamlConfig($file);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testReadConfig()
     {
         $name = $this->config->get('wpName');
@@ -32,6 +34,9 @@ class YamlConfigTest extends TestCase
         $this->assertEquals('insecurePassword', $password);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testReadArray()
     {
         $array = $this->config->get('development');
@@ -43,6 +48,9 @@ class YamlConfigTest extends TestCase
         $this->assertEquals('insecurePassword', $array['password']);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testAccessSubKey()
     {
         $result = $this->config->get(['development', 'username']);
@@ -50,6 +58,9 @@ class YamlConfigTest extends TestCase
         $this->assertEquals('randomUser', $result);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testInvalidKey()
     {
         $result = $this->config->get('invalidKey');
@@ -57,6 +68,9 @@ class YamlConfigTest extends TestCase
         $this->assertEquals('', $result);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testInvalidSubKey()
     {
         $result = $this->config->get(['development', 'invalidKey']);
