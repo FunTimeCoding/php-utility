@@ -4,3 +4,4 @@ ruleset
 rulesets
 unusedcode
 codesize
+getuid
