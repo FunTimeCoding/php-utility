@@ -23,6 +23,7 @@ class EngineStateContextTest extends TestCase
 
     /**
      * @outputBuffering enabled
+     * @throws \Exception
      */
     public function testStopWhenEngineIsOn()
     {
