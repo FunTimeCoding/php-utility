@@ -11,14 +11,16 @@ fi
 docker ps --all | grep --quiet php-utility && FOUND=true || FOUND=false
 
 if [ "${FOUND}" = false ]; then
+    WORKING_DIRECTORY=$(pwd)
+
     if [ "${DEVELOPMENT}" = true ]; then
-        docker create --name php-utility --volume $(pwd):/php-utility funtimecoding/php-utility
+        docker create --name php-utility --volume "${WORKING_DIRECTORY}:/php-utility" funtimecoding/php-utility
     else
         docker create --name php-utility funtimecoding/php-utility
     fi
 
     # TODO: Specifying the entry point overrides CMD in Dockerfile. Is this useful, or should all sub commands go through one entry point script? I'm inclined to say one entry point script per project.
-    #docker create --name php-utility --volume $(pwd):/php-utility --entrypoint /php-utility/bin/other.sh funtimecoding/php-utility
+    #docker create --name php-utility --volume "${WORKING_DIRECTORY}:/php-utility" --entrypoint /php-utility/bin/other.sh funtimecoding/php-utility
     #docker create --name php-utility funtimecoding/php-utility /php-utility/bin/other.sh
     # TODO: Run tests this way?
     #docker create --name php-utility funtimecoding/php-utility /php-utility/script/docker/test.sh
