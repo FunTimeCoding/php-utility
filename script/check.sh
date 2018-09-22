@@ -162,7 +162,8 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpmd src,test xml .phpmd.xml --reportfile build/log/pmd-pmd.xml || RETURN_CODE="${?}"
+    mkdir -p build/log/mess_detector
+    vendor/bin/phpmd src,test html .phpmd.xml --reportfile build/log/mess_detector/index.html || RETURN_CODE="${?}"
 else
     OUTPUT=$(vendor/bin/phpmd src,test text .phpmd.xml) || RETURN_CODE="${?}"
 fi
@@ -191,7 +192,7 @@ elif [ "${RETURN_CODE}" = 1 ]; then
 fi
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --errorFormat checkstyle --level max src test web > build/log/checkstyle-phpstan.xml
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --error-format checkstyle --level max src test web > build/log/checkstyle-phpstan.xml
 else
     OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --no-ansi --level max src test web) && FOUND=false || FOUND=true
 

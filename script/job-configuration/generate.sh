@@ -15,4 +15,4 @@ if [ "${IS_GITHUB}" = true ]; then
 fi
 
 # shellcheck disable=SC2016
-jjm --locator "${REMOTE}" --build-command script/build.sh --junit build/junit.xml --checkstyle 'build/log/checkstyle-*.xml' --recipients funtimecoding@gmail.com > job.xml
+jjm --locator "${REMOTE}" --build-command script/build.sh --junit build/junit.xml --checkstyle 'build/log/checkstyle-*.xml' --hypertext-report mess_detector --recipients funtimecoding@gmail.com > job.xml
