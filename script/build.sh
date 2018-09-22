@@ -1,7 +1,13 @@
 #!/bin/sh -e
 
 rm -rf build
-composer install --no-interaction --no-progress
+
+if [ -f composer.phar ]; then
+    php composer.phar install --no-interaction --no-progress
+else
+    composer install --no-interaction --no-progress
+fi
+
 script/check.sh --ci-mode
 script/measure.sh --ci-mode
 script/test.sh --ci-mode

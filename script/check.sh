@@ -170,9 +170,8 @@ fi
 
 # 0 means no mess detected.
 if [ "${RETURN_CODE}" = 2 ]; then
-    CONCERN_FOUND=true
     echo
-    echo "(WARNING) Mess detector violations found."
+    echo "(NOTICE) Mess detector violations found."
     echo
     if [ "${CONTINUOUS_INTEGRATION_MODE}" = false ]; then
         echo "${OUTPUT}"
@@ -191,15 +190,17 @@ elif [ "${RETURN_CODE}" = 1 ]; then
     echo
 fi
 
+RETURN_CODE=0
+
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --error-format checkstyle --level max src test web > build/log/checkstyle-phpstan.xml
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --error-format checkstyle --level max src test web > build/log/checkstyle-phpstan.xml || RETURN_CODE="${?}"
+    # TODO: What to do with this return code?
 else
     OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --no-ansi --level max src test web) && FOUND=false || FOUND=true
 
     if [ "${FOUND}" = true ]; then
-        CONCERN_FOUND=true
         echo
-        echo "(WARNING) PhpStan concerns found."
+        echo "(NOTICE) PhpStan concerns found."
         echo
         echo "${OUTPUT}"
     fi
@@ -214,15 +215,17 @@ else
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then
-    CONCERN_FOUND=true
-    echo "Code sniffer concerns found."
+    echo "(NOTICE) Code sniffer concerns found."
     echo
 fi
 
 echo
 
+RETURN_CODE=0
+
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcpd --log-pmd build/log/pmd-cpd.xml src test
+    vendor/bin/phpcpd --log-pmd build/log/pmd-cpd.xml src test || RETURN_CODE="${?}"
+    # TODO: What to do with this return code?
 else
     vendor/bin/phpcpd src test
 fi
