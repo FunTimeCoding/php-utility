@@ -27,12 +27,12 @@ class KernelTest extends TestCase
         $kernel = new Kernel();
         $projectRoot = $kernel->getProjectRoot();
 
-        $command = 'php '.$projectRoot.'/web/index.php';
+        $command = 'php ' . $projectRoot . '/web/index.php';
         $output = [];
         $returnCode = -1;
         exec($command, $output, $returnCode);
 
-        $this->assertNotEmpty($output, 'page should never be blank');
+        $this->assertEmpty($output);
         $this->assertSame(0, $returnCode);
     }
 }
