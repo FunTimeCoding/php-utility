@@ -3,7 +3,7 @@
 if [ "${1}" = --ci-mode ]; then
     shift
     mkdir -p build/log
-    vendor/bin/phpunit --testsuite unit --configuration .phpunit.ci.xml
+    vendor/bin/phpunit --testsuite all --configuration .phpunit.ci.xml
 else
     SUITE=unit
 

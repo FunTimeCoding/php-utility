@@ -4,4 +4,5 @@ ruleset
 rulesets
 unusedcode
 codesize
-getuid
+dbgp
+phpbrew

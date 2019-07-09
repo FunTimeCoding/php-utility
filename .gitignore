@@ -1,6 +1,13 @@
 build
 tmp
 .vagrant
+debian/files
+debian/debhelper-build-stamp
+debian/php-utility
+debian/php-utility.substvars
+documentation/man/*.1
+.scannerwork
 vendor
 composer.phar
 .php_cs.cache
+.phpunit.result.cache

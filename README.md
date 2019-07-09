@@ -47,13 +47,25 @@ script\vagrant\create.bat
 Run tests, style check and metrics.
 
 ```sh
-script/test.sh
-script/style-check.sh
-script/metrics.sh
+script/test.sh [--help]
+script/check.sh [--help]
+script/measure.sh [--help]
 ```
 
 Build project.
 
 ```sh
 script/build.sh
+```
+
+Install Debian package.
+
+```sh
+sudo dpkg --install build/php-utility_0.1.0-1_all.deb
+```
+
+Show files the package installed.
+
+```sh
+dpkg-query --listfiles php-utility
 ```

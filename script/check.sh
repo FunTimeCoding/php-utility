@@ -3,7 +3,7 @@
 DIRECTORY=$(dirname "${0}")
 SCRIPT_DIRECTORY=$(cd "${DIRECTORY}" || exit 1; pwd)
 # shellcheck source=/dev/null
-. "${SCRIPT_DIRECTORY}/../lib/common.sh"
+. "${SCRIPT_DIRECTORY}/../lib/project.sh"
 
 if [ "${1}" = --help ]; then
     echo "Usage: ${0} [--ci-mode]"
@@ -24,8 +24,12 @@ SYSTEM=$(uname)
 
 if [ "${SYSTEM}" = Darwin ]; then
     FIND='gfind'
+    UNIQ='guniq'
+    SED='gsed'
 else
     FIND='find'
+    UNIQ='uniq'
+    SED='sed'
 fi
 
 MARKDOWN_FILES=$(${FIND} . -regextype posix-extended -name '*.md' ! -regex "${EXCLUDE_FILTER}" -printf '%P\n')
@@ -40,7 +44,7 @@ else
 fi
 
 for FILE in ${MARKDOWN_FILES}; do
-    WORDS=$(hunspell -d "${DICTIONARY}" -p tmp/combined.dic -l "${FILE}" | sort | uniq)
+    WORDS=$(hunspell -d "${DICTIONARY}" -p tmp/combined.dic -l "${FILE}" | sort | ${UNIQ})
 
     if [ ! "${WORDS}" = '' ]; then
         echo "${FILE}"
@@ -101,12 +105,12 @@ if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     FILES=$(${FIND} . -regextype posix-extended -name '*.sh' ! -regex "${EXCLUDE_FILTER}" -printf '%P\n')
 
     for FILE in ${FILES}; do
-        FILE_REPLACED=$(echo "${FILE}" | sed 's/\//-/g')
+        FILE_REPLACED=$(echo "${FILE}" | ${SED} 's/\//-/g')
         shellcheck --format checkstyle "${FILE}" > "build/log/checkstyle-${FILE_REPLACED}.xml" || true
     done
 else
     # shellcheck disable=SC2016
-    SHELL_SCRIPT_CONCERNS=$(${FIND} . -name '*.sh' -regextype posix-extended ! -regex "${EXCLUDE_FILTER}" -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;)
+    SHELL_SCRIPT_CONCERNS=$(${FIND} . -regextype posix-extended -name '*.sh' ! -regex "${EXCLUDE_FILTER}" -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;)
 
     if [ ! "${SHELL_SCRIPT_CONCERNS}" = '' ]; then
         CONCERN_FOUND=true
@@ -142,6 +146,20 @@ if [ ! "${TO_DOS}" = '' ]; then
         echo "(NOTICE) To dos:"
         echo
         echo "${TO_DOS}"
+    fi
+fi
+
+DUPLICATE_WORDS=$(cat documentation/dictionary/** | ${SED} '/^$/d' | sort | ${UNIQ} -cd)
+
+if [ ! "${DUPLICATE_WORDS}" = '' ]; then
+    CONCERN_FOUND=true
+
+    if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+        echo "${DUPLICATE_WORDS}" > build/log/duplicate-words.txt
+    else
+        echo
+        echo "(WARNING) Duplicate words:"
+        echo "${DUPLICATE_WORDS}"
     fi
 fi
 
@@ -246,15 +264,38 @@ fi
 echo
 RETURN_CODE=0
 
+if [ ! "${PHPBREW_PHP}" = '' ]; then
+    phpbrew ext disable xdebug
+fi
+
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     vendor/bin/phan --output-mode checkstyle | tee build/log/checkstyle-phan.xml || RETURN_CODE="${?}"
 else
     vendor/bin/phan || RETURN_CODE="${?}"
 fi
 
+if [ ! "${PHPBREW_PHP}" = '' ]; then
+    phpbrew ext enable xdebug
+fi
+
 if [ ! "${RETURN_CODE}" = 0 ]; then
     CONCERN_FOUND=true
     echo "Phan concerns found."
+    echo
+fi
+
+echo
+RETURN_CODE=0
+
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    vendor/bin/psalm --no-progress --report=build/log/psalm.txt || RETURN_CODE="${?}"
+else
+    vendor/bin/psalm --no-progress || RETURN_CODE="${?}"
+fi
+
+if [ ! "${RETURN_CODE}" = 0 ]; then
+    CONCERN_FOUND=true
+    echo "Psalm concerns found."
     echo
 fi
 
