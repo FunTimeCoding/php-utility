@@ -211,10 +211,10 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1024 --error-format checkstyle --level max src test web > build/log/checkstyle-phpstan.xml || RETURN_CODE="${?}"
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --error-format checkstyle --level max src test web > build/log/checkstyle-phpstan.xml || RETURN_CODE="${?}"
     # TODO: What to do with this return code?
 else
-    OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1024 --no-ansi --level max src test web) && FOUND=false || FOUND=true
+    OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --no-ansi --level max src test web) && FOUND=false || FOUND=true
 
     if [ "${FOUND}" = true ]; then
         echo
@@ -288,9 +288,9 @@ echo
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/psalm --no-progress --report=build/log/psalm.txt || RETURN_CODE="${?}"
+    vendor/bin/psalm --no-progress --show-info=false --report=build/log/psalm.txt || RETURN_CODE="${?}"
 else
-    vendor/bin/psalm --no-progress || RETURN_CODE="${?}"
+    vendor/bin/psalm --no-progress --show-info=false || RETURN_CODE="${?}"
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then

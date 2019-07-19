@@ -11,8 +11,8 @@ use Symfony\Component\Form\FormRenderer;
 use Symfony\Component\Translation\Loader\XliffFileLoader;
 use Symfony\Component\Translation\Translator;
 use Twig\Environment;
-use Twig_FactoryRuntimeLoader;
-use Twig_Loader_Filesystem;
+use Twig\RuntimeLoader\FactoryRuntimeLoader;
+use Twig\Loader\FilesystemLoader;
 
 class TemplateHelper
 {
@@ -26,7 +26,7 @@ class TemplateHelper
         // TODO: Use cache.
         //['cache' => 'path/to/cache']
         $twig = new Environment(
-            new Twig_Loader_Filesystem(
+            new FilesystemLoader(
                 [
                     __DIR__ . '/../template',
                     dirname($bridgeBundleClass->getFileName()) . '/Resources/views/Form',
@@ -40,9 +40,9 @@ class TemplateHelper
             $twig
         );
         $twig->addRuntimeLoader(
-            new Twig_FactoryRuntimeLoader(
+            new FactoryRuntimeLoader(
                 [
-                    FormRenderer::class => function () use ($formEngine) {
+                    FormRenderer::class => static function () use ($formEngine) {
                         return new FormRenderer($formEngine);
                     },
                 ]
@@ -58,7 +58,7 @@ class TemplateHelper
             'en'
         );
 
-        $vendorDirectory = realpath(__DIR__ . '/../vendor');
+        $vendorDirectory = dirname(__DIR__) . '/vendor';
         $formDirectory = $vendorDirectory . '/symfony/form';
         $validatorDirectory = $vendorDirectory . '/symfony/validator';
         $translator->addResource(

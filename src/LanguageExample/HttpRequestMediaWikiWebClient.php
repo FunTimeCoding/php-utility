@@ -64,7 +64,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         $locator = $this->locator . '?' . join('&', $query);
         $client = new Client();
         $response = $client->request('GET', $locator);
-        $xpath = $helper->createDomXpathForBody($response->getBody());
+        $xpath = $helper->createDomXpathForBody((string)$response->getBody());
         $response = $client->request(
             'POST',
             $locator,
@@ -73,7 +73,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
             )
         );
         $response = $client->request('GET', $response->getHeader('Location'));
-        $xpath = $helper->createDomXpathForBody($response->getBody());
+        $xpath = $helper->createDomXpathForBody((string)$response->getBody());
 
         if (1 !== $xpath->query('//li[@id="pt-logout"]')->length) {
             throw new Exception('Login failed.');

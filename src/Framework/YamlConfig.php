@@ -25,7 +25,7 @@ class YamlConfig implements ConfigInterface
      *
      * @return string
      */
-    public function expandTilde($path)
+    public function expandTilde(string $path): string
     {
         if (function_exists('posix_getuid') && strpos($path, '~') !== false) {
             $info = posix_getpwuid(posix_getuid());
@@ -50,14 +50,13 @@ class YamlConfig implements ConfigInterface
 
         foreach ($keys as $key) {
             if (array_key_exists($key, $heap)) {
-                if ($depth == $length) {
+                if ($depth === $length) {
                     break;
-                } else {
-                    $heap = $heap[$key];
                 }
+
+                $heap = $heap[$key];
             } else {
-                $heap = '';
-                break;
+                return '';
             }
 
             ++$depth;
@@ -76,12 +75,10 @@ class YamlConfig implements ConfigInterface
     {
         if (is_array($key)) {
             $result = $this->getFromMultidimensionalArray($key, $this->config);
+        } elseif (array_key_exists($key, $this->config)) {
+            $result = $this->config[$key];
         } else {
-            if (array_key_exists($key, $this->config)) {
-                $result = $this->config[$key];
-            } else {
-                $result = '';
-            }
+            $result = '';
         }
 
         return $result;

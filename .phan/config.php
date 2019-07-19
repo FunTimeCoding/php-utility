@@ -47,11 +47,19 @@ return [
         'test',
         'src',
         'web',
-        #'vendor/phpunit/phpunit/src',
+        'vendor/phpunit/phpunit/src',
+        'vendor/symfony/form',
+        'vendor/symfony/translation',
+        'vendor/symfony/validator',
+        'vendor/symfony/yaml',
+        'vendor/nikic/fast-route/src',
+        'vendor/guzzlehttp/guzzle/src',
+        'vendor/twig/twig/src',
+        'vendor/league/csv/src',
     ],
     'analyzed_file_extensions' => ['php'],
     'exclude_analysis_directory_list' => [
-        #'vendor/'
+        'vendor/'
     ],
     'skip_slow_php_options_warning' => false,
     'ignore_undeclared_functions_with_known_signatures' => false,

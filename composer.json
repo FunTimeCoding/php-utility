@@ -16,12 +16,14 @@
     "require": {
         "php": "7.3.*",
         "ext-dom": "*",
+        "ext-posix": "*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",
         "twig/twig": "2.*",
         "symfony/form": "4.*",
         "symfony/validator": "4.*",
+        "symfony/translation": "4.*",
         "symfony/twig-bridge": "4.*",
         "league/csv": "9.*",
         "webonyx/graphql-php": "0.*"
@@ -39,6 +41,6 @@
         "phpstan/phpstan-phpunit": "0.*",
         "phan/phan": "1.*",
         "vimeo/psalm": "3.*",
-        "roave/security-advisories": "dev-master",
+        "roave/security-advisories": "dev-master"
     }
 }
