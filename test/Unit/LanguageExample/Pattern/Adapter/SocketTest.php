@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class SocketTest extends TestCase
 {
-    public function testCanInstantiate()
+    public function testCanInstantiate(): void
     {
         $socket = new Socket();
 

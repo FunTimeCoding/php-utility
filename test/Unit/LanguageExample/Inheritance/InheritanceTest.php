@@ -10,7 +10,7 @@ class InheritanceTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testInherit()
+    public function testInherit(): void
     {
         $application = new InheritanceExample();
         $application->inherit();

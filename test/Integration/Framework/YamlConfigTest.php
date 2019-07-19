@@ -12,7 +12,7 @@ class YamlConfigTest extends TestCase
      */
     protected $config;
 
-    public function setUp()
+    public function setUp(): void
     {
         $file = __DIR__.'/fixture/config.yml';
         $this->assertFileExists($file);
@@ -22,7 +22,7 @@ class YamlConfigTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testReadConfig()
+    public function testReadConfig(): void
     {
         $name = $this->config->get('wpName');
         $password = $this->config->get('wpPassword');
@@ -37,7 +37,7 @@ class YamlConfigTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testReadArray()
+    public function testReadArray(): void
     {
         $array = $this->config->get('development');
 
@@ -51,7 +51,7 @@ class YamlConfigTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAccessSubKey()
+    public function testAccessSubKey(): void
     {
         $result = $this->config->get(['development', 'username']);
 
@@ -61,7 +61,7 @@ class YamlConfigTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testInvalidKey()
+    public function testInvalidKey(): void
     {
         $result = $this->config->get('invalidKey');
 
@@ -71,7 +71,7 @@ class YamlConfigTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testInvalidSubKey()
+    public function testInvalidSubKey(): void
     {
         $result = $this->config->get(['development', 'invalidKey']);
 

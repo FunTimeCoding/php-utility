@@ -10,7 +10,7 @@ class ComputerFacadeTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testStart()
+    public function testStart(): void
     {
         $facade = new ComputerFacade();
 

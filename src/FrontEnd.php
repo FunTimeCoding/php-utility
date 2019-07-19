@@ -97,7 +97,7 @@ class FrontEnd
             $output = $twig->render('index.html.twig');
         } elseif ($handler == self::SETTINGS_HANDLER) {
             $output = $twig->render('settings.html.twig');
-        } elseif ($handler == self::FORM_GET_HANDLER || $handler == self::FORM_POST_HANDLER) {
+        } elseif (in_array($handler, [self::FORM_GET_HANDLER, self::FORM_POST_HANDLER])) {
             $exampleForm = new ExampleForm();
             $form = $exampleForm->create();
             $form->handleRequest();

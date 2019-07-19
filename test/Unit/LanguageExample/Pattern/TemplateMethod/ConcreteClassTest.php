@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConcreteClassTest extends TestCase
 {
-    public function testTemplateMethodCall()
+    public function testTemplateMethodCall(): void
     {
         $object = new ConcreteClass();
 

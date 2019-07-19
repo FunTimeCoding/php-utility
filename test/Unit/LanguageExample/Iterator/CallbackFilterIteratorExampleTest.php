@@ -10,7 +10,7 @@ class CallbackFilterIteratorExampleTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testCallbackFilterIterator()
+    public function testCallbackFilterIterator(): void
     {
         $this->markTestSkipped('CallbackFilterIterator requires php 5.6');
 

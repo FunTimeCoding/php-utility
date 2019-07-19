@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class DiskTest extends TestCase
 {
-    public function testRead()
+    public function testRead(): void
     {
         $disk = new Disk();
 

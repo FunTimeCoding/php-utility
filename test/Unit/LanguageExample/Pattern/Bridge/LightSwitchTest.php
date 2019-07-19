@@ -10,7 +10,7 @@ class LightSwitchTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOn()
+    public function testOn(): void
     {
         $switch = new LightSwitch();
 
@@ -22,7 +22,7 @@ class LightSwitchTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOff()
+    public function testOff(): void
     {
         $switch = new LightSwitch();
 

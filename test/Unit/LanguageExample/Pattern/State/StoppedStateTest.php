@@ -13,23 +13,24 @@ class StoppedStateTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testStart()
+    public function testStart(): void
     {
         $state = new StoppedState();
         $context = new EngineStateContext();
 
         $state->start($context);
 
-        $this->assertAttributeEquals(new RunningState(), 'state', $context);
+        $this->assertEquals(new RunningState(), $context->getState());
         $this->expectOutputString('Engine started.');
     }
 
     /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot stop a stopped engine.
+     * @throws Exception
      */
-    public function testStop()
+    public function testStop(): void
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Cannot stop a stopped engine.');
         $state = new StoppedState();
         $context = new EngineStateContext();
 

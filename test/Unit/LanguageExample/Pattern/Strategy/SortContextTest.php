@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class SortContextTest extends TestCase
 {
-    public function testSort()
+    public function testSort(): void
     {
         $context = new SortContext(new BubbleSortStrategy());
         $context->setStrategy(new QuickSortStrategy());

@@ -11,20 +11,9 @@ interface MediaWikiWebClient
      */
     public function login();
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username);
+    public function setUsername(string $username): void;
 
-    /**
-     * @param string $password
-     */
-    public function setPassword($password);
+    public function setPassword(string $password): void;
 
-    /**
-     * @param string $page
-     *
-     * @return string
-     */
-    public function getPage($page);
+    public function getPage(string $page): string;
 }

@@ -10,6 +10,9 @@ class Kernel
     const EXIT_CODE_ERROR = 1;
     const PROJECT_ROOT_MARKER_FILE = 'README.md';
 
+    /**
+     * @var int
+     */
     private $exitCode = 0;
 
     public function __construct()
@@ -17,10 +20,7 @@ class Kernel
         $this->exitCode = static::EXIT_CODE_OK;
     }
 
-    /**
-     * @return int
-     */
-    public function load()
+    public function load(): int
     {
         return $this->exitCode;
     }
@@ -29,7 +29,7 @@ class Kernel
      * @return string
      * @throws Exception
      */
-    public function getProjectRoot()
+    public function getProjectRoot(): string
     {
         $projectRoot = '';
         $currentDirectory = __DIR__;
@@ -49,13 +49,7 @@ class Kernel
         return $projectRoot;
     }
 
-    /**
-     * @param string $fileName
-     * @param string $directory
-     *
-     * @return bool
-     */
-    private function isFileInDirectory($fileName, $directory)
+    private function isFileInDirectory(string $fileName, string $directory): bool
     {
         $result = false;
         $directoryContents = scandir($directory);

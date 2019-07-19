@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class QuickSortStrategyTest extends TestCase
 {
-    public function testSort()
+    public function testSort(): void
     {
         $strategy = new QuickSortStrategy();
         $elements = [1, 5, 4, 2, 3];

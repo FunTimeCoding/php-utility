@@ -9,7 +9,7 @@ class CommaSeparatedValueTest extends TestCase
     /**
      * @throws \League\Csv\Exception
      */
-    public function testUseLibrary()
+    public function testUseLibrary(): void
     {
         $reader = Reader::createFromPath(__DIR__ . '/Fixture/example.csv', 'r');
         $reader->setHeaderOffset(0);

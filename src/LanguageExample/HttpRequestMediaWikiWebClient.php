@@ -7,10 +7,19 @@ use GuzzleHttp\Client;
 
 class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
 {
+    /**
+     * @var string
+     */
     private $username = '';
 
+    /**
+     * @var string
+     */
     private $password = '';
 
+    /**
+     * @var string
+     */
     private $locator;
 
     /**
@@ -27,7 +36,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getPage($page)
+    public function getPage(string $page): string
     {
         $helper = new MediaWikiHelper();
         $client = new Client();
@@ -35,7 +44,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         $response = $client->request('GET', $this->locator . '/' . $page);
 
         return $helper->searchContentInDomXpath(
-            $helper->createDomXpathForBody($response->getBody())
+            $helper->createDomXpathForBody((string)$response->getBody())
         );
     }
 
@@ -66,19 +75,12 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         $response = $client->request('GET', $response->getHeader('Location'));
         $xpath = $helper->createDomXpathForBody($response->getBody());
 
-        if (1 != $xpath->query('//li[@id="pt-logout"]')->length) {
+        if (1 !== $xpath->query('//li[@id="pt-logout"]')->length) {
             throw new Exception('Login failed.');
         }
     }
 
-    /**
-     * @internal
-     *
-     * @param string $token
-     *
-     * @return array
-     */
-    public function createFormDataWithToken($token)
+    public function createFormDataWithToken(string $token): array
     {
         return [
             'wpName' => $this->username,
@@ -89,18 +91,12 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         ];
     }
 
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }

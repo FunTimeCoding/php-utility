@@ -10,7 +10,7 @@ class KernelTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testGetProjectRoot()
+    public function testGetProjectRoot(): void
     {
         $kernel = new Kernel();
 
@@ -22,7 +22,7 @@ class KernelTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCommandLineCallOfIndex()
+    public function testCommandLineCallOfIndex(): void
     {
         $kernel = new Kernel();
         $projectRoot = $kernel->getProjectRoot();

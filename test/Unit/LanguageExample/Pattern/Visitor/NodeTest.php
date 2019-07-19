@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
@@ -7,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class NodeTest extends TestCase
 {
-    public function testValue()
+    public function testValue(): void
     {
         $node = new Node('root');
 
@@ -16,13 +17,13 @@ class NodeTest extends TestCase
         $this->assertEquals('foo', $node->getValue());
     }
 
-    public function testAddNode()
+    public function testAddNode(): void
     {
         $node = new Node('root');
         $leaf = new Node('leaf');
 
         $node->addNode($leaf);
 
-        $this->assertEquals(1, count($node->getChildren()));
+        $this->assertCount(1, $node->getChildren());
     }
 }

@@ -12,7 +12,7 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
  */
 class InheritanceExample
 {
-    public function inherit()
+    public function inherit(): void
     {
         $animalFood = new AnimalFood();
         $animal = new Animal();

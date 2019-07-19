@@ -10,7 +10,7 @@ class IteratorExampleTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testArrayIterator()
+    public function testArrayIterator(): void
     {
         $example = new IteratorExample();
 
@@ -28,7 +28,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testIterator()
+    public function testIterator(): void
     {
         $example = new IteratorExample();
 
@@ -45,7 +45,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testCachingIterator()
+    public function testCachingIterator(): void
     {
         $example = new IteratorExample();
 
@@ -63,7 +63,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testLimitInfiniteIterator()
+    public function testLimitInfiniteIterator(): void
     {
         $example = new IteratorExample();
 
@@ -84,7 +84,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testMultipleIterator()
+    public function testMultipleIterator(): void
     {
         $example = new IteratorExample();
 
@@ -102,7 +102,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testAppendIterator()
+    public function testAppendIterator(): void
     {
         $example = new IteratorExample();
 
@@ -123,7 +123,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testRegexIterator()
+    public function testRegexIterator(): void
     {
         $example = new IteratorExample();
 
@@ -139,7 +139,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testIteratorApply()
+    public function testIteratorApply(): void
     {
         $example = new IteratorExample();
 
@@ -154,7 +154,7 @@ OUTPUT;
         $this->expectOutputString($expected);
     }
 
-    public function testIteratorToArray()
+    public function testIteratorToArray(): void
     {
         $example = new IteratorExample();
 
@@ -168,7 +168,7 @@ OUTPUT;
         $this->assertEquals($expected, $result);
     }
 
-    public function testIteratorCount()
+    public function testIteratorCount(): void
     {
         $example = new IteratorExample();
 

@@ -13,7 +13,7 @@ class SwitchInvokerTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOn()
+    public function testOn(): void
     {
         $light = new LightReceiver();
         $closedCommand = new CloseSwitchCommand($light);
@@ -28,7 +28,7 @@ class SwitchInvokerTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOff()
+    public function testOff(): void
     {
         $light = new LightReceiver();
         $closedCommand = new CloseSwitchCommand($light);

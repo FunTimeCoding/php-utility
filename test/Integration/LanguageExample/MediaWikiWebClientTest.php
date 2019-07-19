@@ -13,7 +13,7 @@ class MediaWikiWebClientTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testLoginWithHttpRequestLibrary()
+    public function testLoginWithHttpRequestLibrary(): void
     {
         $httpRequestClient = new HttpRequestMediaWikiWebClient('mediawiki.dev');
         $curlClient = new CurlMediaWikiWebClient('mediawiki.dev');

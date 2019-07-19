@@ -10,7 +10,7 @@ class RecursiveIteratorExampleTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testRecursiveArrayIteratorWithForeach()
+    public function testRecursiveArrayIteratorWithForeach(): void
     {
         $example = new RecursiveIteratorExample();
 
@@ -31,7 +31,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testRecursiveArrayIteratorWithWhile()
+    public function testRecursiveArrayIteratorWithWhile(): void
     {
         $example = new RecursiveIteratorExample();
 
@@ -52,7 +52,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testRecursiveCallbackFilterIterator()
+    public function testRecursiveCallbackFilterIterator(): void
     {
         $this->markTestSkipped('RecursiveCallbackFilterIterator requires php 5.6');
 
@@ -71,7 +71,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testRecursiveTreeIterator()
+    public function testRecursiveTreeIterator(): void
     {
         $example = new RecursiveIteratorExample();
 

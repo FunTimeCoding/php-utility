@@ -9,18 +9,12 @@ class Subject
      */
     private $observers = [];
 
-    /**
-     * @param ObserverInterface $observer
-     */
-    public function attach(ObserverInterface $observer)
+    public function attach(ObserverInterface $observer): void
     {
         $this->observers[] = $observer;
     }
 
-    /**
-     * @param ObserverInterface $observer
-     */
-    public function detach(ObserverInterface $observer)
+    public function detach(ObserverInterface $observer): void
     {
         $key = array_search($observer, $this->observers, true);
 
@@ -31,10 +25,18 @@ class Subject
         $this->observers = array_values($this->observers);
     }
 
-    public function notifyObservers()
+    public function notifyObservers(): void
     {
         foreach ($this->observers as $observer) {
             $observer->update();
         }
+    }
+
+    /**
+     * @return ObserverInterface[]
+     */
+    public function getObservers(): array
+    {
+        return $this->observers;
     }
 }

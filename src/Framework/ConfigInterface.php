@@ -7,7 +7,7 @@ interface ConfigInterface
     /**
      * @param string $key
      *
-     * @return string
+     * @return mixed
      */
-    public function get($key);
+    public function get(string $key);
 }

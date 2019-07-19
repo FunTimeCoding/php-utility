@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
@@ -6,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class MediaWikiTestHelperTest extends TestCase
 {
-    public function testValid()
+    public function testValid(): void
     {
         $helper = new MediaWikiTestHelper();
 
@@ -19,7 +20,7 @@ class MediaWikiTestHelperTest extends TestCase
         $this->assertTrue($helper->validateQueryData($queryData));
     }
 
-    public function testTitleMissing()
+    public function testTitleMissing(): void
     {
         $helper = new MediaWikiTestHelper();
 
@@ -31,7 +32,7 @@ class MediaWikiTestHelperTest extends TestCase
         $this->assertFalse($helper->validateQueryData($actionMissing));
     }
 
-    public function testActionMissing()
+    public function testActionMissing(): void
     {
         $helper = new MediaWikiTestHelper();
 
@@ -43,7 +44,7 @@ class MediaWikiTestHelperTest extends TestCase
         $this->assertFalse($helper->validateQueryData($actionMissing));
     }
 
-    public function testTypeMissing()
+    public function testTypeMissing(): void
     {
         $helper = new MediaWikiTestHelper();
 

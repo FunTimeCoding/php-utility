@@ -12,12 +12,12 @@ class EngineStateContextTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testStartWhenEngineIsOff()
+    public function testStartWhenEngineIsOff(): void
     {
         $context = new EngineStateContext();
         $context->start();
 
-        $this->assertAttributeEquals(new RunningState(), 'state', $context);
+        $this->assertEquals(new RunningState(), $context->getState());
         $this->expectOutputString('Engine started.');
     }
 
@@ -25,32 +25,32 @@ class EngineStateContextTest extends TestCase
      * @outputBuffering enabled
      * @throws \Exception
      */
-    public function testStopWhenEngineIsOn()
+    public function testStopWhenEngineIsOn(): void
     {
         $context = new EngineStateContext();
         $context->start();
 
         $context->stop();
 
-        $this->assertAttributeEquals(new StoppedState(), 'state', $context);
+        $this->assertEquals(new StoppedState(), $context->getState());
         $this->expectOutputString('Engine started.Engine stopped.');
     }
 
-    public function testSetStateToRunning()
+    public function testSetStateToRunning(): void
     {
         $context = new EngineStateContext();
 
         $context->setState(new RunningState());
 
-        $this->assertAttributeEquals(new RunningState(), 'state', $context);
+        $this->assertEquals(new RunningState(), $context->getState());
     }
 
-    public function testSetStateToOff()
+    public function testSetStateToOff(): void
     {
         $context = new EngineStateContext();
 
         $context->setState(new StoppedState());
 
-        $this->assertAttributeEquals(new StoppedState(), 'state', $context);
+        $this->assertEquals(new StoppedState(), $context->getState());
     }
 }

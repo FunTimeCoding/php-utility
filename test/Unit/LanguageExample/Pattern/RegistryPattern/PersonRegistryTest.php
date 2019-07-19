@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PersonRegistryTest extends TestCase
 {
-    public function testGetPerson()
+    public function testGetPerson(): void
     {
         $testName = 'alex';
         $person = new Person($testName);

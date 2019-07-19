@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class FrontEndTest extends TestCase
 {
-    public function testIndexHandler()
+    public function testIndexHandler(): void
     {
         $application = new FrontEnd();
         $this->assertRegExp(
@@ -15,7 +15,7 @@ class FrontEndTest extends TestCase
         );
     }
 
-    public function testSettingsHandler()
+    public function testSettingsHandler(): void
     {
         $application = new FrontEnd();
         $this->assertRegExp(

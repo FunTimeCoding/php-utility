@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Proxy;
 
@@ -8,19 +9,19 @@ use PHPUnit\Framework\TestCase;
 
 class ProxyFileTest extends TestCase
 {
-    public function testNotYetLoaded()
+    public function testNotYetLoaded(): void
     {
         $image = new ProxyFile('MyFilename');
 
-        $this->assertAttributeEquals(null, 'file', $image);
+        $this->assertEquals(new RealFile(''), $image->getFile());
     }
 
-    public function testAfterLoading()
+    public function testAfterLoading(): void
     {
         $image = new ProxyFile('MyFilename');
 
         $image->getContent();
 
-        $this->assertAttributeEquals(new RealFile('MyFilename'), 'file', $image);
+        $this->assertEquals(new RealFile('MyFilename'), $image->getFile());
     }
 }

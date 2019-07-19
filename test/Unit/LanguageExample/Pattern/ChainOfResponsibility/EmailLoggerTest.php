@@ -11,7 +11,7 @@ class EmailLoggerTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testMatchingMask()
+    public function testMatchingMask(): void
     {
         $logger = new EmailLogger(AbstractLogger::LEVEL_ERROR);
 
@@ -23,7 +23,7 @@ class EmailLoggerTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testNonMatchingMask()
+    public function testNonMatchingMask(): void
     {
         $logger = new EmailLogger(AbstractLogger::LEVEL_ERROR);
 

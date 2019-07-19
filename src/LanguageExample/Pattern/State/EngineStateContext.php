@@ -14,15 +14,17 @@ class EngineStateContext
         $this->state = new StoppedState();
     }
 
-    /**
-     * @param EngineStateInterface $state
-     */
-    public function setState(EngineStateInterface $state)
+    public function setState(EngineStateInterface $state): void
     {
         $this->state = $state;
     }
 
-    public function start()
+    public function getState(): EngineStateInterface
+    {
+        return $this->state;
+    }
+
+    public function start(): void
     {
         $this->state->start($this);
     }
@@ -30,7 +32,7 @@ class EngineStateContext
     /**
      * @throws \Exception
      */
-    public function stop()
+    public function stop(): void
     {
         $this->state->stop($this);
     }

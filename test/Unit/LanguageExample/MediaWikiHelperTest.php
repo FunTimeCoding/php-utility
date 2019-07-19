@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
@@ -9,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class MediaWikiHelperTest extends TestCase
 {
-    public function testQueryData()
+    public function testQueryData(): void
     {
         $helper = new MediaWikiHelper();
         $testHelper = new MediaWikiTestHelper();
@@ -19,7 +20,7 @@ class MediaWikiHelperTest extends TestCase
         $this->assertTrue($testHelper->validateQueryData($queryData));
     }
 
-    public function testSearchTokenInDomXpath()
+    public function testSearchTokenInDomXpath(): void
     {
         $helper = new MediaWikiHelper();
         $token = 'MyToken';
@@ -33,7 +34,7 @@ class MediaWikiHelperTest extends TestCase
         $this->assertEquals($token, $result);
     }
 
-    public function testSearchContentInDomXpath()
+    public function testSearchContentInDomXpath(): void
     {
         $helper = new MediaWikiHelper();
         $content = 'MyContent';

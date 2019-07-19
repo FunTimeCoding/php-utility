@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class KernelTest extends TestCase
 {
-    public function testNormalExitCode()
+    public function testNormalExitCode(): void
     {
         $kernel = new Kernel();
 

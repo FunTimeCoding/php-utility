@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class MaleToFemaleAdapterTest extends TestCase
 {
-    public function testDrive()
+    public function testDrive(): void
     {
         $adapter = new MaleToFemaleAdapter(new Socket());
 

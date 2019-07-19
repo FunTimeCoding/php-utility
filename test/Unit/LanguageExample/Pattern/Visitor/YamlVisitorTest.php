@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
 
@@ -11,7 +12,7 @@ class YamlVisitorTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testValue()
+    public function testValue(): void
     {
         $visitor = new YamlVisitor();
         $node = new Node('root');
@@ -25,7 +26,7 @@ class YamlVisitorTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testAddNode()
+    public function testAddNode(): void
     {
         $visitor = new YamlVisitor();
         $node = new Node('root');

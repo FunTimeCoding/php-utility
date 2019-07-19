@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy;
 
@@ -12,25 +13,33 @@ class ProxyFile implements FileInterface
     /**
      * @var RealFile
      */
-    private $file = null;
+    private $file;
 
-    /**
-     * @param string $filename
-     */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         $this->filename = $filename;
     }
 
-    /**
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): string
     {
         if (null === $this->file) {
             $this->file = new RealFile($this->filename);
         }
 
         return $this->file->getContent();
+    }
+
+    public function getFilename(): string
+    {
+        return $this->filename;
+    }
+
+    public function getFile(): RealFile
+    {
+        if ($this->file) {
+            return $this->file;
+        }
+
+        return new RealFile('');
     }
 }

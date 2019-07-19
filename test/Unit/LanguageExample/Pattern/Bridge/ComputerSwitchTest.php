@@ -10,7 +10,7 @@ class ComputerSwitchTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOn()
+    public function testOn(): void
     {
         $switch = new ComputerSwitch();
 
@@ -22,7 +22,7 @@ class ComputerSwitchTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOff()
+    public function testOff(): void
     {
         $switch = new ComputerSwitch();
 

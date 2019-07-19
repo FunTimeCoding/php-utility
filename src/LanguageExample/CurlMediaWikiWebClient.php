@@ -6,9 +6,24 @@ use Exception;
 
 class CurlMediaWikiWebClient implements MediaWikiWebClient
 {
+    /**
+     * @var string
+     */
     private $username = '';
+
+    /**
+     * @var string
+     */
     private $password = '';
+
+    /**
+     * @var string
+     */
     private $wikiUrl;
+
+    /**
+     * @var string
+     */
     private $cookieJar = '/tmp/php-cookie-jar';
 
     /**
@@ -19,12 +34,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         $this->wikiUrl = 'http://'.$domainName.'/index.php';
     }
 
-    /**
-     * @param string $page
-     *
-     * @return string
-     */
-    public function getPage($page)
+    public function getPage(string $page): string
     {
         $helper = new MediaWikiHelper();
 
@@ -34,14 +44,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         return $helper->searchContentInDomXpath($xpath);
     }
 
-    /**
-     * @internal
-     *
-     * @param string $url
-     *
-     * @return string
-     */
-    public function makeCurlGetRequestAndReadCookies($url)
+    public function makeCurlGetRequestAndReadCookies(string $url): string
     {
         $request = $this->createCurlRequest($url);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
@@ -50,14 +53,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         return $this->executeCurlRequest($request);
     }
 
-    /**
-     * @internal
-     *
-     * @param string $url
-     *
-     * @return resource
-     */
-    public function createCurlRequest($url)
+    public function createCurlRequest(string $url)
     {
         $request = curl_init();
         curl_setopt($request, CURLOPT_URL, $url);
@@ -72,7 +68,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
      *
      * @return string
      */
-    public function executeCurlRequest($request)
+    public function executeCurlRequest($request): string
     {
         $body = curl_exec($request);
         curl_close($request);
@@ -83,7 +79,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     /**
      * @throws Exception
      */
-    public function login()
+    public function login(): void
     {
         $helper = new MediaWikiHelper();
 
@@ -159,7 +155,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     /**
      * @param string $password
      */
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -167,7 +163,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     /**
      * @param string $username
      */
-    public function setUsername($username)
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }

@@ -9,11 +9,11 @@ use PHPUnit\Framework\TestCase;
 
 class OpenSwitchCommandTest extends TestCase
 {
-    public function testExecute()
+    public function testExecute(): void
     {
         $mock = $this->getMockBuilder(SwitchableInterface::class)->getMock();
         /* @var MockObject $mock */
-        $mock->expects($this->exactly(1))->method('powerOff');
+        $mock->expects($this->once())->method('powerOff');
 
         /* @var SwitchableInterface $mock */
         $command = new OpenSwitchCommand($mock);

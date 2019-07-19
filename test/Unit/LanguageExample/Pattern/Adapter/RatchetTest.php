@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class RatchetTest extends TestCase
 {
-    public function testCanInstantiate()
+    public function testCanInstantiate(): void
     {
         $ratchet = new Ratchet();
 

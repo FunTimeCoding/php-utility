@@ -10,7 +10,7 @@ class LightReceiverTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOn()
+    public function testOn(): void
     {
         $light = new LightReceiver();
 
@@ -22,7 +22,7 @@ class LightReceiverTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testOff()
+    public function testOff(): void
     {
         $light = new LightReceiver();
 

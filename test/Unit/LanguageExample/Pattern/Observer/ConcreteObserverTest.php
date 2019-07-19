@@ -10,7 +10,7 @@ class ConcreteObserverTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $observer = new ConcreteObserver();
 

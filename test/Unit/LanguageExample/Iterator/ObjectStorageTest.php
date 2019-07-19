@@ -10,7 +10,7 @@ class ObjectStorageTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testSplObjectStorage()
+    public function testSplObjectStorage(): void
     {
         $example = new ObjectStorageExample();
 
@@ -37,7 +37,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testObjectStorage()
+    public function testObjectStorage(): void
     {
         $example = new ObjectStorageExample();
 
@@ -64,7 +64,7 @@ OUTPUT;
     /**
      * @outputBuffering enabled
      */
-    public function testSplObjectHashStorage()
+    public function testSplObjectHashStorage(): void
     {
         $example = new ObjectStorageExample();
 

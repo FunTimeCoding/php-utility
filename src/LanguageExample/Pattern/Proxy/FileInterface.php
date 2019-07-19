@@ -1,16 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy;
 
 interface FileInterface
 {
-    /**
-     * @param string $filename
-     */
-    public function __construct($filename);
+    public function __construct(string $filename);
 
-    /**
-     * @return string
-     */
-    public function getContent();
+    public function getContent(): string;
 }

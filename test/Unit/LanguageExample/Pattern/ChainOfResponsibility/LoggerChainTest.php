@@ -11,7 +11,7 @@ class LoggerChainTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testChainOfLoggers()
+    public function testChainOfLoggers(): void
     {
         $chain = new LoggerChain();
         $logger = $chain->createChain();

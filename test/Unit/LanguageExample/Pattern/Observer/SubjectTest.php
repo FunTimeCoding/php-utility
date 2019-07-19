@@ -11,7 +11,7 @@ class SubjectTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testAttachNotifyObserver()
+    public function testAttachNotifyObserver(): void
     {
         $subject = new Subject();
         $observer = new ConcreteObserver();
@@ -25,7 +25,7 @@ class SubjectTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testNotifyMultiple()
+    public function testNotifyMultiple(): void
     {
         $subject = new Subject();
         $observer1 = new ConcreteObserver();
@@ -41,7 +41,7 @@ class SubjectTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testDetachObserver()
+    public function testDetachObserver(): void
     {
         $subject = new Subject();
         $observer1 = new ConcreteObserver();
@@ -53,6 +53,6 @@ class SubjectTest extends TestCase
         $subject->notifyObservers();
 
         $this->expectOutputString('Update called.');
-        $this->assertAttributeEquals([$observer2], 'observers', $subject);
+        $this->assertEquals([$observer2], $subject->getObservers());
     }
 }

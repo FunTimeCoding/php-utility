@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class BubbleSortStrategyTest extends TestCase
 {
-    public function testSort()
+    public function testSort(): void
     {
         $strategy = new BubbleSortStrategy();
         $elements = [1, 5, 4, 2, 3];

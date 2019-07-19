@@ -10,7 +10,7 @@ class UserAgeFilterIteratorExampleTest extends TestCase
     /**
      * @outputBuffering enabled
      */
-    public function testFilterIterator()
+    public function testFilterIterator(): void
     {
         $example = new UserAgeFilterIteratorExample();
 

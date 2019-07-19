@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Proxy;
 
@@ -14,24 +15,18 @@ class RealFile implements FileInterface
      */
     private $content;
 
-    /**
-     * @param string $filename
-     */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         $this->filename = $filename;
         $this->readFromDisk();
     }
 
-    private function readFromDisk()
+    private function readFromDisk(): void
     {
         $this->content = 'Imaginary content of '.$this->filename;
     }
 
-    /**
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }

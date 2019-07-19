@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class MemoryTest extends TestCase
 {
-    public function testRead()
+    public function testRead(): void
     {
         $memory = new Memory();
 

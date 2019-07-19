@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProcessorTest extends TestCase
 {
-    public function testRead()
+    public function testRead(): void
     {
         $processor = new Processor();
 

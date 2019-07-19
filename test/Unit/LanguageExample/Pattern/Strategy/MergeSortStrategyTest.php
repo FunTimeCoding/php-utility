@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class MergeSortStrategyTest extends TestCase
 {
-    public function testSort()
+    public function testSort(): void
     {
         $strategy = new MergeSortStrategy();
         $elements = [1, 5, 4, 2, 3];

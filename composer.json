@@ -15,6 +15,7 @@
     },
     "require": {
         "php": "7.3.*",
+        "ext-dom": "*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",
@@ -38,6 +39,6 @@
         "phpstan/phpstan-phpunit": "0.*",
         "phan/phan": "1.*",
         "vimeo/psalm": "3.*",
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-master",
     }
 }

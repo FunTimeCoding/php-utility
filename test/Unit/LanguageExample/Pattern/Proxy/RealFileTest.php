@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Proxy;
 
@@ -7,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class RealFileTest extends TestCase
 {
-    public function testAfterLoading()
+    public function testAfterLoading(): void
     {
         $image = new RealFile('MyFilename');
 

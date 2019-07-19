@@ -12,9 +12,9 @@ class MetricsTest extends TestCase
     /**
      * Wrong lowercase c in TestCase makes phploc miss that class.
      */
-    public function testInheritanceCapitalization()
+    public function testInheritanceCapitalization(): void
     {
-        $testDirectory = realpath(__DIR__.DIRECTORY_SEPARATOR.'..');
+        $testDirectory = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..');
         $this->assertStringStartsWith('/', $testDirectory);
         $this->assertEquals('test', basename($testDirectory));
 
@@ -47,31 +47,29 @@ class MetricsTest extends TestCase
                 }
 
                 if (!$found) {
-                    $this->fail('No line starts with \'class\' in '.$file);
+                    $this->fail('No line starts with \'class\' in ' . $file);
                 }
 
                 fclose($handle);
             } else {
-                $this->fail('Could not read '.$file);
+                $this->fail('Could not read ' . $file);
             }
         }
     }
 
-    public function endsWith($haystack, $needle)
+    public function endsWith(string $haystack, string $needle): bool
     {
         $length = strlen($needle);
 
-        if ($length == 0) {
+        if ($length === 0) {
             return true;
         }
 
         return substr($haystack, -$length) === $needle;
     }
 
-    public function startsWith($haystack, $needle)
+    public function startsWith(string $haystack, string $needle): bool
     {
-        $length = strlen($needle);
-
-        return substr($haystack, 0, $length) === $needle;
+        return strpos($haystack, $needle) === 0;
     }
 }

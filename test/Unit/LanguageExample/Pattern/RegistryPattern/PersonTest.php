@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class PersonTest extends TestCase
 {
-    public function testName()
+    public function testName(): void
     {
         $testName = 'alex';
         $person = new Person($testName);
