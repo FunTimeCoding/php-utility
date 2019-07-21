@@ -7,10 +7,7 @@ use DOMXPath;
 
 class MediaWikiHelper
 {
-    /**
-     * @return array
-     */
-    public function getLoginLocatorQueryData()
+    public function getLoginLocatorQueryData(): array
     {
         return [
             'title' => 'Special:UserLogin',
@@ -19,12 +16,7 @@ class MediaWikiHelper
         ];
     }
 
-    /**
-     * @param string $body
-     *
-     * @return DOMXPath
-     */
-    public function createDomXpathForBody($body)
+    public function createDomXpathForBody(string $body): DOMXPath
     {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
@@ -34,22 +26,12 @@ class MediaWikiHelper
         return new DOMXPath($dom);
     }
 
-    /**
-     * @param DOMXPath $xpath
-     *
-     * @return string
-     */
-    public function searchTokenInDomXpath(DOMXPath $xpath)
+    public function searchTokenInDomXpath(DOMXPath $xpath): ?string
     {
         return $xpath->query('//input[@name="wpLoginToken"]/@value')->item(0)->nodeValue;
     }
 
-    /**
-     * @param DOMXPath $xpath
-     *
-     * @return string
-     */
-    public function searchContentInDomXpath(DOMXPath $xpath)
+    public function searchContentInDomXpath(DOMXPath $xpath): ?string
     {
         return trim($xpath->query('//div[@id="mw-content-text"]')->item(0)->nodeValue);
     }
