@@ -12,7 +12,6 @@ script/check.sh --ci-mode
 # Run test before measure so that SonarQube can read the PHPUnit coverage.
 script/test.sh --ci-mode
 script/measure.sh --ci-mode
-
 # TODO: Package for Debian.
 #SYSTEM=$(uname)
 #

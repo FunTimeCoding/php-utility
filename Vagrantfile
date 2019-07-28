@@ -1,5 +1,6 @@
 Vagrant.configure('2') do |c|
   c.vm.box = 'debian/stretch64'
+  #c.vm.box = 'debian/buster64'
   Dir.mkdir('tmp') unless File.exist?('tmp')
 
   if File.exist?('tmp/ethernet-device.txt')
@@ -42,7 +43,8 @@ Vagrant.configure('2') do |c|
   c.vm.provider :virtualbox do |v|
     v.name = 'php-utility'
     v.cpus = 2
-    v.memory = 1024
+    v.memory = 2048
+    v.customize ['modifyvm', :id, '--vram', '12']
   end
 
   c.vm.provision :shell, path: 'script/vagrant/update-system.sh'
@@ -69,6 +71,7 @@ Vagrant.configure('2') do |c|
     #s.path = 'tmp/bootstrap-salt.sh'
     # Jessie versions: https://repo.saltstack.com/apt/debian/8/amd64
     # Stretch versions: https://repo.saltstack.com/apt/debian/9/amd64
+    # Buster versions: https://repo.saltstack.com/apt/debian/10/amd64
     #s.args = ['-U', '-i', hostname + '.' + domain, '-c', '/vagrant/tmp/salt', 'stable', '2018.3.3']
   end
 
