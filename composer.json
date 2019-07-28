@@ -4,8 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "FunTimeCoding\\PhpUtility\\": "src/",
-            "FunTimeCoding\\PhpUtility\\Web\\": "web/"
+            "FunTimeCoding\\PhpUtility\\": "src/"
         }
     },
     "autoload-dev": {
@@ -14,19 +13,7 @@
         }
     },
     "require": {
-        "php": "7.3.*",
-        "ext-dom": "*",
-        "ext-posix": "*",
-        "symfony/yaml": "4.*",
-        "guzzlehttp/guzzle": "6.*",
-        "nikic/fast-route": "1.*",
-        "twig/twig": "2.*",
-        "symfony/form": "4.*",
-        "symfony/validator": "4.*",
-        "symfony/translation": "4.*",
-        "symfony/twig-bridge": "4.*",
-        "league/csv": "9.*",
-        "webonyx/graphql-php": "0.*"
+        "php": "7.3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "8.*",
@@ -40,7 +27,6 @@
         "phpstan/phpstan-strict-rules": "0.*",
         "phpstan/phpstan-phpunit": "0.*",
         "phan/phan": "1.*",
-        "vimeo/psalm": "3.*",
-        "roave/security-advisories": "dev-master"
+        "vimeo/psalm": "3.*"
     }
 }
