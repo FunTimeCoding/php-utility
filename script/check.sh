@@ -264,18 +264,14 @@ fi
 echo
 RETURN_CODE=0
 
-if [ ! "${PHPBREW_PHP}" = '' ]; then
-    phpbrew ext disable xdebug
-fi
+# TODO: Remove this and upgrade phan once the php-ast package is available in version 1.0 or higher.
+export PHAN_SUPPRESS_AST_UPGRADE_NOTICE=1
+export PHAN_DISABLE_XDEBUG_WARN=1
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     vendor/bin/phan --output-mode checkstyle | tee build/log/checkstyle-phan.xml || RETURN_CODE="${?}"
 else
     vendor/bin/phan || RETURN_CODE="${?}"
-fi
-
-if [ ! "${PHPBREW_PHP}" = '' ]; then
-    phpbrew ext enable xdebug
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then
