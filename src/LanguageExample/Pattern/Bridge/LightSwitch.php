@@ -4,12 +4,12 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge;
 
 class LightSwitch implements SwitchBridgeInterface
 {
-    public function turnOff()
+    public function turnOff(): void
     {
         echo 'Light off.';
     }
 
-    public function turnOn()
+    public function turnOn(): void
     {
         echo 'Light on.';
     }

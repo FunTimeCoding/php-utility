@@ -11,7 +11,7 @@ use RegexIterator;
 
 class IteratorExample
 {
-    public function arrayIterator()
+    public function arrayIterator(): void
     {
         $iterator = new ArrayIterator(['apple', 'banana', 'strawberry']);
 
@@ -20,7 +20,7 @@ class IteratorExample
         }
     }
 
-    public function iterator()
+    public function iterator(): void
     {
         $cupboard = new Cupboard();
         $cupboard->lowerDrawer = 'books';
@@ -31,7 +31,7 @@ class IteratorExample
         }
     }
 
-    public function cachingIterator()
+    public function cachingIterator(): void
     {
         $iterator = new CachingIterator(
             new ArrayIterator(['apple', 'banana', 'strawberry'])
@@ -42,7 +42,7 @@ class IteratorExample
         }
     }
 
-    public function limitInfiniteIterator()
+    public function limitInfiniteIterator(): void
     {
         $limitIterator = new LimitIterator(
             new InfiniteIterator(
@@ -57,7 +57,7 @@ class IteratorExample
         }
     }
 
-    public function appendIterator()
+    public function appendIterator(): void
     {
         $iterator = new \AppendIterator();
         $iterator->append(new ArrayIterator(['apple', 'banana', 'strawberry']));
@@ -68,7 +68,7 @@ class IteratorExample
         }
     }
 
-    public function regexIterator()
+    public function regexIterator(): void
     {
         $iterator = new RegexIterator(
             new ArrayIterator(['apple', 'banana', 'strawberry']),
@@ -80,7 +80,7 @@ class IteratorExample
         }
     }
 
-    public function multipleIterator()
+    public function multipleIterator(): void
     {
         $iterator = new MultipleIterator(MultipleIterator::MIT_KEYS_ASSOC);
         $iterator->attachIterator(
@@ -97,11 +97,11 @@ class IteratorExample
         }
     }
 
-    public function iteratorApply()
+    public function iteratorApply(): void
     {
         $arrayIterator = new ArrayIterator(['apple', 'banana', 'strawberry']);
 
-        $pickFruit = function (ArrayIterator $iterator) {
+        $pickFruit = static function (ArrayIterator $iterator) {
             echo 'Picking: ' . $iterator->current() . PHP_EOL;
 
             return true;
@@ -113,7 +113,7 @@ class IteratorExample
     /**
      * @return array
      */
-    public function iteratorToArray()
+    public function iteratorToArray(): array
     {
         return iterator_to_array(new ArrayIterator(['apple', 'banana', 'strawberry']));
     }
@@ -121,7 +121,7 @@ class IteratorExample
     /**
      * @return int
      */
-    public function iteratorCount()
+    public function iteratorCount(): int
     {
         return iterator_count(new ArrayIterator(['apple', 'banana', 'strawberry']));
     }

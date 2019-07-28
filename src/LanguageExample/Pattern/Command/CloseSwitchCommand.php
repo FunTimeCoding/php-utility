@@ -9,15 +9,12 @@ class CloseSwitchCommand implements CommandInterface
      */
     private $switchable;
 
-    /**
-     * @param SwitchableInterface $switchable
-     */
     public function __construct(SwitchableInterface $switchable)
     {
         $this->switchable = $switchable;
     }
 
-    public function execute()
+    public function execute(): void
     {
         $this->switchable->powerOn();
     }

@@ -14,7 +14,7 @@ class NodeTest extends TestCase
 
         $node->setValue('foo');
 
-        $this->assertEquals('foo', $node->getValue());
+        $this::assertEquals('foo', $node->getValue());
     }
 
     public function testAddNode(): void
@@ -24,6 +24,6 @@ class NodeTest extends TestCase
 
         $node->addNode($leaf);
 
-        $this->assertCount(1, $node->getChildren());
+        $this::assertCount(1, $node->getChildren());
     }
 }

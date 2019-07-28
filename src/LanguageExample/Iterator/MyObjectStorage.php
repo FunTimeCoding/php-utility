@@ -41,7 +41,7 @@ class MyObjectStorage implements Iterator, Attachable
      * @param mixed $object
      * @param mixed|null $data
      */
-    public function attach($object, $data = null)
+    public function attach($object, $data = null): void
     {
         $this->objectsIterator->append($object);
         $this->dataIterator->append($data);

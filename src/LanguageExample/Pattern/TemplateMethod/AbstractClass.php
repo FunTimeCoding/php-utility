@@ -9,10 +9,10 @@ abstract class AbstractClass
      *
      * @return int
      */
-    final public function templateMethod()
+    final public function templateMethod(): int
     {
         return 0;
     }
 
-    abstract public function anotherMethod();
+    abstract public function anotherMethod(): int;
 }

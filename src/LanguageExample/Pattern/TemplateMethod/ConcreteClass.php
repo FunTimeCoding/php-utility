@@ -7,7 +7,7 @@ class ConcreteClass extends AbstractClass
     /**
      * @return int
      */
-    public function anotherMethod()
+    public function anotherMethod(): int
     {
         return $this->templateMethod();
     }

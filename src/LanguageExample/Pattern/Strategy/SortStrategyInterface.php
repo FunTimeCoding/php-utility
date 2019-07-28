@@ -9,5 +9,5 @@ interface SortStrategyInterface
      *
      * @return int[] sorted integers
      */
-    public function sort(array $elements);
+    public function sort(array $elements): array;
 }

@@ -36,7 +36,7 @@ class Cupboard implements Iterator
      */
     private $position = 0;
 
-    public function updateIteratorAttributes()
+    public function updateIteratorAttributes(): void
     {
         $attributes = get_object_vars($this);
         unset($attributes['position']);
@@ -48,36 +48,27 @@ class Cupboard implements Iterator
         $this->length = count($attributes);
     }
 
-    /**
-     * @return string
-     */
-    public function current()
+    public function current(): string
     {
         $this->updateIteratorAttributes();
 
         return $this->values[$this->position];
     }
 
-    public function next()
+    public function next(): void
     {
         $this->updateIteratorAttributes();
         ++$this->position;
     }
 
-    /**
-     * @return string
-     */
-    public function key()
+    public function key(): string
     {
         $this->updateIteratorAttributes();
 
         return $this->keys[$this->position];
     }
 
-    /**
-     * @return bool
-     */
-    public function valid()
+    public function valid(): bool
     {
         $this->updateIteratorAttributes();
         $result = false;
@@ -89,7 +80,7 @@ class Cupboard implements Iterator
         return $result;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->updateIteratorAttributes();
         $this->position = 0;

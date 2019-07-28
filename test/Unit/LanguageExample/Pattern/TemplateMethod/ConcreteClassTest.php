@@ -13,6 +13,6 @@ class ConcreteClassTest extends TestCase
 
         $result = $object->anotherMethod();
 
-        $this->assertEquals(0, $result);
+        $this::assertEquals(0, $result);
     }
 }

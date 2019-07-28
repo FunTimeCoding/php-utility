@@ -13,7 +13,7 @@ class CloseSwitchCommandTest extends TestCase
     {
         $mock = $this->getMockBuilder(SwitchableInterface::class)->getMock();
         /* @var MockObject $mock */
-        $mock->expects($this->once())->method('powerOn');
+        $mock->expects($this::once())->method('powerOn');
 
         /* @var SwitchableInterface $mock */
         $command = new CloseSwitchCommand($mock);

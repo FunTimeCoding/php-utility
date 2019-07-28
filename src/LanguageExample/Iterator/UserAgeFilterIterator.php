@@ -7,37 +7,37 @@ use Iterator;
 
 class UserAgeFilterIterator extends FilterIterator
 {
+    /**
+     * @var int
+     */
     private $minimum;
-    private $maximum;
 
     /**
-     * @param Iterator $iterator
-     * @param int      $minimum
-     * @param int      $maximum
+     * @var int
      */
-    public function __construct(Iterator $iterator, $minimum = -1, $maximum = -1)
+    private $maximum;
+
+    public function __construct(Iterator $iterator, int $minimum = -1, int $maximum = -1)
     {
         parent::__construct($iterator);
         $this->minimum = $minimum;
         $this->maximum = $maximum;
     }
 
-    /**
-     * @return bool
-     */
-    public function accept()
+    public function accept(): bool
     {
         /** @var User $current */
         $current = $this->getInnerIterator()->current();
-        $result = true;
         $age = $current->getAge();
 
-        if ($this->minimum != -1 && $age < $this->minimum) {
-            $result = false;
-        } elseif ($this->maximum != -1 && $age > $this->maximum) {
-            $result = false;
+        if ($this->minimum !== -1 && $age < $this->minimum) {
+            return false;
         }
 
-        return $result;
+        if ($this->maximum !== -1 && $age > $this->maximum) {
+            return false;
+        }
+
+        return true;
     }
 }

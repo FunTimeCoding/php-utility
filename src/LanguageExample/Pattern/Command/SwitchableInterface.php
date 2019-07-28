@@ -4,7 +4,7 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command;
 
 interface SwitchableInterface
 {
-    public function powerOn();
+    public function powerOn(): void;
 
-    public function powerOff();
+    public function powerOff(): void;
 }

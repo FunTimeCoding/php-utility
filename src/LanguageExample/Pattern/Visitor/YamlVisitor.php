@@ -9,24 +9,21 @@ class YamlVisitor implements VisitorInterface
      */
     private $indentation = 0;
 
-    /**
-     * @param NodeInterface $node
-     */
-    public function visit(NodeInterface $node)
+    public function visit(NodeInterface $node): void
     {
         $name = $node->getName();
         $value = $node->getValue();
         $children = $node->getChildren();
         $size = count($children);
 
-        if (0 == $size) {
-            if ('' == $value) {
-                echo $this->getSpaces($this->indentation * 4).$name.PHP_EOL;
+        if (0 === $size) {
+            if ('' === $value) {
+                echo $this->getSpaces($this->indentation * 4) . $name . PHP_EOL;
             } else {
-                echo $this->getSpaces($this->indentation * 4).$name.': '.$value.PHP_EOL;
+                echo $this->getSpaces($this->indentation * 4) . $name . ': ' . $value . PHP_EOL;
             }
         } else {
-            echo $name.':'.PHP_EOL;
+            echo $name . ':' . PHP_EOL;
             ++$this->indentation;
 
             foreach ($children as $child) {
@@ -35,12 +32,7 @@ class YamlVisitor implements VisitorInterface
         }
     }
 
-    /**
-     * @param int $number
-     *
-     * @return string
-     */
-    public function getSpaces($number)
+    public function getSpaces(int $number): string
     {
         $result = '';
 

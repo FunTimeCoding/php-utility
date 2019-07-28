@@ -17,7 +17,7 @@ class MediaWikiHelperTest extends TestCase
 
         $queryData = $helper->getLoginLocatorQueryData();
 
-        $this->assertTrue($testHelper->validateQueryData($queryData));
+        $this::assertTrue($testHelper->validateQueryData($queryData));
     }
 
     public function testSearchTokenInDomXpath(): void
@@ -31,7 +31,7 @@ class MediaWikiHelperTest extends TestCase
 
         $result = $helper->searchTokenInDomXpath($xpath);
 
-        $this->assertEquals($token, $result);
+        $this::assertEquals($token, $result);
     }
 
     public function testSearchContentInDomXpath(): void
@@ -45,6 +45,6 @@ class MediaWikiHelperTest extends TestCase
 
         $result = $helper->searchContentInDomXpath($xpath);
 
-        $this->assertEquals($content, $result);
+        $this::assertEquals($content, $result);
     }
 }

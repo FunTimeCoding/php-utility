@@ -12,6 +12,6 @@ class HttpRequestMediaWikiWebClientTest extends TestCase
     {
         $client = new HttpRequestMediaWikiWebClient('mediawiki.dev');
 
-        $this->assertNotNull($client);
+        $this::assertNotNull($client);
     }
 }

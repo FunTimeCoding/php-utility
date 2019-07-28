@@ -9,7 +9,7 @@ use RecursiveTreeIterator;
 
 class RecursiveIteratorExample
 {
-    public function recursiveArrayIterator()
+    public function recursiveArrayIterator(): void
     {
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator(
@@ -25,7 +25,7 @@ class RecursiveIteratorExample
         }
     }
 
-    public function recursiveArrayIteratorWithWhileLoop()
+    public function recursiveArrayIteratorWithWhileLoop(): void
     {
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator(
@@ -46,7 +46,7 @@ class RecursiveIteratorExample
         }
     }
 
-    public function iterator()
+    public function iterator(): void
     {
         $cupboard = new Cupboard();
         $cupboard->lowerDrawer = 'books';
@@ -61,7 +61,7 @@ class RecursiveIteratorExample
      * FIXME: I have no clue how to use this properly.
      * @see http://php.net/manual/en/class.recursivecallbackfilteriterator.php
      */
-    public function recursiveCallbackFilterIterator()
+    public function recursiveCallbackFilterIterator(): void
     {
         $appleFilterCallback = function ($current, $key, $iterator) {
             $result = false;
@@ -92,7 +92,7 @@ class RecursiveIteratorExample
         }
     }
 
-    public function recursiveTreeIterator()
+    public function recursiveTreeIterator(): void
     {
         $iterator = new RecursiveTreeIterator(
             new RecursiveArrayIterator([['a', ['b', 'c']], ['d', 'e']])

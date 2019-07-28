@@ -13,6 +13,6 @@ class SocketTest extends TestCase
 
         $result = $socket->driveFemale();
 
-        $this->assertEquals('Socket driven.', $result);
+        $this::assertEquals('Socket driven.', $result);
     }
 }

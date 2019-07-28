@@ -14,6 +14,6 @@ class MaleToFemaleAdapterTest extends TestCase
 
         $result = $adapter->driveMale();
 
-        $this->assertEquals('Socket driven.', $result);
+        $this::assertEquals('Socket driven.', $result);
     }
 }

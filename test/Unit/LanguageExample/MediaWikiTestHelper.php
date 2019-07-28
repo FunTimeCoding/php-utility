@@ -9,9 +9,13 @@ class MediaWikiTestHelper
     {
         if (!array_key_exists('title', $queryData)) {
             return false;
-        } elseif (!array_key_exists('action', $queryData)) {
+        }
+
+        if (!array_key_exists('action', $queryData)) {
             return false;
-        } elseif (!array_key_exists('type', $queryData)) {
+        }
+
+        if (!array_key_exists('type', $queryData)) {
             return false;
         }
 

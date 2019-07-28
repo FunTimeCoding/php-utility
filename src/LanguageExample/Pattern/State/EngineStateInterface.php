@@ -7,13 +7,7 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\State;
  */
 interface EngineStateInterface
 {
-    /**
-     * @param EngineStateContext $context
-     */
-    public function start(EngineStateContext $context);
+    public function start(EngineStateContext $context): void;
 
-    /**
-     * @param EngineStateContext $context
-     */
-    public function stop(EngineStateContext $context);
+    public function stop(EngineStateContext $context): void;
 }

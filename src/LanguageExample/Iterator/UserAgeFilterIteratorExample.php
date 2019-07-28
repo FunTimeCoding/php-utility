@@ -6,7 +6,7 @@ use ArrayIterator;
 
 class UserAgeFilterIteratorExample
 {
-    public function filterIterator()
+    public function filterIterator(): void
     {
         $someUser = new User();
         $someUser->setName('Someone');

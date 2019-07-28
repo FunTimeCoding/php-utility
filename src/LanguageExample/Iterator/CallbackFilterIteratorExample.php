@@ -7,7 +7,7 @@ use CallbackFilterIterator;
 
 class CallbackFilterIteratorExample
 {
-    public function callbackFilterIterator()
+    public function callbackFilterIterator(): void
     {
         $appleFilterCallback = function ($current, $key, $iterator) {
             $result = false;

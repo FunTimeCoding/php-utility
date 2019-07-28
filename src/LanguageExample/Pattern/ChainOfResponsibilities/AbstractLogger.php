@@ -4,9 +4,9 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibiliti
 
 abstract class AbstractLogger
 {
-    const LEVEL_ERROR = 3;
-    const LEVEL_NOTICE = 5;
-    const LEVEL_DEBUG = 7;
+    public const LEVEL_ERROR = 3;
+    public const LEVEL_NOTICE = 5;
+    public const LEVEL_DEBUG = 7;
 
     /**
      * @var int
@@ -23,36 +23,26 @@ abstract class AbstractLogger
      *
      * @param int $logLevelMask
      */
-    public function __construct($logLevelMask)
+    public function __construct(int $logLevelMask)
     {
         $this->logLevelMask = $logLevelMask;
     }
 
-    /**
-     * @param AbstractLogger $logger
-     */
-    public function setNextLoggerInChain(AbstractLogger $logger)
+    public function setNextLoggerInChain(AbstractLogger $logger): void
     {
         $this->nextLoggerInChain = $logger;
     }
 
-    /**
-     * @param string $message
-     * @param int    $logLevel
-     */
-    public function message($message, $logLevel)
+    public function message(string $message, int $logLevel): void
     {
         if ($logLevel <= $this->logLevelMask) {
             $this->writeMessage($message);
         }
 
-        if ($this->nextLoggerInChain != null) {
+        if ($this->nextLoggerInChain !== null) {
             $this->nextLoggerInChain->message($message, $logLevel);
         }
     }
 
-    /**
-     * @var string
-     */
-    abstract protected function writeMessage($message);
+    abstract protected function writeMessage(string $message): void;
 }

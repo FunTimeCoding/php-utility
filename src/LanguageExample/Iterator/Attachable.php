@@ -8,5 +8,5 @@ interface Attachable
      * @param mixed $object
      * @param mixed|null $data
      */
-    public function attach($object, $data = null);
+    public function attach($object, $data = null): void;
 }

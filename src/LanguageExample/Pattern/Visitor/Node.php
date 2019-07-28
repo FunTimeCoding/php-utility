@@ -19,18 +19,12 @@ class Node implements NodeInterface
      */
     private $children = [];
 
-    /**
-     * @param string $name
-     */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @param VisitorInterface $visitor
-     */
-    public function accept(VisitorInterface $visitor)
+    public function accept(VisitorInterface $visitor): void
     {
         $visitor->visit($this);
     }
@@ -38,39 +32,27 @@ class Node implements NodeInterface
     /**
      * @return NodeInterface[]
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @param string $value
-     */
-    public function setValue($value)
+    public function setValue(string $value): void
     {
         $this->value = $value;
     }
 
-    /**
-     * @param NodeInterface $element
-     */
-    public function addNode(NodeInterface $element)
+    public function addNode(NodeInterface $element): void
     {
         $this->children[] = $element;
     }

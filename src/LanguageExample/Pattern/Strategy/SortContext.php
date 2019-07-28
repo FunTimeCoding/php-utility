@@ -9,28 +9,17 @@ class SortContext
      */
     private $strategy;
 
-    /**
-     * @param SortStrategyInterface $strategy
-     */
     public function __construct(SortStrategyInterface $strategy)
     {
         $this->strategy = $strategy;
     }
 
-    /**
-     * @param SortStrategyInterface $strategy
-     */
-    public function setStrategy(SortStrategyInterface $strategy)
+    public function setStrategy(SortStrategyInterface $strategy): void
     {
         $this->strategy = $strategy;
     }
 
-    /**
-     * @param array $elements
-     *
-     * @return array
-     */
-    public function sort(array $elements)
+    public function sort(array $elements): array
     {
         return $this->strategy->sort($elements);
     }

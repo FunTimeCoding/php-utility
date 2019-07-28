@@ -4,10 +4,7 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor;
 
 class XmlVisitor implements VisitorInterface
 {
-    /**
-     * @param NodeInterface $node
-     */
-    public function visit(NodeInterface $node)
+    public function visit(NodeInterface $node): void
     {
         $name = $node->getName();
         $value = $node->getValue();

@@ -9,7 +9,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      */
-    public function sort(array $elements)
+    public function sort(array $elements): array
     {
         return $this->mergeSort($elements);
     }
@@ -19,14 +19,14 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      */
-    private function mergeSort(array $elements)
+    private function mergeSort(array $elements): array
     {
         if (1 === count($elements)) {
             return $elements;
         }
 
         $left = $right = [];
-        $middle = (int) round(count($elements) / 2);
+        $middle = (int)round(count($elements) / 2);
 
         for ($cursor = 0; $cursor < $middle; ++$cursor) {
             $left[] = $elements[$cursor];
@@ -48,7 +48,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      */
-    private function merge(array $left, array $right)
+    private function merge(array $left, array $right): array
     {
         $result = [];
 

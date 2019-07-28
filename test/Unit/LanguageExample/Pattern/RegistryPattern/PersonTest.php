@@ -14,6 +14,6 @@ class PersonTest extends TestCase
 
         $name = $person->getName();
 
-        $this->assertEquals($testName, $name);
+        $this::assertEquals($testName, $name);
     }
 }

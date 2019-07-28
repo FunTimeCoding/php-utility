@@ -54,7 +54,7 @@ OUTPUT;
      */
     public function testRecursiveCallbackFilterIterator(): void
     {
-        $this->markTestSkipped('RecursiveCallbackFilterIterator requires php 5.6');
+        $this::markTestSkipped('RecursiveCallbackFilterIterator requires php 5.6');
 
         $example = new RecursiveIteratorExample();
 

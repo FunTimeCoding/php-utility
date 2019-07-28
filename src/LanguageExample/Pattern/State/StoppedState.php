@@ -6,10 +6,7 @@ use Exception;
 
 class StoppedState implements EngineStateInterface
 {
-    /**
-     * @param EngineStateContext $context
-     */
-    public function start(EngineStateContext $context)
+    public function start(EngineStateContext $context): void
     {
         $context->setState(new RunningState());
         echo 'Engine started.';
@@ -21,7 +18,7 @@ class StoppedState implements EngineStateInterface
      *
      * @throws Exception
      */
-    public function stop(EngineStateContext $context)
+    public function stop(EngineStateContext $context): void
     {
         throw new Exception('Cannot stop a stopped engine.');
     }

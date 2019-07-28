@@ -16,7 +16,7 @@ class CustomSplObjectStorage implements Iterator, Attachable
      * @param mixed $object
      * @param mixed|null $data
      */
-    public function attach($object, $data = null)
+    public function attach($object, $data = null): void
     {
         $this->storage->attach($object, $data);
     }

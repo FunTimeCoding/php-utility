@@ -2,22 +2,30 @@
 
 namespace FunTimeCoding\PhpUtility\Framework;
 
-use Exception;
 use Symfony\Component\Yaml\Parser;
 
-class YamlConfig implements ConfigInterface
+class YamlConfiguration implements ConfigInterface
 {
-    private $config = [];
+    /**
+     * @var array
+     */
+    private $configuration;
 
     /**
      * @param string $filename
+     * @throws FrameworkException
      */
     public function __construct($filename)
     {
         $path = $this->expandTilde($filename);
         $content = file_get_contents($path);
+
+        if ($content === false) {
+            throw new FrameworkException('Could not read file: ' . $path);
+        }
+
         $parser = new Parser();
-        $this->config = $parser->parse($content);
+        $this->configuration = $parser->parse($content);
     }
 
     /**
@@ -32,7 +40,7 @@ class YamlConfig implements ConfigInterface
             $path = str_replace('~', $info['dir'], $path);
         }
 
-        return (string)$path;
+        return $path;
     }
 
     /**
@@ -40,8 +48,6 @@ class YamlConfig implements ConfigInterface
      * @param array $heap
      *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
-     *
-     * @throws Exception
      */
     public function getFromMultidimensionalArray(array $keys, array $heap)
     {
@@ -69,14 +75,13 @@ class YamlConfig implements ConfigInterface
      * @param string|array $key
      *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
-     * @throws Exception
      */
     public function get($key)
     {
         if (is_array($key)) {
-            $result = $this->getFromMultidimensionalArray($key, $this->config);
-        } elseif (array_key_exists($key, $this->config)) {
-            $result = $this->config[$key];
+            $result = $this->getFromMultidimensionalArray($key, $this->configuration);
+        } elseif (array_key_exists($key, $this->configuration)) {
+            $result = $this->configuration[$key];
         } else {
             $result = '';
         }

@@ -12,6 +12,6 @@ class CurlMediaWikiWebClientTest extends TestCase
     {
         $client = new CurlMediaWikiWebClient('mediawiki.dev');
 
-        $this->assertNotNull($client);
+        $this::assertNotNull($client);
     }
 }

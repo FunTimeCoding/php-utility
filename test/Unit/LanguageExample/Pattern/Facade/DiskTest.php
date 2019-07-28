@@ -13,6 +13,6 @@ class DiskTest extends TestCase
 
         $result = $disk->read();
 
-        $this->assertEquals('DiskContents', $result);
+        $this::assertEquals('DiskContents', $result);
     }
 }
