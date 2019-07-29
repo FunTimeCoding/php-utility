@@ -23,10 +23,6 @@ class MyObjectStorage implements Iterator, Attachable
      */
     private $storage;
 
-    /**
-     * @param array $objects
-     * @param array $data
-     */
     public function __construct(array $objects, array $data)
     {
         $this->objectsIterator = new ArrayIterator($objects);
@@ -57,30 +53,24 @@ class MyObjectStorage implements Iterator, Attachable
         return $result['data'];
     }
 
-    public function next()
+    public function next(): void
     {
         $this->storage->next();
     }
 
-    /**
-     * @return string
-     */
-    public function key()
+    public function key(): string
     {
         $result = $this->storage->current();
 
-        return $result['objects']->__toString();
+        return (string)$result['objects'];
     }
 
-    /**
-     * @return bool
-     */
-    public function valid()
+    public function valid(): bool
     {
         return $this->storage->valid();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->storage->valid();
     }

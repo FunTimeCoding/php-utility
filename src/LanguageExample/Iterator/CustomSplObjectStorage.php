@@ -34,28 +34,22 @@ class CustomSplObjectStorage implements Iterator, Attachable
         return $this->storage->getInfo();
     }
 
-    public function next()
+    public function next(): void
     {
         $this->storage->next();
     }
 
-    /**
-     * @return object
-     */
-    public function key()
+    public function key(): string
     {
-        return $this->storage->current()->__toString();
+        return (string)$this->storage->current();
     }
 
-    /**
-     * @return bool
-     */
-    public function valid()
+    public function valid(): bool
     {
         return $this->storage->valid();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->storage->rewind();
     }

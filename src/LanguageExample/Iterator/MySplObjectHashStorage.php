@@ -37,7 +37,7 @@ class MySplObjectHashStorage implements Iterator, Attachable
      */
     public function attach($object, $data = null): void
     {
-        $this->hashes = spl_object_hash($object);
+        $this->hashes[] = spl_object_hash($object);
         $this->objects[$this->position] = $object;
         $this->objectData[$this->position] = $data;
         ++$this->length;
