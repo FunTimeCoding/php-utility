@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -39,9 +40,12 @@ class CustomSplObjectStorage implements Iterator, Attachable
         $this->storage->next();
     }
 
-    public function key(): string
+    /**
+     * @return mixed|null
+     */
+    public function key()
     {
-        return (string)$this->storage->current();
+        return $this->storage->current();
     }
 
     public function valid(): bool

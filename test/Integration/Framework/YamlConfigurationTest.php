@@ -45,9 +45,12 @@ class YamlConfigurationTest extends TestCase
         $this::assertEquals('insecurePassword', $array['password']);
     }
 
+    /**
+     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     */
     public function testAccessSubKey(): void
     {
-        $result = $this->configuration->get(['development', 'username']);
+        $result = $this->configuration->getMultipleKeys(['development', 'username']);
 
         $this::assertEquals('randomUser', $result);
     }
@@ -59,9 +62,12 @@ class YamlConfigurationTest extends TestCase
         $this::assertEquals('', $result);
     }
 
+    /**
+     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     */
     public function testInvalidSubKey(): void
     {
-        $result = $this->configuration->get(['development', 'invalidKey']);
+        $result = $this->configuration->getMultipleKeys(['development', 'invalidKey']);
 
         $this::assertEquals('', $result);
     }

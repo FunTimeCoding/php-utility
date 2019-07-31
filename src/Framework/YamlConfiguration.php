@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Framework;
 
@@ -48,6 +49,7 @@ class YamlConfiguration implements ConfigInterface
      * @param array $heap
      *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
+     * @throws FrameworkException
      */
     public function getFromMultidimensionalArray(array $keys, array $heap)
     {
@@ -55,6 +57,10 @@ class YamlConfiguration implements ConfigInterface
         $depth = 0;
 
         foreach ($keys as $key) {
+            if (is_int($key) === false && is_string($key) === false) {
+                throw new FrameworkException('Invalid key type.');
+            }
+
             if (array_key_exists($key, $heap)) {
                 if ($depth === $length) {
                     break;
@@ -72,20 +78,23 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param string|array $key
+     * @param string $key
      *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      */
-    public function get($key)
+    public function get(string $key)
     {
-        if (is_array($key)) {
-            $result = $this->getFromMultidimensionalArray($key, $this->configuration);
-        } elseif (array_key_exists($key, $this->configuration)) {
-            $result = $this->configuration[$key];
-        } else {
-            $result = '';
-        }
+        return $this->configuration[$key];
+    }
 
-        return $result;
+    /**
+     * @param array $keys
+     *
+     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
+     * @throws FrameworkException
+     */
+    public function getMultipleKeys(array $keys)
+    {
+        return $this->getFromMultidimensionalArray($keys, $this->configuration);
     }
 }

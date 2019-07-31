@@ -36,7 +36,7 @@ class ProxyFile implements FileInterface
 
     public function getFile(): RealFile
     {
-        if ($this->file) {
+        if (null !== $this->file) {
             return $this->file;
         }
 

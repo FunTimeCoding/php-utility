@@ -4,7 +4,6 @@ namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
 
 use FunTimeCoding\PhpUtility\LanguageExample\CurlMediaWikiWebClient;
 use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
-use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient;
 use FunTimeCoding\PhpUtility\Framework\YamlConfiguration;
 use PHPUnit\Framework\TestCase;
 
@@ -25,7 +24,7 @@ class MediaWikiWebClientTest extends TestCase
         $clients = [$httpRequestClient, $curlClient];
 
         foreach ($clients as $client) {
-            /* @var MediaWikiWebClient $client */
+            /* @var \FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient $client */
             $client->setUsername($username);
             $client->setPassword($password);
             $client->login();

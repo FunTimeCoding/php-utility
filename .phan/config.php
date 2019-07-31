@@ -53,10 +53,13 @@ return [
         'vendor/symfony/translation/',
         'vendor/symfony/validator/',
         'vendor/symfony/yaml/',
+        'vendor/symfony/twig-bridge/',
         'vendor/nikic/fast-route/src/',
         'vendor/guzzlehttp/guzzle/src/',
         'vendor/twig/twig/src/',
         'vendor/league/csv/src/',
+        'vendor/webonyx/graphql-php/src/',
+        'vendor/psr/http-message/src/',
     ],
     'analyzed_file_extensions' => ['php'],
     'exclude_analysis_directory_list' => [

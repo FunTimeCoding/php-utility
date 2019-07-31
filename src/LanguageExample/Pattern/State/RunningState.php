@@ -1,9 +1,13 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\State;
 
 use Exception;
 
+/**
+ * @phan-file-suppress PhanUnusedPublicMethodParameter
+ */
 class RunningState implements EngineStateInterface
 {
     /**

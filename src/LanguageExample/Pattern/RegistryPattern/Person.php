@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\RegistryPattern;
 
@@ -9,18 +10,12 @@ class Person
      */
     private $name;
 
-    /**
-     * @param string $name
-     */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string $name
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }

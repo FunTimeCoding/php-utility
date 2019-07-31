@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -9,10 +10,12 @@ class CallbackFilterIteratorExample
 {
     public function callbackFilterIterator(): void
     {
-        $appleFilterCallback = function ($current, $key, $iterator) {
+        // Not all parameters have to be used.
+        // @phan-suppress-next-line PhanUnusedClosureParameter
+        $appleFilterCallback = static function ($current, $key, $iterator) {
             $result = false;
 
-            if ($current == 'apple') {
+            if ($current === 'apple') {
                 $result = true;
             }
 

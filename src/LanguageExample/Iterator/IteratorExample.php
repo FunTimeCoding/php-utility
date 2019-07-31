@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -44,6 +45,10 @@ class IteratorExample
 
     public function limitInfiniteIterator(): void
     {
+        // TODO: Psalm says InfiniteIterator expects Iteator, not Iterator.
+        /**
+         * @psalm-suppress InvalidArgument
+         */
         $limitIterator = new LimitIterator(
             new InfiniteIterator(
                 new ArrayIterator(['apple', 'banana', 'strawberry'])

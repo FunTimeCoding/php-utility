@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample;
 
@@ -37,6 +38,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     /**
      * @param string $page
      * @return string
+     * @throws FrameworkException
      */
     public function getPage(string $page): string
     {
@@ -48,6 +50,11 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         return $helper->searchContentInDomXpath($xpath) ?? '';
     }
 
+    /**
+     * @param string $locator
+     * @return string
+     * @throws FrameworkException
+     */
     public function makeCurlGetRequestAndReadCookies(string $locator): string
     {
         $request = $this->createCurlRequest($locator);
@@ -60,10 +67,16 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     /**
      * @param string $locator
      * @return resource
+     * @throws FrameworkException
      */
     public function createCurlRequest(string $locator)
     {
+        /** @var mixed $request */
         $request = curl_init();
+
+        if (is_resource($request) === false) {
+            throw new FrameworkException('Could not create cURL resource.');
+        }
 
         curl_setopt($request, CURLOPT_URL, $locator);
 
@@ -113,6 +126,11 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         }
     }
 
+    /**
+     * @param string $locator
+     * @return string
+     * @throws FrameworkException
+     */
     public function makeCurlGetRequestAndWriteCookies(string $locator): string
     {
         $request = $this->createCurlRequest($locator);
@@ -133,6 +151,12 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         ];
     }
 
+    /**
+     * @param string $locator
+     * @param array $formData
+     * @return string
+     * @throws FrameworkException
+     */
     public function makeCurlPostRequest(string $locator, array $formData): string
     {
         $request = $this->createCurlRequest($locator);

@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ObjectStorageTest extends TestCase
 {
     /**
+     * TODO: This should probably not output different objects than in the other tests.
      * @outputBuffering enabled
      */
     public function testSplObjectStorage(): void
@@ -17,13 +18,21 @@ class ObjectStorageTest extends TestCase
         $example->customSplObjectStorage();
 
         $expected = <<<OUTPUT
-Object: apple
+Object: FunTimeCoding\PhpUtility\LanguageExample\Iterator\CustomStorageObject Object
+(
+    [name] => apple
+)
+
 Data: Array
 (
     [0] => apple
 )
 
-Object: banana
+Object: FunTimeCoding\PhpUtility\LanguageExample\Iterator\CustomStorageObject Object
+(
+    [name] => banana
+)
+
 Data: Array
 (
     [0] => banana

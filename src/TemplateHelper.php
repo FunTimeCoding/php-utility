@@ -1,15 +1,15 @@
 <?php
+declare(strict_types=1);
+
 namespace FunTimeCoding\PhpUtility;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use ReflectionClass;
 use ReflectionException;
 use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Bridge\Twig\Extension\FormExtension;
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Bridge\Twig\Form\TwigRendererEngine;
 use Symfony\Component\Form\FormRenderer;
-use Symfony\Component\Translation\Loader\XliffFileLoader;
-use Symfony\Component\Translation\Translator;
 use Twig\Environment;
 use Twig\RuntimeLoader\FactoryRuntimeLoader;
 use Twig\Loader\FilesystemLoader;
@@ -19,20 +19,30 @@ class TemplateHelper
     /**
      * @return Environment
      * @throws ReflectionException
+     * @throws FrameworkException
      */
     public function createTwigEnvironment(): Environment
     {
         $bridgeBundleClass = new ReflectionClass(AppVariable::class);
         // TODO: Use cache.
         //['cache' => 'path/to/cache']
-        $twig = new Environment(
-            new FilesystemLoader(
-                [
-                    __DIR__ . '/../template',
-                    dirname($bridgeBundleClass->getFileName()) . '/Resources/views/Form',
-                ]
-            )
+
+        $bridgeBundleFileName = $bridgeBundleClass->getFileName();
+
+        if ($bridgeBundleFileName === false) {
+            throw new FrameworkException('Could not determine bridge bundle file name.');
+        }
+
+        // TODO: Remove after Twig 3.0 is released.
+        // @phan-suppress-next-line PhanDeprecatedInterface
+        $fileSystemLoader = new FilesystemLoader(
+            [
+                __DIR__ . '/../template',
+                dirname($bridgeBundleFileName) . '/Resources/views/Form',
+            ]
         );
+
+        $twig = new Environment($fileSystemLoader);
         $formEngine = new TwigRendererEngine(
             [
                 'form_div_layout.html.twig'
@@ -49,32 +59,7 @@ class TemplateHelper
             )
         );
         $twig->addExtension(new FormExtension());
-
-        $translator = new Translator('en');
-        $translator->addLoader('xlf', new XliffFileLoader());
-        $translator->addResource(
-            'xlf',
-            __DIR__ . '/../translation/messages.en.xlf',
-            'en'
-        );
-
-        $vendorDirectory = dirname(__DIR__) . '/vendor';
-        $formDirectory = $vendorDirectory . '/symfony/form';
-        $validatorDirectory = $vendorDirectory . '/symfony/validator';
-        $translator->addResource(
-            'xlf',
-            $formDirectory . '/Resources/translations/validators.en.xlf',
-            'en',
-            'validators'
-        );
-        $translator->addResource(
-            'xlf',
-            $validatorDirectory . '/Resources/translations/validators.en.xlf',
-            'en',
-            'validators'
-        );
-
-        $twig->addExtension(new TranslationExtension($translator));
+        $twig->addExtension((new TranslatorFactory())->create());
 
         return $twig;
     }

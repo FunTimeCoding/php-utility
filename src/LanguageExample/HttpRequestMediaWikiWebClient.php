@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample;
 
@@ -43,15 +44,19 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         $client = new Client();
         // TODO: Enable cookies?
 
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
         try {
             $response = $client->request('GET', $this->locator . '/' . $page);
         } catch (GuzzleException $e) {
             throw new FrameworkException($e->getMessage());
         }
 
-        return $helper->searchContentInDomXpath(
-            $helper->createDomXpathForBody((string)$response->getBody())
-            ) ?? '';
+        $xpath = $helper->createDomXpathForBody((string)$response->getBody());
+
+        return $helper->searchContentInDomXpath($xpath) ?? '';
     }
 
     /**
@@ -69,6 +74,10 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         $loginLocator = $this->locator . '?' . implode('&', $query);
         $client = new Client();
 
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
         try {
             $response = $client->request('GET', $loginLocator);
         } catch (GuzzleException $e) {
@@ -82,6 +91,10 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
             throw new FrameworkException('Could not find token.');
         }
 
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
         try {
             $response = $client->request(
                 'POST',

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility;
 
@@ -8,8 +9,14 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 
+/**
+ * @see https://github.com/webonyx/graphql-php/blob/master/examples/00-hello-world/graphql.php
+ */
 class GraphQueryLanguageService
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
     public function main(): void
     {
         try {
@@ -36,6 +43,7 @@ class GraphQueryLanguageService
                             'x' => ['type' => Type::int()],
                             'y' => ['type' => Type::int()],
                         ],
+                        // @phan-suppress-next-line PhanUnusedClosureParameter
                         'resolve' => static function ($calc, $args) {
                             return $args['x'] + $args['y'];
                         },
