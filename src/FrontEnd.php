@@ -1,24 +1,29 @@
 <?php
+declare(strict_types=1);
+
 namespace FunTimeCoding\PhpUtility;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use ReflectionException;
-use Twig_Error;
+use Twig\Error\Error;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use function FastRoute\simpleDispatcher;
 
 class FrontEnd
 {
-    const GET = 'GET';
-    const POST = 'POST';
-    const INDEX_HANDLER = 'index';
-    const SETTINGS_HANDLER = 'settings';
-    const FORM_GET_HANDLER = 'form_get';
-    const FORM_POST_HANDLER = 'form_post';
+    public const GET = 'GET';
+    public const POST = 'POST';
+    public const INDEX_HANDLER = 'index';
+    public const SETTINGS_HANDLER = 'settings';
+    public const FORM_GET_HANDLER = 'form_get';
+    public const FORM_POST_HANDLER = 'form_post';
 
     public static function main(string $resourceIdentifier, string $method): void
     {
-        $frontEnd = new FrontEnd();
+        $frontEnd = new self();
         echo $frontEnd->run($resourceIdentifier, $method);
     }
 
@@ -36,7 +41,7 @@ class FrontEnd
     public function run(string $resourceIdentifier, string $method): string
     {
         $dispatcher = simpleDispatcher(
-            function (RouteCollector $collector) {
+            static function (RouteCollector $collector) {
                 $collector->addRoute(self::GET, '/', self::INDEX_HANDLER);
                 $collector->addRoute(self::GET, '/settings', self::SETTINGS_HANDLER);
                 $collector->addRoute(self::GET, '/form', self::FORM_GET_HANDLER);
@@ -63,7 +68,7 @@ class FrontEnd
 
                 try {
                     $output = $this->foundRequest($dispatchResult[1]);
-                } catch (Twig_Error $exception) {
+                } catch (Error $exception) {
                     $output = $exception->getMessage() . PHP_EOL;
                 } catch (ReflectionException $exception) {
                     $output = $exception->getMessage() . PHP_EOL;
@@ -84,20 +89,20 @@ class FrontEnd
      *
      * @return string
      * @throws ReflectionException
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function foundRequest(string $handler): string
     {
         $helper = new TemplateHelper();
         $twig = $helper->createTwigEnvironment();
 
-        if ($handler == self::INDEX_HANDLER) {
+        if ($handler === self::INDEX_HANDLER) {
             $output = $twig->render('index.html.twig');
-        } elseif ($handler == self::SETTINGS_HANDLER) {
+        } elseif ($handler === self::SETTINGS_HANDLER) {
             $output = $twig->render('settings.html.twig');
-        } elseif (in_array($handler, [self::FORM_GET_HANDLER, self::FORM_POST_HANDLER])) {
+        } elseif (in_array($handler, [self::FORM_GET_HANDLER, self::FORM_POST_HANDLER], true)) {
             $exampleForm = new ExampleForm();
             $form = $exampleForm->create();
             $form->handleRequest();
@@ -112,8 +117,6 @@ class FrontEnd
                     ]
                 );
             }
-        } elseif ($handler == self::FORM_POST_HANDLER) {
-            $output = 'Implement once the FORM_GET_HANDLER works.' . PHP_EOL;
         } else {
             $output = 'Handler not implemented: ' . $handler . PHP_EOL;
         }

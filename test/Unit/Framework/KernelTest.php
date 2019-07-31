@@ -11,6 +11,6 @@ class KernelTest extends TestCase
     {
         $kernel = new Kernel();
 
-        $this->assertSame(0, $kernel->load());
+        $this::assertSame(0, $kernel->load());
     }
 }

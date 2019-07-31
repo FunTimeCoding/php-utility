@@ -13,7 +13,7 @@ class ProxyFileTest extends TestCase
     {
         $image = new ProxyFile('MyFilename');
 
-        $this->assertEquals(new RealFile(''), $image->getFile());
+        $this::assertEquals(new RealFile(''), $image->getFile());
     }
 
     public function testAfterLoading(): void
@@ -22,6 +22,6 @@ class ProxyFileTest extends TestCase
 
         $image->getContent();
 
-        $this->assertEquals(new RealFile('MyFilename'), $image->getFile());
+        $this::assertEquals(new RealFile('MyFilename'), $image->getFile());
     }
 }

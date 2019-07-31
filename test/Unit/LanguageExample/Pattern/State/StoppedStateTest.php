@@ -20,7 +20,7 @@ class StoppedStateTest extends TestCase
 
         $state->start($context);
 
-        $this->assertEquals(new RunningState(), $context->getState());
+        $this::assertEquals(new RunningState(), $context->getState());
         $this->expectOutputString('Engine started.');
     }
 

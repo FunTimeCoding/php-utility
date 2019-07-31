@@ -53,6 +53,6 @@ class SubjectTest extends TestCase
         $subject->notifyObservers();
 
         $this->expectOutputString('Update called.');
-        $this->assertEquals([$observer2], $subject->getObservers());
+        $this::assertEquals([$observer2], $subject->getObservers());
     }
 }

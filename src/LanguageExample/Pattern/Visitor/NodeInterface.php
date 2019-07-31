@@ -1,26 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor;
 
 interface NodeInterface
 {
-    /**
-     * @param VisitorInterface $visitor
-     */
-    public function accept(VisitorInterface $visitor);
+    public function accept(VisitorInterface $visitor): void;
 
-    /**
-     * @return string
-     */
-    public function getName();
+    public function getName(): string;
 
-    /**
-     * @return string
-     */
-    public function getValue();
+    public function getValue(): string;
 
     /**
      * @return NodeInterface[]
      */
-    public function getChildren();
+    public function getChildren(): array;
 }

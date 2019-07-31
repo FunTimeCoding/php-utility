@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\TemplateMethod;
 
@@ -9,10 +10,10 @@ abstract class AbstractClass
      *
      * @return int
      */
-    final public function templateMethod()
+    final public function templateMethod(): int
     {
         return 0;
     }
 
-    abstract public function anotherMethod();
+    abstract public function anotherMethod(): int;
 }

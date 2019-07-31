@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -35,9 +36,9 @@ class MySplObjectHashStorage implements Iterator, Attachable
      * @param mixed $object
      * @param mixed|null $data
      */
-    public function attach($object, $data = null)
+    public function attach($object, $data = null): void
     {
-        $this->hashes = spl_object_hash($object);
+        $this->hashes[] = spl_object_hash($object);
         $this->objects[$this->position] = $object;
         $this->objectData[$this->position] = $data;
         ++$this->length;
@@ -52,23 +53,17 @@ class MySplObjectHashStorage implements Iterator, Attachable
         return $this->objectData[$this->position];
     }
 
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
 
-    /**
-     * @return string
-     */
-    public function key()
+    public function key(): string
     {
-        return $this->objects[$this->position]->__toString();
+        return (string)$this->objects[$this->position];
     }
 
-    /**
-     * @return bool
-     */
-    public function valid()
+    public function valid(): bool
     {
         $result = false;
 
@@ -79,7 +74,7 @@ class MySplObjectHashStorage implements Iterator, Attachable
         return $result;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }

@@ -17,7 +17,7 @@ class EngineStateContextTest extends TestCase
         $context = new EngineStateContext();
         $context->start();
 
-        $this->assertEquals(new RunningState(), $context->getState());
+        $this::assertEquals(new RunningState(), $context->getState());
         $this->expectOutputString('Engine started.');
     }
 
@@ -32,7 +32,7 @@ class EngineStateContextTest extends TestCase
 
         $context->stop();
 
-        $this->assertEquals(new StoppedState(), $context->getState());
+        $this::assertEquals(new StoppedState(), $context->getState());
         $this->expectOutputString('Engine started.Engine stopped.');
     }
 
@@ -42,7 +42,7 @@ class EngineStateContextTest extends TestCase
 
         $context->setState(new RunningState());
 
-        $this->assertEquals(new RunningState(), $context->getState());
+        $this::assertEquals(new RunningState(), $context->getState());
     }
 
     public function testSetStateToOff(): void
@@ -51,6 +51,6 @@ class EngineStateContextTest extends TestCase
 
         $context->setState(new StoppedState());
 
-        $this->assertEquals(new StoppedState(), $context->getState());
+        $this::assertEquals(new StoppedState(), $context->getState());
     }
 }

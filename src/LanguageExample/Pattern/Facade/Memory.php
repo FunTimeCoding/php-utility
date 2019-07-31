@@ -1,13 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade;
 
 class Memory
 {
-    /**
-     * @return string
-     */
-    public function load()
+    public function load(): string
     {
         return 'MemoryContents';
     }

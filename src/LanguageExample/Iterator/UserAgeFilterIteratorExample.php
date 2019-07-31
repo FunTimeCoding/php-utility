@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -6,7 +7,7 @@ use ArrayIterator;
 
 class UserAgeFilterIteratorExample
 {
-    public function filterIterator()
+    public function filterIterator(): void
     {
         $someUser = new User();
         $someUser->setName('Someone');

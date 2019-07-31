@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade;
 
@@ -26,7 +27,7 @@ class ComputerFacade
         $this->disk = new Disk();
     }
 
-    public function start()
+    public function start(): void
     {
         echo $this->disk->read();
         echo $this->memory->load();

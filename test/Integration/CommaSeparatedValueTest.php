@@ -6,18 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 class CommaSeparatedValueTest extends TestCase
 {
-    /**
-     * @throws \League\Csv\Exception
-     */
     public function testUseLibrary(): void
     {
-        $reader = Reader::createFromPath(__DIR__ . '/Fixture/example.csv', 'r');
+        $reader = Reader::createFromPath(__DIR__ . '/Fixture/example.csv');
         $reader->setHeaderOffset(0);
         $header = $reader->getHeader();
-        $this->assertInternalType('array', $header);
-        $this->assertContains('first name', $header);
-        $this->assertContains('last name', $header);
-        $this->assertContains('email', $header);
-        $this->assertCount(2, $reader->getRecords());
+        $this::assertContains('first name', $header);
+        $this::assertContains('last name', $header);
+        $this::assertContains('email', $header);
+        $this::assertCount(2, $reader->getRecords());
     }
 }

@@ -165,7 +165,7 @@ OUTPUT;
             'banana',
             'strawberry',
         ];
-        $this->assertEquals($expected, $result);
+        $this::assertEquals($expected, $result);
     }
 
     public function testIteratorCount(): void
@@ -174,6 +174,6 @@ OUTPUT;
 
         $result = $example->iteratorCount();
 
-        $this->assertEquals(3, $result);
+        $this::assertEquals(3, $result);
     }
 }

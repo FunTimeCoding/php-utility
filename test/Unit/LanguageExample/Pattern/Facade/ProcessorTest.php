@@ -13,6 +13,6 @@ class ProcessorTest extends TestCase
 
         $result = $processor->execute();
 
-        $this->assertEquals('ProgramResult', $result);
+        $this::assertEquals('ProgramResult', $result);
     }
 }

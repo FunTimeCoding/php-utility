@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command;
 
@@ -14,22 +15,18 @@ class SwitchInvoker
      */
     private $openedCommand;
 
-    /**
-     * @param CommandInterface $closedCommand
-     * @param CommandInterface $openedCommand
-     */
     public function __construct(CommandInterface $closedCommand, CommandInterface $openedCommand)
     {
         $this->closedCommand = $closedCommand;
         $this->openedCommand = $openedCommand;
     }
 
-    public function open()
+    public function open(): void
     {
         $this->openedCommand->execute();
     }
 
-    public function close()
+    public function close(): void
     {
         $this->closedCommand->execute();
     }

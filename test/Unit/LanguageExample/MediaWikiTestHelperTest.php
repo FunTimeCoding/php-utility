@@ -17,7 +17,7 @@ class MediaWikiTestHelperTest extends TestCase
             'type' => 'value_not_tested',
         ];
 
-        $this->assertTrue($helper->validateQueryData($queryData));
+        $this::assertTrue($helper->validateQueryData($queryData));
     }
 
     public function testTitleMissing(): void
@@ -29,7 +29,7 @@ class MediaWikiTestHelperTest extends TestCase
             'type' => 'value_not_tested',
         ];
 
-        $this->assertFalse($helper->validateQueryData($actionMissing));
+        $this::assertFalse($helper->validateQueryData($actionMissing));
     }
 
     public function testActionMissing(): void
@@ -41,7 +41,7 @@ class MediaWikiTestHelperTest extends TestCase
             'type' => 'value_not_tested',
         ];
 
-        $this->assertFalse($helper->validateQueryData($actionMissing));
+        $this::assertFalse($helper->validateQueryData($actionMissing));
     }
 
     public function testTypeMissing(): void
@@ -53,6 +53,6 @@ class MediaWikiTestHelperTest extends TestCase
             'action' => 'value_not_tested',
         ];
 
-        $this->assertFalse($helper->validateQueryData($actionMissing));
+        $this::assertFalse($helper->validateQueryData($actionMissing));
     }
 }

@@ -17,7 +17,7 @@ class PersonRegistryTest extends TestCase
         $registry->addPerson($person);
         $gottenPerson = $registry->getPersonByName($testName);
 
-        $this->assertSame($person, $gottenPerson);
-        $this->assertNotSame(new Person($testName), $gottenPerson);
+        $this::assertSame($person, $gottenPerson);
+        $this::assertNotSame(new Person($testName), $gottenPerson);
     }
 }

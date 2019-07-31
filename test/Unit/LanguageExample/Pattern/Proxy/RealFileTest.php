@@ -14,6 +14,6 @@ class RealFileTest extends TestCase
 
         $content = $image->getContent();
 
-        $this->assertEquals('Imaginary content of MyFilename', $content);
+        $this::assertEquals('Imaginary content of MyFilename', $content);
     }
 }

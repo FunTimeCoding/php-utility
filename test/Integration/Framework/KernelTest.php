@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class KernelTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
      */
     public function testGetProjectRoot(): void
     {
@@ -16,11 +16,11 @@ class KernelTest extends TestCase
 
         $projectRoot = $kernel->getProjectRoot();
 
-        $this->assertNotEmpty($projectRoot);
+        $this::assertNotEmpty($projectRoot);
     }
 
     /**
-     * @throws \Exception
+     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
      */
     public function testCommandLineCallOfIndex(): void
     {
@@ -32,7 +32,7 @@ class KernelTest extends TestCase
         $returnCode = -1;
         exec($command, $output, $returnCode);
 
-        $this->assertEmpty($output);
-        $this->assertSame(0, $returnCode);
+        $this::assertEmpty($output);
+        $this::assertSame(0, $returnCode);
     }
 }

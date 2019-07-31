@@ -1,19 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Framework;
 
-use Exception;
-
 class Kernel
 {
-    const EXIT_CODE_OK = 0;
-    const EXIT_CODE_ERROR = 1;
-    const PROJECT_ROOT_MARKER_FILE = 'README.md';
+    public const EXIT_CODE_OK = 0;
+    public const PROJECT_ROOT_MARKER_FILE = 'README.md';
 
     /**
      * @var int
      */
-    private $exitCode = 0;
+    private $exitCode;
 
     public function __construct()
     {
@@ -27,35 +25,50 @@ class Kernel
 
     /**
      * @return string
-     * @throws Exception
+     * @throws FrameworkException
      */
     public function getProjectRoot(): string
     {
         $projectRoot = '';
         $currentDirectory = __DIR__;
 
-        while ($currentDirectory != '/') {
+        while ($currentDirectory !== DIRECTORY_SEPARATOR) {
             if ($this->isFileInDirectory(static::PROJECT_ROOT_MARKER_FILE, $currentDirectory)) {
                 $projectRoot = $currentDirectory;
             }
 
-            $currentDirectory = realpath($currentDirectory . DIRECTORY_SEPARATOR . '../');
+            $pathToDetermine = $currentDirectory . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
+            $currentDirectory = realpath($pathToDetermine);
+
+            if ($currentDirectory === false) {
+                throw new FrameworkException('Could not determine realpath: ' . $pathToDetermine);
+            }
         }
 
-        if ($projectRoot == '') {
-            throw new Exception('Could not determine project root.');
+        if ($projectRoot === '') {
+            throw new FrameworkException('Could not determine project root.');
         }
 
         return $projectRoot;
     }
 
+    /**
+     * @param string $fileName
+     * @param string $directory
+     * @return bool
+     * @throws FrameworkException
+     */
     private function isFileInDirectory(string $fileName, string $directory): bool
     {
         $result = false;
         $directoryContents = scandir($directory);
 
+        if ($directoryContents === false) {
+            throw new FrameworkException('Could not scan directory: ' . $directory);
+        }
+
         foreach ($directoryContents as $element) {
-            if ($element == $fileName) {
+            if ($element === $fileName) {
                 $result = true;
                 break;
             }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
 
@@ -9,7 +10,7 @@ class BubbleSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      */
-    public function sort(array $elements)
+    public function sort(array $elements): array
     {
         $size = count($elements);
 
@@ -26,10 +27,10 @@ class BubbleSortStrategy implements SortStrategyInterface
 
     /**
      * @param int[] $elements
-     * @param int   $leftElement
-     * @param int   $rightElement
+     * @param int $leftElement
+     * @param int $rightElement
      */
-    private function swap(array &$elements, $leftElement, $rightElement)
+    private function swap(array &$elements, $leftElement, $rightElement): void
     {
         $tempNumber = $elements[$leftElement];
         $elements[$leftElement] = $elements[$rightElement];

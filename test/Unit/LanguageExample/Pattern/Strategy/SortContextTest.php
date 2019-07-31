@@ -17,6 +17,6 @@ class SortContextTest extends TestCase
 
         $result = $context->sort($elements);
 
-        $this->assertEquals([1, 2, 3, 4, 5], $result);
+        $this::assertEquals([1, 2, 3, 4, 5], $result);
     }
 }

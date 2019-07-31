@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge;
 
@@ -8,7 +9,7 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Bridge;
  */
 interface SwitchBridgeInterface
 {
-    public function turnOn();
+    public function turnOn(): void;
 
-    public function turnOff();
+    public function turnOff(): void;
 }

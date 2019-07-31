@@ -1,9 +1,13 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\State;
 
 use Exception;
 
+/**
+ * @phan-file-suppress PhanUnusedPublicMethodParameter
+ */
 class RunningState implements EngineStateInterface
 {
     /**
@@ -12,15 +16,12 @@ class RunningState implements EngineStateInterface
      *
      * @throws Exception
      */
-    public function start(EngineStateContext $context)
+    public function start(EngineStateContext $context): void
     {
         throw new Exception('Cannot start a running engine.');
     }
 
-    /**
-     * @param EngineStateContext $context
-     */
-    public function stop(EngineStateContext $context)
+    public function stop(EngineStateContext $context): void
     {
         $context->setState(new StoppedState());
         echo 'Engine stopped.';

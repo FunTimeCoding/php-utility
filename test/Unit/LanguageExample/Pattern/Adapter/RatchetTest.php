@@ -14,6 +14,6 @@ class RatchetTest extends TestCase
 
         $result = $ratchet->driveMale(new Socket());
 
-        $this->assertEquals('Socket driven.', $result);
+        $this::assertEquals('Socket driven.', $result);
     }
 }

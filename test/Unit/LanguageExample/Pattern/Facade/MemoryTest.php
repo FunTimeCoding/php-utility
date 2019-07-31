@@ -13,6 +13,6 @@ class MemoryTest extends TestCase
 
         $result = $memory->load();
 
-        $this->assertEquals('MemoryContents', $result);
+        $this::assertEquals('MemoryContents', $result);
     }
 }

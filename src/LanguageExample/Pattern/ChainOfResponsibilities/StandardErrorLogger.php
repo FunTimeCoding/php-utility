@@ -1,22 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities;
 
 class StandardErrorLogger extends AbstractLogger
 {
-    /**
-     * @param int $logLevelMask
-     */
-    public function __construct($logLevelMask)
+    protected function writeMessage(string $message): void
     {
-        parent::__construct($logLevelMask);
-    }
-
-    /**
-     * @var string
-     */
-    protected function writeMessage($message)
-    {
-        echo 'Writing to standard error file descriptor: '.$message.PHP_EOL;
+        echo 'Writing to standard error file descriptor: ' . $message . PHP_EOL;
     }
 }

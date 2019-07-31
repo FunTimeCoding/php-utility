@@ -1,11 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Visitor;
 
 interface VisitorInterface
 {
-    /**
-     * @param NodeInterface $node
-     */
-    public function visit(NodeInterface $node);
+    public function visit(NodeInterface $node): void;
 }

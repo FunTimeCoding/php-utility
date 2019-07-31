@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\RegistryPattern;
 
@@ -9,17 +10,12 @@ class PersonRegistry
      */
     private $personList = [];
 
-    public function addPerson(Person $person)
+    public function addPerson(Person $person): void
     {
         $this->personList[] = $person;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Person|null
-     */
-    public function getPersonByName($name)
+    public function getPersonByName(string $name): ?Person
     {
         foreach ($this->personList as $person) {
             if ($person->getName() === $name) {

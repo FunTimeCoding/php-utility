@@ -1,13 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade;
 
 class Disk
 {
-    /**
-     * @return string
-     */
-    public function read()
+    public function read(): string
     {
         return 'DiskContents';
     }

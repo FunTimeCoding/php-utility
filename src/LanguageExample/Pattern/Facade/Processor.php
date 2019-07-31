@@ -1,13 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Facade;
 
 class Processor
 {
-    /**
-     * @return string
-     */
-    public function execute()
+    public function execute(): string
     {
         return 'ProgramResult';
     }

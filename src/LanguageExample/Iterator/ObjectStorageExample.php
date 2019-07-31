@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
@@ -6,14 +7,14 @@ use Iterator;
 
 class ObjectStorageExample
 {
-    public function customSplObjectStorage()
+    public function customSplObjectStorage(): void
     {
         $iterator = new CustomSplObjectStorage();
         $this->populateIterator($iterator);
         $this->printIterator($iterator);
     }
 
-    public function myObjectStorage()
+    public function myObjectStorage(): void
     {
         $appleKey = new CustomStorageObject();
         $appleKey->name = 'apple';
@@ -27,17 +28,14 @@ class ObjectStorageExample
         $this->printIterator($iterator);
     }
 
-    public function mySplObjectHashStorage()
+    public function mySplObjectHashStorage(): void
     {
         $iterator = new MySplObjectHashStorage();
         $this->populateIterator($iterator);
         $this->printIterator($iterator);
     }
 
-    /**
-     * @param Attachable $iterator
-     */
-    public function populateIterator(Attachable $iterator)
+    public function populateIterator(Attachable $iterator): void
     {
         $appleKey = new CustomStorageObject();
         $appleKey->name = 'apple';
@@ -50,10 +48,7 @@ class ObjectStorageExample
         $iterator->attach($bananaKey, $bananaValue);
     }
 
-    /**
-     * @param Iterator $iterator
-     */
-    public function printIterator(Iterator $iterator)
+    public function printIterator(Iterator $iterator): void
     {
         foreach ($iterator as $key => $value) {
             echo 'Object: '.print_r($key, true).PHP_EOL;

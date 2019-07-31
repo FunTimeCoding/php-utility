@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample;
 
-use Exception;
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
 {
@@ -34,25 +36,33 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
      * @param string $page
      *
      * @return string
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws FrameworkException
      */
     public function getPage(string $page): string
     {
         $helper = new MediaWikiHelper();
         $client = new Client();
         // TODO: Enable cookies?
-        $response = $client->request('GET', $this->locator . '/' . $page);
 
-        return $helper->searchContentInDomXpath(
-            $helper->createDomXpathForBody((string)$response->getBody())
-        );
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
+        try {
+            $response = $client->request('GET', $this->locator . '/' . $page);
+        } catch (GuzzleException $e) {
+            throw new FrameworkException($e->getMessage());
+        }
+
+        $xpath = $helper->createDomXpathForBody((string)$response->getBody());
+
+        return $helper->searchContentInDomXpath($xpath) ?? '';
     }
 
     /**
-     * @throws Exception
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws FrameworkException
      */
-    public function login()
+    public function login(): void
     {
         $helper = new MediaWikiHelper();
         $query = [];
@@ -61,22 +71,44 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
             $query[] = $key . '=' . $value;
         }
 
-        $locator = $this->locator . '?' . join('&', $query);
+        $loginLocator = $this->locator . '?' . implode('&', $query);
         $client = new Client();
-        $response = $client->request('GET', $locator);
+
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
+        try {
+            $response = $client->request('GET', $loginLocator);
+        } catch (GuzzleException $e) {
+            throw new FrameworkException($e->getMessage());
+        }
+
         $xpath = $helper->createDomXpathForBody((string)$response->getBody());
-        $response = $client->request(
-            'POST',
-            $locator,
-            $this->createFormDataWithToken(
-                $helper->searchTokenInDomXpath($xpath)
-            )
-        );
-        $response = $client->request('GET', $response->getHeader('Location'));
+        $token = $helper->searchTokenInDomXpath($xpath);
+
+        if ($token === null) {
+            throw new FrameworkException('Could not find token.');
+        }
+
+        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
+        /**
+         * @psalm-suppress InvalidCatch
+         */
+        try {
+            $response = $client->request(
+                'POST',
+                $loginLocator,
+                $this->createFormDataWithToken($token)
+            );
+        } catch (GuzzleException $e) {
+            throw new FrameworkException($e->getMessage());
+        }
+
         $xpath = $helper->createDomXpathForBody((string)$response->getBody());
 
         if (1 !== $xpath->query('//li[@id="pt-logout"]')->length) {
-            throw new Exception('Login failed.');
+            throw new FrameworkException('Login failed.');
         }
     }
 
