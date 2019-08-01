@@ -16,7 +16,7 @@ cp /vagrant/configuration/xdebug.ini /etc/php/7.3/mods-available/xdebug.ini
 systemctl restart php7.3-fpm
 
 apt-get --quiet 2 install nginx-light curl
-cp /vagrant/configuration/site.conf /etc/nginx/sites-available/default
+cp /vagrant/configuration/site.txt /etc/nginx/sites-available/default
 systemctl restart nginx
 
 # Let vagrant user read web server logs.
@@ -28,3 +28,12 @@ chmod +x /usr/local/bin/composer
 
 cp /vagrant/configuration/php-utility.yaml /home/vagrant/.php-utility.yaml
 chown vagrant:vagrant /home/vagrant/.php-utility.yaml
+
+cp /vagrant/configuration/mediawiki.txt /etc/nginx/sites-available/mediawiki
+ln --symbolic --force /etc/nginx/sites-available/mediawiki /etc/nginx/sites-enabled/mediawiki
+apt-get --quiet 2 install mariadb-server php-mysql php-intl php-apcu
+
+systemctl restart php7.3-fpm
+
+mysql --execute "CREATE DATABASE IF NOT EXISTS mediawiki;
+GRANT ALL PRIVILEGES ON *.* TO 'mediawiki'@'localhost' IDENTIFIED BY 'mediawiki';"

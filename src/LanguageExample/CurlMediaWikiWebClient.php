@@ -146,8 +146,9 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
             'wpName' => $this->username,
             'wpPassword' => $this->password,
             'wpLoginAttempt' => 'Log in',
+            'wpEditToken' => '+\\',
+            'authAction' => 'login',
             'wpLoginToken' => $token,
-            'wpRemember' => '1',
         ];
     }
 

@@ -84,7 +84,11 @@ class YamlConfiguration implements ConfigInterface
      */
     public function get(string $key)
     {
-        return $this->configuration[$key];
+        if (array_key_exists($key, $this->configuration)) {
+            return $this->configuration[$key];
+        }
+
+        return '';
     }
 
     /**
