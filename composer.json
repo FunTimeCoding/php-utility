@@ -20,6 +20,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-libxml": "*",
+        "ext-gearman": "*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",

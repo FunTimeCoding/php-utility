@@ -37,3 +37,7 @@ systemctl restart php7.3-fpm
 
 mysql --execute "CREATE DATABASE IF NOT EXISTS mediawiki;
 GRANT ALL PRIVILEGES ON *.* TO 'mediawiki'@'localhost' IDENTIFIED BY 'mediawiki';"
+
+apt-get --quiet 2 install gearman gearman-tools php-gearman
+
+systemctl restart php7.3-fpm
