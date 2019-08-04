@@ -28,3 +28,7 @@ sed --in-place "s/LOCATOR/${ADDRESS}:8080/g" /home/vagrant/.php-utility.yaml
 sed --in-place "s/PASSWORD/${PASSWORD}/g" /home/vagrant/.php-utility.yaml
 
 php /home/vagrant/opt/mediawiki-1.33.0/maintenance/install.php --confpath /home/vagrant/opt/mediawiki-1.33.0 --dbname mediawiki --dbuser mediawiki --dbpass mediawiki --pass "${PASSWORD}" --server "http://${ADDRESS}:8080" --scriptpath '' ExampleWiki Admin
+
+git clone https://github.com/adsr/phpspy tmp/phpspy
+cd tmp/phpspy
+make

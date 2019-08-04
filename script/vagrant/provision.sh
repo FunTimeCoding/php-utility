@@ -23,7 +23,7 @@ systemctl restart nginx
 usermod --append --groups adm vagrant
 
 # Download Composer manually because the Debian package depends on PHP 7.0.
-wget --no-verbose --output-document /usr/local/bin/composer https://getcomposer.org/download/1.8.6/composer.phar
+wget --no-verbose --output-document /usr/local/bin/composer https://getcomposer.org/download/1.9.0/composer.phar
 chmod +x /usr/local/bin/composer
 
 cp /vagrant/configuration/php-utility.yaml /home/vagrant/.php-utility.yaml
@@ -41,3 +41,5 @@ GRANT ALL PRIVILEGES ON *.* TO 'mediawiki'@'localhost' IDENTIFIED BY 'mediawiki'
 apt-get --quiet 2 install gearman gearman-tools php-gearman
 
 systemctl restart php7.3-fpm
+
+apt-get --quiet 2 install rabbitmq-server php-bcmath php-amqp

@@ -6,3 +6,6 @@ unusedcode
 codesize
 dbgp
 phpbrew
+amqp
+amqplib
+bcmath
