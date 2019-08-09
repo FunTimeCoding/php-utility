@@ -50,9 +50,7 @@ Vagrant.configure('2') do |c|
   c.vm.provision :shell, path: 'script/vagrant/update-system.sh'
   c.vm.provision :shell, path: 'script/vagrant/provision.sh'
 
-  if RbConfig::CONFIG['host_os'] =~ /mswin32|mingw32/
-    c.vm.provision :shell, path: 'script/vagrant/ansible.sh'
-  else
+  unless RbConfig::CONFIG['host_os'] =~ /mswin32|mingw32/
     c.vm.provision :ansible do |a|
       a.playbook = 'playbook.yaml'
       a.compatibility_mode = '2.0'
