@@ -1,5 +1,10 @@
 #!/bin/sh -e
 
+if [ ! -f "${HOME}/.ssh/id_rsa" ]; then
+    ssh-keygen -C "vagrant@localhost" -N "" -f "${HOME}/.ssh/id_rsa"
+    cat "${HOME}/.ssh/id_rsa.pub" >> "${HOME}/.ssh/authorized_keys"
+fi
+
 cp /vagrant/configuration/inputrc.txt /home/vagrant/.inputrc
 
 mkdir -p /home/vagrant/tmp

@@ -5,6 +5,7 @@ apt-get --quiet 2 install neovim multitail htop tree git shellcheck hunspell dev
 apt-get --quiet 2 install apt-transport-https
 wget --no-verbose --output-document /etc/apt/trusted.gpg.d/sury.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php stretch main" > /etc/apt/sources.list.d/sury.list
+cp /vagrant/configuration/backports.txt /etc/apt/sources.list.d/backports.list
 apt-get --quiet 2 update
 
 # Set timezone for PHP.
@@ -43,3 +44,5 @@ apt-get --quiet 2 install gearman php-gearman
 systemctl restart php7.3-fpm
 
 apt-get --quiet 2 install rabbitmq-server php-bcmath php-amqp
+
+apt-get --quiet 2 install ansible --target-release stretch-backports
