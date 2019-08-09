@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-ansible-playbook /vagrant/playbook.yaml -i /vagrant/hosts.txt
+ansible-playbook /vagrant/playbook.yaml -i /vagrant/inventory

@@ -3,6 +3,9 @@
 if [ ! -f "${HOME}/.ssh/id_rsa" ]; then
     ssh-keygen -C "vagrant@localhost" -N "" -f "${HOME}/.ssh/id_rsa"
     cat "${HOME}/.ssh/id_rsa.pub" >> "${HOME}/.ssh/authorized_keys"
+    sudo mkdir -p -m 700 /root/.ssh
+    sudo cp "${HOME}/.ssh/id_rsa.pub" /root/.ssh/authorized_keys
+    sudo chmod 600 /root/.ssh/authorized_keys
 fi
 
 cp /vagrant/configuration/inputrc.txt /home/vagrant/.inputrc
