@@ -106,3 +106,6 @@
 [submodule "roles/php"]
 	path = roles/php
 	url = git@github.com:FunTimeCoding/ansible-php.git
+[submodule "roles/curl"]
+	path = roles/curl
+	url = git@github.com:FunTimeCoding/ansible-curl.git
