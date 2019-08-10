@@ -124,3 +124,6 @@
 [submodule "roles/zero-message-queue"]
 	path = roles/zero-message-queue
 	url = git@github.com:FunTimeCoding/ansible-zero-message-queue.git
+[submodule "roles/maria-database-repository"]
+	path = roles/maria-database-repository
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-maria-database-repository.git
