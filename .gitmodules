@@ -91,3 +91,9 @@
 [submodule "roles/shell-check"]
 	path = roles/shell-check
 	url = git@github.com:FunTimeCoding/ansible-shell-check.git
+[submodule "roles/vagrant"]
+	path = roles/vagrant
+	url = git@github.com:FunTimeCoding/ansible-vagrant.git
+[submodule "roles/composer"]
+	path = roles/composer
+	url = git@github.com:FunTimeCoding/ansible-composer.git
