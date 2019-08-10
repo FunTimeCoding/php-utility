@@ -49,3 +49,9 @@
 [submodule "roles/php-zip"]
 	path = roles/php-zip
 	url = git@github.com:FunTimeCoding/ansible-php-zip.git
+[submodule "roles/php-skeleton"]
+	path = roles/php-skeleton
+	url = git@github.com:FunTimeCoding/ansible-php-skeleton.git
+[submodule "roles/shell-skeleton"]
+	path = roles/shell-skeleton
+	url = git@github.com:FunTimeCoding/ansible-shell-skeleton.git
