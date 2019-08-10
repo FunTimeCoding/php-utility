@@ -88,3 +88,6 @@
 [submodule "roles/ronn"]
 	path = roles/ronn
 	url = git@github.com:FunTimeCoding/ansible-ronn.git
+[submodule "roles/shell-check"]
+	path = roles/shell-check
+	url = git@github.com:FunTimeCoding/ansible-shell-check.git
