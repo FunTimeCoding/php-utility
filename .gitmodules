@@ -112,3 +112,9 @@
 [submodule "roles/dos-to-unix"]
 	path = roles/dos-to-unix
 	url = git@github.com:FunTimeCoding/ansible-dos-to-unix.git
+[submodule "roles/git"]
+	path = roles/git
+	url = git@github.com:FunTimeCoding/ansible-git.git
+[submodule "roles/known-hosts-git-hub"]
+	path = roles/known-hosts-git-hub
+	url = git@github.com:FunTimeCoding/ansible-known-hosts-git-hub.git
