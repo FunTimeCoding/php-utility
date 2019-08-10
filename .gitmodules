@@ -76,3 +76,6 @@
 [submodule "roles/dh-make"]
 	path = roles/dh-make
 	url = git@github.com:FunTimeCoding/ansible-dh-make.git
+[submodule "roles/my-sql-tuner"]
+	path = roles/my-sql-tuner
+	url = git@github.com:FunTimeCoding/ansible-my-sql-tuner.git
