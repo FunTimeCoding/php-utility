@@ -10,3 +10,15 @@
 [submodule "roles/maria-database"]
 	path = roles/maria-database
 	url = ssh://git@vc.shiin.org:2222/devops/ansible-maria-database.git
+[submodule "roles/sury-repository"]
+	path = roles/sury-repository
+	url = git@github.com:FunTimeCoding/ansible-sury-repository.git
+[submodule "roles/php-mysql"]
+	path = roles/php-mysql
+	url = git@github.com:FunTimeCoding/ansible-php-mysql.git
+[submodule "roles/php-apcu"]
+	path = roles/php-apcu
+	url = git@github.com:FunTimeCoding/ansible-php-apcu.git
+[submodule "roles/php-intl"]
+	path = roles/php-intl
+	url = git@github.com:FunTimeCoding/ansible-php-intl.git
