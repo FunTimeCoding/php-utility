@@ -22,3 +22,6 @@
 [submodule "roles/php-intl"]
 	path = roles/php-intl
 	url = git@github.com:FunTimeCoding/ansible-php-intl.git
+[submodule "roles/php-utility"]
+	path = roles/php-utility
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-php-utility.git
