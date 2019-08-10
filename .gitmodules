@@ -4,3 +4,6 @@
 [submodule "roles/nginx"]
 	path = roles/nginx
 	url = ssh://git@vc.shiin.org:2222/devops/ansible-nginx.git
+[submodule "roles/rabbit-message-queue"]
+	path = roles/rabbit-message-queue
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-rabbit-message-queue.git
