@@ -55,3 +55,12 @@
 [submodule "roles/shell-skeleton"]
 	path = roles/shell-skeleton
 	url = git@github.com:FunTimeCoding/ansible-shell-skeleton.git
+[submodule "roles/php-xml"]
+	path = roles/php-xml
+	url = git@github.com:FunTimeCoding/ansible-php-xml.git
+[submodule "roles/php-ast"]
+	path = roles/php-ast
+	url = git@github.com:FunTimeCoding/ansible-php-ast.git
+[submodule "roles/php-xdebug"]
+	path = roles/php-xdebug
+	url = git@github.com:FunTimeCoding/ansible-php-xdebug.git
