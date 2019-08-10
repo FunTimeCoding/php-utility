@@ -97,3 +97,9 @@
 [submodule "roles/composer"]
 	path = roles/composer
 	url = git@github.com:FunTimeCoding/ansible-composer.git
+[submodule "roles/apt-transport-https"]
+	path = roles/apt-transport-https
+	url = git@github.com:FunTimeCoding/ansible-apt-transport-https.git
+[submodule "roles/php-cli"]
+	path = roles/php-cli
+	url = git@github.com:FunTimeCoding/ansible-php-cli.git
