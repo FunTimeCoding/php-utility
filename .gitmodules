@@ -25,3 +25,27 @@
 [submodule "roles/php-utility"]
 	path = roles/php-utility
 	url = ssh://git@vc.shiin.org:2222/devops/ansible-php-utility.git
+[submodule "roles/php-amqp"]
+	path = roles/php-amqp
+	url = git@github.com:FunTimeCoding/ansible-php-amqp.git
+[submodule "roles/php-bcmath"]
+	path = roles/php-bcmath
+	url = git@github.com:FunTimeCoding/ansible-php-bcmath.git
+[submodule "roles/php-curl"]
+	path = roles/php-curl
+	url = git@github.com:FunTimeCoding/ansible-php-curl.git
+[submodule "roles/php-fpm"]
+	path = roles/php-fpm
+	url = git@github.com:FunTimeCoding/ansible-php-fpm.git
+[submodule "roles/php-gearman"]
+	path = roles/php-gearman
+	url = git@github.com:FunTimeCoding/ansible-php-gearman.git
+[submodule "roles/php-json"]
+	path = roles/php-json
+	url = git@github.com:FunTimeCoding/ansible-php-json.git
+[submodule "roles/php-mbstring"]
+	path = roles/php-mbstring
+	url = git@github.com:FunTimeCoding/ansible-php-mbstring.git
+[submodule "roles/php-zip"]
+	path = roles/php-zip
+	url = git@github.com:FunTimeCoding/ansible-php-zip.git
