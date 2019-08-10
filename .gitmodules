@@ -121,3 +121,6 @@
 [submodule "roles/virtual-box"]
 	path = roles/virtual-box
 	url = git@github.com:FunTimeCoding/ansible-virtual-box.git
+[submodule "roles/zero-message-queue"]
+	path = roles/zero-message-queue
+	url = git@github.com:FunTimeCoding/ansible-zero-message-queue.git
