@@ -118,3 +118,6 @@
 [submodule "roles/known-hosts-git-hub"]
 	path = roles/known-hosts-git-hub
 	url = git@github.com:FunTimeCoding/ansible-known-hosts-git-hub.git
+[submodule "roles/virtual-box"]
+	path = roles/virtual-box
+	url = git@github.com:FunTimeCoding/ansible-virtual-box.git
