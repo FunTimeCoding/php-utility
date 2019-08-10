@@ -64,3 +64,15 @@
 [submodule "roles/php-xdebug"]
 	path = roles/php-xdebug
 	url = git@github.com:FunTimeCoding/ansible-php-xdebug.git
+[submodule "roles/hunspell"]
+	path = roles/hunspell
+	url = git@github.com:FunTimeCoding/ansible-hunspell.git
+[submodule "roles/unzip"]
+	path = roles/unzip
+	url = git@github.com:FunTimeCoding/ansible-unzip.git
+[submodule "roles/devscripts"]
+	path = roles/devscripts
+	url = git@github.com:FunTimeCoding/ansible-devscripts.git
+[submodule "roles/dh-make"]
+	path = roles/dh-make
+	url = git@github.com:FunTimeCoding/ansible-dh-make.git
