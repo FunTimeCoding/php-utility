@@ -1,3 +1,6 @@
 [submodule "roles/gearman"]
 	path = roles/gearman
 	url = ssh://git@vc.shiin.org:2222/devops/ansible-gearman.git
+[submodule "roles/nginx"]
+	path = roles/nginx
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-nginx.git
