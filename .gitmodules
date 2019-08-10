@@ -7,3 +7,6 @@
 [submodule "roles/rabbit-message-queue"]
 	path = roles/rabbit-message-queue
 	url = ssh://git@vc.shiin.org:2222/devops/ansible-rabbit-message-queue.git
+[submodule "roles/maria-database"]
+	path = roles/maria-database
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-maria-database.git
