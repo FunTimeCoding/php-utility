@@ -79,3 +79,12 @@
 [submodule "roles/my-sql-tuner"]
 	path = roles/my-sql-tuner
 	url = git@github.com:FunTimeCoding/ansible-my-sql-tuner.git
+[submodule "roles/gnu-stream-editor"]
+	path = roles/gnu-stream-editor
+	url = git@github.com:FunTimeCoding/ansible-gnu-stream-editor.git
+[submodule "roles/core-utilities"]
+	path = roles/core-utilities
+	url = git@github.com:FunTimeCoding/ansible-core-utilities.git
+[submodule "roles/ronn"]
+	path = roles/ronn
+	url = git@github.com:FunTimeCoding/ansible-ronn.git
