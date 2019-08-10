@@ -109,3 +109,6 @@
 [submodule "roles/curl"]
 	path = roles/curl
 	url = git@github.com:FunTimeCoding/ansible-curl.git
+[submodule "roles/dos-to-unix"]
+	path = roles/dos-to-unix
+	url = git@github.com:FunTimeCoding/ansible-dos-to-unix.git
