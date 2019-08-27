@@ -33,7 +33,8 @@
         "symfony/twig-bridge": "4.*",
         "league/csv": "9.*",
         "webonyx/graphql-php": "0.*",
-        "php-amqplib/php-amqplib": "2.9.*"
+        "php-amqplib/php-amqplib": "2.*",
+        "sentry/sdk": "2."
     },
     "require-dev": {
         "phpunit/phpunit": "8.*",
