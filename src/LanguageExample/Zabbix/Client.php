@@ -28,7 +28,7 @@ class Client
         $zabbixConfiguration = $configuration['zabbix'];
         $this->client = new ZabbixApi(
             $zabbixConfiguration['locator'],
-            $zabbixConfiguration['user'],
+            $zabbixConfiguration['username'],
             $zabbixConfiguration['password']
         );
         $hostIdentifier = -1;
