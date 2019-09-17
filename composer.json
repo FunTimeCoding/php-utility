@@ -20,6 +20,9 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-libxml": "*",
+        "ext-gearman": "*",
+        "ext-bcmath": "*",
+        "ext-amqp": "*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",
@@ -29,7 +32,10 @@
         "symfony/translation": "4.*",
         "symfony/twig-bridge": "4.*",
         "league/csv": "9.*",
-        "webonyx/graphql-php": "0.*"
+        "webonyx/graphql-php": "0.*",
+        "php-amqplib/php-amqplib": "2.*",
+        "sentry/sdk": "2.",
+        "confirm-it-solutions/php-zabbix-api": "2.*"
     },
     "require-dev": {
         "phpunit/phpunit": "8.*",

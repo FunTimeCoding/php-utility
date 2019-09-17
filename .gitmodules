@@ -1,0 +1,129 @@
+[submodule "roles/gearman"]
+	path = roles/gearman
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-gearman.git
+[submodule "roles/nginx"]
+	path = roles/nginx
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-nginx.git
+[submodule "roles/rabbit-message-queue"]
+	path = roles/rabbit-message-queue
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-rabbit-message-queue.git
+[submodule "roles/maria-database"]
+	path = roles/maria-database
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-maria-database.git
+[submodule "roles/sury-repository"]
+	path = roles/sury-repository
+	url = git@github.com:FunTimeCoding/ansible-sury-repository.git
+[submodule "roles/php-mysql"]
+	path = roles/php-mysql
+	url = git@github.com:FunTimeCoding/ansible-php-mysql.git
+[submodule "roles/php-apcu"]
+	path = roles/php-apcu
+	url = git@github.com:FunTimeCoding/ansible-php-apcu.git
+[submodule "roles/php-intl"]
+	path = roles/php-intl
+	url = git@github.com:FunTimeCoding/ansible-php-intl.git
+[submodule "roles/php-utility"]
+	path = roles/php-utility
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-php-utility.git
+[submodule "roles/php-amqp"]
+	path = roles/php-amqp
+	url = git@github.com:FunTimeCoding/ansible-php-amqp.git
+[submodule "roles/php-bcmath"]
+	path = roles/php-bcmath
+	url = git@github.com:FunTimeCoding/ansible-php-bcmath.git
+[submodule "roles/php-curl"]
+	path = roles/php-curl
+	url = git@github.com:FunTimeCoding/ansible-php-curl.git
+[submodule "roles/php-fpm"]
+	path = roles/php-fpm
+	url = git@github.com:FunTimeCoding/ansible-php-fpm.git
+[submodule "roles/php-gearman"]
+	path = roles/php-gearman
+	url = git@github.com:FunTimeCoding/ansible-php-gearman.git
+[submodule "roles/php-json"]
+	path = roles/php-json
+	url = git@github.com:FunTimeCoding/ansible-php-json.git
+[submodule "roles/php-mbstring"]
+	path = roles/php-mbstring
+	url = git@github.com:FunTimeCoding/ansible-php-mbstring.git
+[submodule "roles/php-zip"]
+	path = roles/php-zip
+	url = git@github.com:FunTimeCoding/ansible-php-zip.git
+[submodule "roles/php-skeleton"]
+	path = roles/php-skeleton
+	url = git@github.com:FunTimeCoding/ansible-php-skeleton.git
+[submodule "roles/shell-skeleton"]
+	path = roles/shell-skeleton
+	url = git@github.com:FunTimeCoding/ansible-shell-skeleton.git
+[submodule "roles/php-xml"]
+	path = roles/php-xml
+	url = git@github.com:FunTimeCoding/ansible-php-xml.git
+[submodule "roles/php-ast"]
+	path = roles/php-ast
+	url = git@github.com:FunTimeCoding/ansible-php-ast.git
+[submodule "roles/php-xdebug"]
+	path = roles/php-xdebug
+	url = git@github.com:FunTimeCoding/ansible-php-xdebug.git
+[submodule "roles/hunspell"]
+	path = roles/hunspell
+	url = git@github.com:FunTimeCoding/ansible-hunspell.git
+[submodule "roles/unzip"]
+	path = roles/unzip
+	url = git@github.com:FunTimeCoding/ansible-unzip.git
+[submodule "roles/devscripts"]
+	path = roles/devscripts
+	url = git@github.com:FunTimeCoding/ansible-devscripts.git
+[submodule "roles/dh-make"]
+	path = roles/dh-make
+	url = git@github.com:FunTimeCoding/ansible-dh-make.git
+[submodule "roles/my-sql-tuner"]
+	path = roles/my-sql-tuner
+	url = git@github.com:FunTimeCoding/ansible-my-sql-tuner.git
+[submodule "roles/gnu-stream-editor"]
+	path = roles/gnu-stream-editor
+	url = git@github.com:FunTimeCoding/ansible-gnu-stream-editor.git
+[submodule "roles/core-utilities"]
+	path = roles/core-utilities
+	url = git@github.com:FunTimeCoding/ansible-core-utilities.git
+[submodule "roles/ronn"]
+	path = roles/ronn
+	url = git@github.com:FunTimeCoding/ansible-ronn.git
+[submodule "roles/shell-check"]
+	path = roles/shell-check
+	url = git@github.com:FunTimeCoding/ansible-shell-check.git
+[submodule "roles/vagrant"]
+	path = roles/vagrant
+	url = git@github.com:FunTimeCoding/ansible-vagrant.git
+[submodule "roles/composer"]
+	path = roles/composer
+	url = git@github.com:FunTimeCoding/ansible-composer.git
+[submodule "roles/apt-transport-https"]
+	path = roles/apt-transport-https
+	url = git@github.com:FunTimeCoding/ansible-apt-transport-https.git
+[submodule "roles/php-cli"]
+	path = roles/php-cli
+	url = git@github.com:FunTimeCoding/ansible-php-cli.git
+[submodule "roles/php"]
+	path = roles/php
+	url = git@github.com:FunTimeCoding/ansible-php.git
+[submodule "roles/curl"]
+	path = roles/curl
+	url = git@github.com:FunTimeCoding/ansible-curl.git
+[submodule "roles/dos-to-unix"]
+	path = roles/dos-to-unix
+	url = git@github.com:FunTimeCoding/ansible-dos-to-unix.git
+[submodule "roles/git"]
+	path = roles/git
+	url = git@github.com:FunTimeCoding/ansible-git.git
+[submodule "roles/known-hosts-git-hub"]
+	path = roles/known-hosts-git-hub
+	url = git@github.com:FunTimeCoding/ansible-known-hosts-git-hub.git
+[submodule "roles/virtual-box"]
+	path = roles/virtual-box
+	url = git@github.com:FunTimeCoding/ansible-virtual-box.git
+[submodule "roles/zero-message-queue"]
+	path = roles/zero-message-queue
+	url = git@github.com:FunTimeCoding/ansible-zero-message-queue.git
+[submodule "roles/maria-database-repository"]
+	path = roles/maria-database-repository
+	url = ssh://git@vc.shiin.org:2222/devops/ansible-maria-database-repository.git

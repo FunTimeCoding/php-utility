@@ -13,8 +13,7 @@ class MediaWikiHelper
     {
         return [
             'title' => 'Special:UserLogin',
-            'action' => 'submitlogin',
-            'type' => 'login',
+            'returnto' => 'Main Page',
         ];
     }
 

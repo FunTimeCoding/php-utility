@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace FunTimeCoding\PhpUtility\Test\Integration;
 
 use League\Csv\Reader;
