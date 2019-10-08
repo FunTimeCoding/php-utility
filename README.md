@@ -2,9 +2,7 @@
 
 ## Setup
 
-This section explains how to install and uninstall the project.
-
-Install project dependencies.
+Install project dependencies:
 
 ```sh
 script/setup.sh
@@ -13,38 +11,46 @@ script/setup.sh
 
 ## Usage
 
-This section explains how to use the project.
-
-Run the main program.
+Run the main program:
 
 ```sh
 bin/pu
 ```
 
+Run the main program inside the container:
+
+```sh
+docker run -it --rm funtimecoding/php-utility
+```
+
 
 ## Development
 
-This section explains how to improve the project.
-
-Configure Git on Windows before cloning. This avoids problems with Vagrant and VirtualBox.
+Configure Git on Windows before cloning:
 
 ```sh
 git config --global core.autocrlf input
 ```
 
-Create the development virtual machine on Linux and Darwin.
+Install NFS plugin for Vagrant on Windows:
+
+```bat
+vagrant plugin install vagrant-winnfsd
+```
+
+Create the development virtual machine on Linux and Darwin:
 
 ```sh
 script/vagrant/create.sh
 ```
 
-Create the development virtual machine on Windows.
+Create the development virtual machine on Windows:
 
 ```bat
 script\vagrant\create.bat
 ```
 
-Run tests, style check and metrics.
+Run tests, style check and metrics:
 
 ```sh
 script/test.sh [--help]
@@ -52,19 +58,19 @@ script/check.sh [--help]
 script/measure.sh [--help]
 ```
 
-Build project.
+Build project:
 
 ```sh
 script/build.sh
 ```
 
-Install Debian package.
+Install Debian package:
 
 ```sh
 sudo dpkg --install build/php-utility_0.1.0-1_all.deb
 ```
 
-Show files the package installed.
+Show files the package installed:
 
 ```sh
 dpkg-query --listfiles php-utility
