@@ -95,12 +95,12 @@ if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
 
     for FILE in ${FILES}; do
         FILE_REPLACED=$(echo "${FILE}" | ${SED} 's/\//-/g')
-        shellcheck --format checkstyle "${FILE}" > "build/log/checkstyle-${FILE_REPLACED}.xml" || true
+        shellcheck --external-sources --format checkstyle "${FILE}" > "build/log/checkstyle-${FILE_REPLACED}.xml" || true
     done
 fi
 
 # shellcheck disable=SC2016
-SHELL_SCRIPT_CONCERNS=$(${FIND} . -regextype posix-extended -name '*.sh' -regex "${INCLUDE_FILTER}" -exec sh -c 'shellcheck ${1} || true' '_' '{}' \;)
+SHELL_SCRIPT_CONCERNS=$(${FIND} . -regextype posix-extended -name '*.sh' -regex "${INCLUDE_FILTER}" -exec sh -c 'shellcheck --external-sources ${1} || true' '_' '{}' \;)
 
 if [ ! "${SHELL_SCRIPT_CONCERNS}" = '' ]; then
     CONCERN_FOUND=true
@@ -190,9 +190,9 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=PSR2 src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=Doctrine src test || RETURN_CODE="${?}"
 else
-    vendor/bin/phpcs --standard=PSR2 src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --standard=Doctrine src test || RETURN_CODE="${?}"
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then
@@ -255,6 +255,42 @@ if [ ! "${RETURN_CODE}" = 0 ]; then
     echo "Psalm concerns found."
     echo
 fi
+
+echo
+RETURN_CODE=0
+
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    vendor/bin/infection --no-progress --no-ansi || RETURN_CODE="${?}"
+else
+    vendor/bin/infection --no-progress || RETURN_CODE="${?}"
+fi
+
+if [ ! "${RETURN_CODE}" = 0 ]; then
+    CONCERN_FOUND=true
+    echo "Infection concerns found."
+    echo
+fi
+
+echo
+RETURN_CODE=0
+
+if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
+    vendor/bin/composer-require-checker --no-ansi || RETURN_CODE="${?}"
+else
+    vendor/bin/composer-require-checker || RETURN_CODE="${?}"
+fi
+
+if [ ! "${RETURN_CODE}" = 0 ]; then
+    CONCERN_FOUND=true
+    echo "Require checker concerns found."
+    echo
+fi
+
+# TODO: This finds that php is unused. Why?
+#script/php/unused.sh
+
+# TODO: Wait for dependency tracker to leave alpha status.
+#script/php/track-dependencies.sh
 
 if [ "${CONCERN_FOUND}" = true ]; then
     echo

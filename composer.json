@@ -10,7 +10,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FunTimeCoding\\PhpUtility\\Test\\": "test/"
+            "FunTimeCoding\\PhpUtility\\Test\\": "test/",
+            "FunTimeCoding\\PhpUtility\\Benchmark\\": "benchmark/"
         }
     },
     "require": {
@@ -23,6 +24,7 @@
         "ext-gearman": "*",
         "ext-bcmath": "*",
         "ext-amqp": "*",
+        "roave/you-are-using-it-wrong": "1.*",
         "symfony/yaml": "4.*",
         "guzzlehttp/guzzle": "6.*",
         "nikic/fast-route": "1.*",
@@ -50,6 +52,12 @@
         "phpstan/phpstan-phpunit": "0.*",
         "phan/phan": "1.*",
         "vimeo/psalm": "3.*",
-        "roave/security-advisories": "dev-master"
+        "infection/infection": "0.*",
+        "roave/security-advisories": "dev-master",
+        "doctrine/coding-standard": "6.*",
+        "maglnet/composer-require-checker": "2.*",
+        "icanhazstring/composer-unused": "0.*",
+        "sensiolabs-de/deptrac-shim": "0.*",
+        "phpbench/phpbench": "0.*"
     }
 }
