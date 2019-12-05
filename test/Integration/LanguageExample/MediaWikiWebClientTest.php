@@ -3,15 +3,17 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use FunTimeCoding\PhpUtility\LanguageExample\CurlMediaWikiWebClient;
 use FunTimeCoding\PhpUtility\LanguageExample\HttpRequestMediaWikiWebClient;
 use FunTimeCoding\PhpUtility\Framework\YamlConfiguration;
+use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient;
 use PHPUnit\Framework\TestCase;
 
 class MediaWikiWebClientTest extends TestCase
 {
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function testLoginWithHttpRequestLibrary(): void
     {
@@ -23,7 +25,7 @@ class MediaWikiWebClientTest extends TestCase
         ];
 
         foreach ($clients as $client) {
-            /* @var \FunTimeCoding\PhpUtility\LanguageExample\MediaWikiWebClient $client */
+            /* @var MediaWikiWebClient $client */
             $client->setUsername($configuration->get('wpName'));
             $client->setPassword($configuration->get('wpPassword'));
             $client->login();

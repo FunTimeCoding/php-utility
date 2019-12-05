@@ -5,6 +5,7 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 use DOMDocument;
 use DOMXPath;
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use FunTimeCoding\PhpUtility\LanguageExample\MediaWikiHelper;
 use PHPUnit\Framework\TestCase;
 
@@ -20,6 +21,9 @@ class MediaWikiHelperTest extends TestCase
         $this::assertTrue($testHelper->validateQueryData($queryData));
     }
 
+    /**
+     * @throws FrameworkException
+     */
     public function testSearchTokenInDomXpath(): void
     {
         $helper = new MediaWikiHelper();
@@ -34,6 +38,9 @@ class MediaWikiHelperTest extends TestCase
         $this::assertEquals($token, $result);
     }
 
+    /**
+     * @throws FrameworkException
+     */
     public function testSearchContentInDomXpath(): void
     {
         $helper = new MediaWikiHelper();

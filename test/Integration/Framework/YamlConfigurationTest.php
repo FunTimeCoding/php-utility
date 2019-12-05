@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use FunTimeCoding\PhpUtility\Framework\YamlConfiguration;
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +15,7 @@ class YamlConfigurationTest extends TestCase
     protected $configuration;
 
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function setUp(): void
     {
@@ -47,7 +48,7 @@ class YamlConfigurationTest extends TestCase
     }
 
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function testAccessSubKey(): void
     {
@@ -64,7 +65,7 @@ class YamlConfigurationTest extends TestCase
     }
 
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function testInvalidSubKey(): void
     {

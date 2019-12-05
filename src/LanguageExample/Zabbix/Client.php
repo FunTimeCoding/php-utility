@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Zabbix;
 
+use ZabbixApi\Exception;
 use ZabbixApi\ZabbixApi;
 
 class Client
@@ -20,7 +21,7 @@ class Client
     private $client;
 
     /**
-     * @throws \ZabbixApi\Exception
+     * @throws Exception
      */
     public function main(): void
     {
@@ -53,9 +54,7 @@ class Client
     }
 
     /**
-     * @param int $hostIdentifier
-     *
-     * @throws \ZabbixApi\Exception
+     * @throws Exception
      */
     private function printHost(int $hostIdentifier): void
     {
@@ -75,9 +74,7 @@ class Client
     }
 
     /**
-     * @param int $hostIdentifier
-     *
-     * @throws \ZabbixApi\Exception
+     * @throws Exception
      */
     private function printHistories(int $hostIdentifier): void
     {
@@ -108,9 +105,7 @@ class Client
     }
 
     /**
-     * @param int $hostIdentifier
-     *
-     * @throws \ZabbixApi\Exception
+     * @throws Exception
      */
     private function printItems(int $hostIdentifier): void
     {
@@ -134,6 +129,9 @@ class Client
         }
     }
 
+    /**
+     * @throws Exception
+     */
     private function printItem(int $hostIdentifier, string $key): void
     {
         self::printLine([__FUNCTION__, $hostIdentifier, $key]);

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Gearman;
 
+use GearmanJob;
 use GearmanWorker;
 
 class Server
@@ -12,11 +13,11 @@ class Server
         $worker = new GearmanWorker();
         $worker->addServer();
         $worker->addFunction('reverse', static function ($job) {
-            /** @var $job \GearmanJob */
+            /** @var $job GearmanJob */
             return strrev($job->workload());
         });
         $worker->addFunction('write_file', static function ($job) {
-            /** @var $job \GearmanJob */
+            /** @var $job GearmanJob */
             $workload = json_decode($job->workload(), true);
             file_put_contents($workload['path'], $workload['content']);
 

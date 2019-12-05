@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
+use AppendIterator;
 use ArrayIterator;
 use CachingIterator;
 use InfiniteIterator;
@@ -64,7 +65,7 @@ class IteratorExample
 
     public function appendIterator(): void
     {
-        $iterator = new \AppendIterator();
+        $iterator = new AppendIterator();
         $iterator->append(new ArrayIterator(['apple', 'banana', 'strawberry']));
         $iterator->append(new ArrayIterator(['bird', 'dog', 'horse']));
 

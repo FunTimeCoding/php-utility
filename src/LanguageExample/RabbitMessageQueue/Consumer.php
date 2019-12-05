@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
 
+use ErrorException;
+
 class Consumer
 {
     /**
-     * @throws \ErrorException
+     * @throws ErrorException
      */
     public function main(): void
     {

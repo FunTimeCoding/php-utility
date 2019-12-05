@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
+use CachingIterator;
 use RecursiveArrayIterator;
 use RecursiveCallbackFilterIterator;
 use RecursiveIteratorIterator;
@@ -100,7 +101,7 @@ class RecursiveIteratorExample
         $iterator = new RecursiveTreeIterator(
             new RecursiveArrayIterator([['a', ['b', 'c']], ['d', 'e']]),
             RecursiveTreeIterator::BYPASS_KEY,
-            \CachingIterator::CATCH_GET_CHILD,
+            CachingIterator::CATCH_GET_CHILD,
             RecursiveTreeIterator::SELF_FIRST
         );
 
