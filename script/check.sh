@@ -190,9 +190,9 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=Doctrine src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=PSR12 src test || RETURN_CODE="${?}"
 else
-    vendor/bin/phpcs --standard=Doctrine src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --standard=PSR12 src test || RETURN_CODE="${?}"
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then

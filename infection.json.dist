@@ -6,7 +6,7 @@
         ]
     },
     "logs": {
-        "text": "infection.log"
+        "text": "build/log/infection.log"
     },
     "mutators": {
         "@default": true
