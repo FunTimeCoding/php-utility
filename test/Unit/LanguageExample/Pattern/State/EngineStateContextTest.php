@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\State;
 
+use Exception;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\EngineStateContext;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\StoppedState;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\State\RunningState;
@@ -24,7 +25,7 @@ class EngineStateContextTest extends TestCase
 
     /**
      * @outputBuffering enabled
-     * @throws \Exception
+     * @throws Exception
      */
     public function testStopWhenEngineIsOn(): void
     {

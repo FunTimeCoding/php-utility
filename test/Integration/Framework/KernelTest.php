@@ -3,13 +3,14 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use FunTimeCoding\PhpUtility\Framework\Kernel;
 use PHPUnit\Framework\TestCase;
 
 class KernelTest extends TestCase
 {
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function testGetProjectRoot(): void
     {
@@ -21,7 +22,7 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @throws \FunTimeCoding\PhpUtility\Framework\FrameworkException
+     * @throws FrameworkException
      */
     public function testCommandLineCallOfIndex(): void
     {

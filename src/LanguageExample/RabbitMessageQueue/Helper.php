@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
 
+use Exception;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
@@ -27,7 +28,7 @@ class Helper
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function close(): void
     {

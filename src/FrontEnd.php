@@ -85,13 +85,11 @@ class FrontEnd
     }
 
     /**
-     * @param string $handler
-     *
-     * @return string
      * @throws ReflectionException
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
+     * @throws Framework\FrameworkException
      */
     public function foundRequest(string $handler): string
     {

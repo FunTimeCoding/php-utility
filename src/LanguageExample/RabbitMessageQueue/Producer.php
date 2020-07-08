@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
 
+use Exception;
 use PhpAmqpLib\Message\AMQPMessage;
 
 class Producer
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function main(): void
     {

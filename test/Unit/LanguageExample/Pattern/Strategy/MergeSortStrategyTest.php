@@ -3,11 +3,15 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Strategy;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy\MergeSortStrategy;
 use PHPUnit\Framework\TestCase;
 
 class MergeSortStrategyTest extends TestCase
 {
+    /**
+     * @throws FrameworkException
+     */
     public function testSort(): void
     {
         $strategy = new MergeSortStrategy();

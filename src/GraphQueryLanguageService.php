@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility;
 
+use Exception;
 use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use GraphQL\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
@@ -68,7 +69,7 @@ class GraphQueryLanguageService
             $rootValue = ['prefix' => 'You said: '];
             $result = GraphQL::executeQuery($schema, $query, $rootValue, null, $variableValues);
             $output = $result->toArray();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $output = [
                 'error' => [
                     'message' => $e->getMessage()
