@@ -7,7 +7,7 @@ JenkinsTools
 LowerCaseSeparated
 UpperCaseSeparated
 ic
-PhpUtility
+ShellSkeleton
 ss
 ps
 src
