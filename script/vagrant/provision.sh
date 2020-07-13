@@ -53,6 +53,16 @@ elif [ "${CODENAME}" = stretch ]; then
     apt-get --quiet 2 install rabbitmq-server php-bcmath php-amqp
 
     apt-get --quiet 2 install ansible --target-release stretch-backports
+
+    # librdkafka
+    apt-get --quiet 2 install --target-release stretch-backports librdkafka-dev
+    # rdkafka
+    pecl install rdkafka
+    cp /vagrant/configuration/rdkafka.ini /etc/php/7.1/mods-available
+    phpenmod rdkafka
+    # test it works
+    php -m | grep --quiet rdkafka
+    php -v
 elif [ "${CODENAME}" = buster ]; then
     apt-get --quiet 2 install neovim multitail htop tree git shellcheck hunspell devscripts ronn dos2unix ansible
 

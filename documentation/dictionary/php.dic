@@ -10,3 +10,5 @@ amqp
 amqplib
 bcmath
 mutators
+rdkafka
+librdkafka
