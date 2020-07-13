@@ -1,8 +1,10 @@
 includes:
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
-	- vendor/phpstan/phpstan-phpunit/extension.neon
-	- vendor/phpstan/phpstan-phpunit/rules.neon
-# Comment this out to ignore MockObject errors.
-#parameters:
-#	ignoreErrors:
-#		- '#PHPUnit\\Framework\\MockObject\\MockObject given#'
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+parameters:
+    ignoreErrors:
+        # TODO: I do not understand this error. Maybe it will go away in the future.
+        - '#Property FunTimeCoding\\PhpSkeleton\\Test\\Integration\\WebTest::\$process type has no value type specified in iterable type Symfony\\Component\\Process\\Process.#'
+        # Comment this out to ignore MockObject errors.
+        - '#PHPUnit\\Framework\\MockObject\\MockObject given#'
