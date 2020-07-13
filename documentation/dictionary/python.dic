@@ -12,11 +12,23 @@ asctime
 levelname
 pycodestyle
 getsockname
+DevPi
+pip3
+python3
+gitpython
+mypy
+lxml
+passlib
+sitepackages
 
 # pytest
 pytest
 exitfirst
 capsys
+xunit
+addopts
+junitxml
+coveragerc
 
 # pylint
 pylint
@@ -33,3 +45,12 @@ mymodule
 inlinevar
 regexes
 classmethod
+
+# pyzabbix
+pyzabbix
+applicationid
+
+# tox
+envlist
+testenv
+deps

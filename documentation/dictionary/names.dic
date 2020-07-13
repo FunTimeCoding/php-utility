@@ -1,7 +1,6 @@
 FunTimeCoding
 funtimecoding
 Reitzel
-virtualbox
 debian
 shellcheck
 netcat
@@ -34,9 +33,11 @@ icanhazstring
 sensiolabs
 deptrac
 phpbench
-guzzlehttp
-nikic
-webonyx
-Gearman
-zabbix
 Nginx
+icinga
+darkstat
+postgresql
+ntopng
+collectl
+clickhouse
+Gearman
