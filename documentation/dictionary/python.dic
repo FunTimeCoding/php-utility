@@ -18,8 +18,15 @@ python3
 gitpython
 mypy
 lxml
+uwsgi
 passlib
 sitepackages
+aiohttp
+windll
+pysqlite
+typer
+tempfile
+TemporaryDirectory
 
 # pytest
 pytest
@@ -29,6 +36,8 @@ xunit
 addopts
 junitxml
 coveragerc
+lf
+capfd
 
 # pylint
 pylint
@@ -54,3 +63,12 @@ applicationid
 envlist
 testenv
 deps
+
+# sqlalchemy
+pymysql
+sqlalchemy
+tablename
+
+# django
+django
+syncdb

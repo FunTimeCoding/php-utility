@@ -21,6 +21,15 @@ PROJECT_NAME_UNDERSCORE=$(echo "${PROJECT_NAME_DASH}" | ${SED} --regexp-extended
 export PROJECT_NAME_UNDERSCORE
 
 PROJECT_NAME_INITIALS=$(echo "${PROJECT_NAME_CAMEL}" | ${SED} 's/\([A-Z]\)[a-z]*/\1/g' | tr '[:upper:]' '[:lower:]')
+BLOCKED_INITIALS='ps
+pu'
+
+echo "${PROJECT_NAME_INITIALS}" | grep --quiet "^${BLOCKED_INITIALS}$" && ARE_INITIALS_BLOCKED=true || ARE_INITIALS_BLOCKED=false
+
+if [ "${ARE_INITIALS_BLOCKED}" = true ]; then
+    PROJECT_NAME_INITIALS=$(echo "${PROJECT_NAME_CAMEL}" | ${SED} 's/\([A-Z][a-z]\)[a-z]*/\1/g' | tr '[:upper:]' '[:lower:]')
+fi
+
 export PROJECT_NAME_INITIALS
 
 PROJECT_VERSION='0.1.0'
@@ -58,7 +67,9 @@ export EXCLUDE_FILTER
 # PROJECT_NAME_UNDERSCORE: python
 # TODO: Test and expand this through all skeleton projects.
 # shellcheck disable=SC1117
-INCLUDE_FILTER="^\.\/((src|test|benchmark|tests|spec|lib|debian|configuration|documentation|test|script\/skeleton|${PROJECT_NAME_UNDERSCORE})\/.*|\.gitignore|Vagrantfile|Dockerfile|README.md|package\.json|sonar-project\.properties|web\/index\.html|composer\.json|setup\.py)$"
+INCLUDE_FILTER="^\.\/((src|test|benchmark|tests|spec|lib|debian|configuration|documentation|test|script\/skeleton|helm-chart|${PROJECT_NAME_UNDERSCORE})\/.*|\.gitignore|Vagrantfile|Dockerfile|README.md|package\.json|sonar-project\.properties|web\/index\.html|composer\.json|setup\.py|pom.xml|.*\.gemspec|.*\.cabal)$"
 export INCLUDE_FILTER
 INCLUDE_STILL_FILTER='^.*\/__pycache__\/.*$'
 export INCLUDE_STILL_FILTER
+EXCLUDE_DOCUMENTATION_FILTER='^\.\/(documentation\/dictionary)\/.*$'
+export EXCLUDE_DOCUMENTATION_FILTER

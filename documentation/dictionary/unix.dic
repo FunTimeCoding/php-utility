@@ -36,3 +36,10 @@ chroot
 chsh
 stdin
 sqlite
+dirmngr
+umask
+dnsmasq
+su
+nc
+chown
+multitail
