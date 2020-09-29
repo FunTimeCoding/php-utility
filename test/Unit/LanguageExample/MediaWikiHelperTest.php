@@ -14,11 +14,11 @@ class MediaWikiHelperTest extends TestCase
     public function testQueryData(): void
     {
         $helper = new MediaWikiHelper();
-        $testHelper = new MediaWikiTestHelper();
 
-        $queryData = $helper->getLoginLocatorQueryData();
+        $query = $helper->getLoginLocatorQueryData();
 
-        $this::assertTrue($testHelper->validateQueryData($queryData));
+        $this::assertArrayHasKey('title', $query);
+        $this::assertArrayHasKey('returnto', $query);
     }
 
     /**
