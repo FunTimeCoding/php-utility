@@ -121,7 +121,7 @@ if [ ! "${EMPTY_FILES}" = '' ]; then
 fi
 
 # shellcheck disable=SC2016
-TO_DOS=$(${FIND} . -regextype posix-extended -type f -regex "${INCLUDE_FILTER}" -exec sh -c 'grep -Hrn TODO "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
+TO_DOS=$(${FIND} . -regextype posix-extended -type f -regex "${INCLUDE_FILTER}" -exec sh -c 'grep -Hrn TODO: "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
 
 if [ ! "${TO_DOS}" = '' ]; then
     echo

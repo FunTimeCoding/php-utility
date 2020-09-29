@@ -10,3 +10,5 @@ initrd
 syslinux
 ifdata
 dhclient
+ip
+systemctl

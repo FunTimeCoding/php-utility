@@ -41,3 +41,14 @@ ntopng
 collectl
 clickhouse
 Gearman
+elasticsearch
+logstash
+kibana
+filebeat
+metricbeat
+nodesource
+StatsD
+statsd
+apache2
+sqlite3
+ghcr
