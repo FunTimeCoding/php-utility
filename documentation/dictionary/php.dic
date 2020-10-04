@@ -17,4 +17,6 @@ amqplib
 bcmath
 rdkafka
 librdkafka
+Laminas
+servicemanager
 phan
