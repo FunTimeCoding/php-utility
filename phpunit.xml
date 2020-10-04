@@ -8,17 +8,6 @@
          beStrictAboutTodoAnnotatedTests="true"
          beStrictAboutCoversAnnotation="true"
          colors="true">
-    <coverage>
-        <include>
-            <directory suffix=".php">.</directory>
-        </include>
-        <exclude>
-            <file>.php_cs.php</file>
-            <file>web/index.php</file>
-            <directory>test</directory>
-            <directory suffix=".php">vendor</directory>
-        </exclude>
-    </coverage>
     <testsuites>
         <testsuite name="all">
             <directory>test</directory>
@@ -30,4 +19,15 @@
             <directory>test/Integration</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">.</directory>
+            <exclude>
+                <file>.php_cs.php</file>
+                <file>web/index.php</file>
+                <directory>test</directory>
+                <directory suffix=".php">vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
