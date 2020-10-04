@@ -8,15 +8,18 @@ use ArrayIterator;
 use Iterator;
 use MultipleIterator;
 
+/**
+ * @implements Iterator<bool|float|int|mixed|string|null, mixed|null>
+ */
 class MyObjectStorage implements Iterator, Attachable
 {
     /**
-     * @var ArrayIterator
+     * @var ArrayIterator<int, CustomStorageObject>
      */
     private $objectsIterator;
 
     /**
-     * @var ArrayIterator
+     * @var ArrayIterator<int, mixed|null>
      */
     private $dataIterator;
 
@@ -25,6 +28,10 @@ class MyObjectStorage implements Iterator, Attachable
      */
     private $storage;
 
+    /**
+     * @param array<int, CustomStorageObject> $objects
+     * @param array<int, mixed|null> $data
+     */
     public function __construct(array $objects, array $data)
     {
         $this->objectsIterator = new ArrayIterator($objects);
@@ -36,13 +43,13 @@ class MyObjectStorage implements Iterator, Attachable
     }
 
     /**
-     * @param mixed $object
-     * @param mixed|null $data
+     * @param mixed $key
+     * @param mixed|null $value
      */
-    public function attach($object, $data = null): void
+    public function attach($key, $value = null): void
     {
-        $this->objectsIterator->append($object);
-        $this->dataIterator->append($data);
+        $this->objectsIterator->append($key);
+        $this->dataIterator->append($value);
     }
 
     /**

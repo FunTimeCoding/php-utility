@@ -6,6 +6,9 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
 use Iterator;
 
+/**
+ * @implements Iterator<bool|float|int|mixed|string|null, mixed|null>
+ */
 class Cupboard implements Iterator
 {
     /**
@@ -40,6 +43,7 @@ class Cupboard implements Iterator
 
     /**
      * TODO: Maybe use array_filter with a callback?
+     * @param array<string, string> $theArray
      * @return string[]
      */
     private static function arrayKeysAssociative(array $theArray): array
@@ -48,9 +52,7 @@ class Cupboard implements Iterator
         $stringAndIntegerKeys = array_keys($theArray);
 
         foreach ($stringAndIntegerKeys as $key) {
-            if (is_string($key)) {
-                $result[] = $key;
-            }
+            $result[] = $key;
         }
 
         return $result;

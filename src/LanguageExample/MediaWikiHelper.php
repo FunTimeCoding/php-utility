@@ -11,7 +11,7 @@ use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 class MediaWikiHelper
 {
     /**
-     * @return array<string>
+     * @return array<string, string>
      */
     public function getLoginLocatorQueryData(): array
     {

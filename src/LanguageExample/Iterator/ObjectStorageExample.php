@@ -49,6 +49,9 @@ class ObjectStorageExample
         $iterator->attach($bananaKey, $bananaValue);
     }
 
+    /**
+     * @param Iterator<CustomStorageObject, array<string>> $iterator
+     */
     public function printIterator(Iterator $iterator): void
     {
         foreach ($iterator as $key => $value) {

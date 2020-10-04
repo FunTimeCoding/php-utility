@@ -7,8 +7,8 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 interface Attachable
 {
     /**
-     * @param mixed $object
-     * @param mixed|null $data
+     * @param mixed $key
+     * @param mixed|null $value
      */
-    public function attach($object, $data = null): void;
+    public function attach($key, $value = null): void;
 }

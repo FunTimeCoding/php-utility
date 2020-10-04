@@ -134,7 +134,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @return array<string>
+     * @return array<string, string>
      */
     public function createFormDataWithToken(string $token): array
     {
@@ -149,15 +149,15 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @param array<string> $formData
+     * @param array<string, string> $queryParameters
      * @return string
      * @throws FrameworkException
      */
-    public function makeCurlPostRequest(string $locator, array $formData): string
+    public function makeCurlPostRequest(string $locator, array $queryParameters): string
     {
         $request = $this->createCurlRequest($locator);
-        curl_setopt($request, CURLOPT_POST, count($formData));
-        curl_setopt($request, CURLOPT_POSTFIELDS, http_build_query($formData));
+        curl_setopt($request, CURLOPT_POST, count($queryParameters));
+        curl_setopt($request, CURLOPT_POSTFIELDS, http_build_query($queryParameters));
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($request, CURLOPT_COOKIEJAR, $this->cookieJar);
         curl_setopt($request, CURLOPT_COOKIEFILE, $this->cookieJar);

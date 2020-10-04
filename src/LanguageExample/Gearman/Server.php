@@ -15,15 +15,13 @@ class Server
         $worker->addServer();
         $worker->addFunction(
             'reverse',
-            static function ($job): string {
-                /** @var $job GearmanJob */
+            static function (GearmanJob $job): string {
                 return strrev($job->workload());
             }
         );
         $worker->addFunction(
             'write_file',
-            static function ($job): string {
-                /** @var GearmanJob $job */
+            static function (GearmanJob $job): string {
                 $workload = json_decode($job->workload(), true);
                 file_put_contents($workload['path'], $workload['content']);
 

@@ -7,6 +7,9 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 use Iterator;
 use SplObjectStorage;
 
+/**
+ * @implements Iterator<bool|float|int|mixed|string|null, mixed|null>
+ */
 class CustomSplObjectStorage implements Iterator, Attachable
 {
     /**
@@ -15,12 +18,12 @@ class CustomSplObjectStorage implements Iterator, Attachable
     private $storage;
 
     /**
-     * @param mixed $object
-     * @param mixed|null $data
+     * @param mixed $key
+     * @param mixed|null $value
      */
-    public function attach($object, $data = null): void
+    public function attach($key, $value = null): void
     {
-        $this->storage->attach($object, $data);
+        $this->storage->attach($key, $value);
     }
 
     public function __construct()

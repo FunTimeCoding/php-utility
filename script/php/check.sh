@@ -35,9 +35,9 @@ RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     mkdir -p build/log/mess_detector
-    vendor/bin/phpmd src,test html .phpmd.xml --reportfile build/log/mess_detector/index.html || RETURN_CODE="${?}"
+    vendor/bin/phpmd bin,src,test html .phpmd.xml --reportfile build/log/mess_detector/index.html || RETURN_CODE="${?}"
 else
-    OUTPUT=$(vendor/bin/phpmd src,test text .phpmd.xml) || RETURN_CODE="${?}"
+    OUTPUT=$(vendor/bin/phpmd bin,src,test text .phpmd.xml) || RETURN_CODE="${?}"
 fi
 
 echo
@@ -57,11 +57,11 @@ echo
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --error-format checkstyle --level max src test web >build/log/checkstyle-phpstan.xml || RETURN_CODE="${?}"
+    vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --error-format checkstyle --level max bin src test web >build/log/checkstyle-phpstan.xml || RETURN_CODE="${?}"
     # TODO: What to do with this return code?
 fi
 
-OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --no-ansi --level max src test web) && FOUND=false || FOUND=true
+OUTPUT=$(vendor/bin/phpstan analyse --configuration .phpstan.neon --no-progress --memory-limit 1G --no-ansi --level max bin src test web) && FOUND=false || FOUND=true
 
 if [ "${FOUND}" = true ]; then
     echo
@@ -73,9 +73,9 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcs --standard=PSR12 --report=checkstyle --report-file=build/log/checkstyle-result.xml src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --standard=PSR12 --report=checkstyle --report-file=build/log/checkstyle-result.xml bin src test || RETURN_CODE="${?}"
 else
-    vendor/bin/phpcs --standard=PSR12 src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --standard=PSR12 bin src test || RETURN_CODE="${?}"
 fi
 
 if [ ! "${RETURN_CODE}" = 0 ]; then
@@ -86,7 +86,7 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcpd --log-pmd build/log/pmd-cpd.xml src test || RETURN_CODE="${?}"
+    vendor/bin/phpcpd --log-pmd build/log/pmd-cpd.xml bin src test || RETURN_CODE="${?}"
     # TODO: What to do with this return code?
 fi
 
@@ -94,7 +94,7 @@ vendor/bin/phpcpd src test
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
     mkdir -p build/pdepend
-    vendor/bin/pdepend --jdepend-xml=build/log/jdepend.xml --summary-xml=build/log/jdepend-summary.xml --jdepend-chart=build/pdepend/dependencies.svg --overview-pyramid=build/pdepend/pyramid.svg src,test
+    vendor/bin/pdepend --jdepend-xml=build/log/jdepend.xml --summary-xml=build/log/jdepend-summary.xml --jdepend-chart=build/pdepend/dependencies.svg --overview-pyramid=build/pdepend/pyramid.svg bin,src,test
 fi
 
 echo

@@ -6,14 +6,12 @@ namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Command;
 
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\CloseSwitchCommand;
 use FunTimeCoding\PhpUtility\LanguageExample\Pattern\Command\SwitchableInterface;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class CloseSwitchCommandTest extends TestCase
 {
     /**
-     * TODO: Remove PhanAccessMethodInternal once InvocationMocker is not declared internal anymore or otherwise.
-     * @phan-suppress PhanAccessMethodInternal, PhanTypeMismatchArgument
+     * @phan-suppress PhanTypeMismatchArgument
      */
     public function testExecute(): void
     {

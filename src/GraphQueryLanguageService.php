@@ -32,7 +32,7 @@ class GraphQueryLanguageService
                             'args' => [
                                 'message' => ['type' => Type::string()],
                             ],
-                            'resolve' => static function ($rootValue, $args) {
+                            'resolve' => static function ($rootValue, $args): string {
                                 return $rootValue['prefix'] . $args['message'];
                             }
                         ],
@@ -50,8 +50,8 @@ class GraphQueryLanguageService
                                 'y' => ['type' => Type::int()],
                             ],
                             // @phan-suppress-next-line PhanUnusedClosureParameter
-                            'resolve' => static function ($calc, $args) {
-                                return $args['x'] + $args['y'];
+                            'resolve' => static function ($calc, $args): int {
+                                return (int)($args['x'] + $args['y']);
                             },
                         ],
                     ],

@@ -8,6 +8,12 @@ use Exception;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
+/**
+ * TODO: Try to remove with new Phan version when AST is updated.
+ * @phan-file-suppress PhanUndeclaredClassMethod
+ * @phan-file-suppress PhanUndeclaredTypeProperty
+ * @phan-file-suppress PhanUndeclaredTypeReturnType
+ */
 class Helper
 {
     /**

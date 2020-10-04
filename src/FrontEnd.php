@@ -93,6 +93,8 @@ class FrontEnd
      * @throws RuntimeError
      * @throws SyntaxError
      * @throws Framework\FrameworkException
+     * TODO: Remove psalm-suppress oce Phan and Psalm can agree on the problem.
+     * @psalm-suppress TooManyTemplateParams
      */
     public function foundRequest(string $handler): string
     {

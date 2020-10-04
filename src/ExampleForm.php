@@ -19,6 +19,8 @@ use Symfony\Component\Validator\Validation;
 class ExampleForm
 {
     /**
+     * TODO: Remove psalm-suppress oce Phan and Psalm can agree on the problem.
+     * @psalm-suppress TooManyTemplateParams
      * @return FormInterface<Form>
      */
     public function create(): FormInterface

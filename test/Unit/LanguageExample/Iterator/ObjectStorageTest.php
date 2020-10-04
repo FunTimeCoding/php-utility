@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class ObjectStorageTest extends TestCase
 {
     /**
-     * TODO: This should probably not output different objects than in the other tests.
+     * TODO: Should this output the object notation or the toString value?
      * @outputBuffering enabled
      */
     public function testSplObjectStorage(): void
@@ -73,6 +73,7 @@ OUTPUT;
     }
 
     /**
+     * TODO: Should this output the object notation or the toString value?
      * @outputBuffering enabled
      */
     public function testSplObjectHashStorage(): void
@@ -82,13 +83,21 @@ OUTPUT;
         $example->mySplObjectHashStorage();
 
         $expected = <<<OUTPUT
-Object: apple
+Object: FunTimeCoding\PhpUtility\LanguageExample\Iterator\CustomStorageObject Object
+(
+    [name] => apple
+)
+
 Data: Array
 (
     [0] => apple
 )
 
-Object: banana
+Object: FunTimeCoding\PhpUtility\LanguageExample\Iterator\CustomStorageObject Object
+(
+    [name] => banana
+)
+
 Data: Array
 (
     [0] => banana
