@@ -22,7 +22,8 @@ export PROJECT_NAME_UNDERSCORE
 
 PROJECT_NAME_INITIALS=$(echo "${PROJECT_NAME_CAMEL}" | ${SED} 's/\([A-Z]\)[a-z]*/\1/g' | tr '[:upper:]' '[:lower:]')
 BLOCKED_INITIALS='ps
-pu'
+pu
+fg'
 
 echo "${PROJECT_NAME_INITIALS}" | grep --quiet "^${BLOCKED_INITIALS}$" && ARE_INITIALS_BLOCKED=true || ARE_INITIALS_BLOCKED=false
 
@@ -67,7 +68,7 @@ export EXCLUDE_FILTER
 # PROJECT_NAME_UNDERSCORE: python
 # TODO: Test and expand this through all skeleton projects.
 # shellcheck disable=SC1117
-INCLUDE_FILTER="^\.\/((src|test|benchmark|tests|spec|lib|debian|configuration|documentation|test|script\/skeleton|helm-chart|${PROJECT_NAME_UNDERSCORE})\/.*|\.gitignore|Vagrantfile|Dockerfile|README.md|package\.json|sonar-project\.properties|web\/index\.html|composer\.json|setup\.py|pom.xml|.*\.gemspec|.*\.cabal)$"
+INCLUDE_FILTER="^\.\/((src|test|benchmark|tests|spec|lib|debian|configuration|documentation|test|script\/skeleton|helm-chart|${PROJECT_NAME_UNDERSCORE})\/.*|\.gitignore|Vagrantfile|Dockerfile|README.md|package\.json|sonar-project\.properties|web\/index\.html|composer\.json|setup\.py|pom.xml|.*\.gemspec|.*\.cabal|docker-compose.yml)$"
 export INCLUDE_FILTER
 INCLUDE_STILL_FILTER='^.*\/__pycache__\/.*$'
 export INCLUDE_STILL_FILTER
