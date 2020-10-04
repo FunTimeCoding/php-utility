@@ -46,6 +46,7 @@ return [
     'directory_list' => [
         'test/',
         'src/',
+        'bin/',
         'web/',
         # TODO: These should not have to be in here?
         'vendor/phpunit/phpunit/src/',
