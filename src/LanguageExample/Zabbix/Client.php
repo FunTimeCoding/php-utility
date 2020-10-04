@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Zabbix;
 
+use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use ZabbixApi\Exception;
 use ZabbixApi\ZabbixApi;
 
@@ -21,12 +22,20 @@ class Client
      */
     private $client;
 
+
     /**
      * @throws Exception
+     * @throws FrameworkException
      */
     public function main(): void
     {
-        $configuration = include getenv('HOME') . '/.php-utility.php';
+        $home = getenv('HOME');
+
+        if ($home === false) {
+            throw new FrameworkException('HOME is not set.');
+        }
+
+        $configuration = include $home . '/.php-utility.php';
         $zabbixConfiguration = $configuration['zabbix'];
         $this->client = new ZabbixApi(
             $zabbixConfiguration['locator'],

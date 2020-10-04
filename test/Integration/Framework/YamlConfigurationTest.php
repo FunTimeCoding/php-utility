@@ -25,11 +25,14 @@ class YamlConfigurationTest extends TestCase
         $this->configuration = new YamlConfiguration($file);
     }
 
+    /**
+     * @throws FrameworkException
+     */
     public function testReadConfig(): void
     {
-        $server = $this->configuration->get('mediawiki-server');
-        $name = $this->configuration->get('mediawiki-username');
-        $password = $this->configuration->get('mediawiki-password');
+        $server = $this->configuration->getString('mediawiki-server');
+        $name = $this->configuration->getString('mediawiki-username');
+        $password = $this->configuration->getString('mediawiki-password');
 
         $this::assertNotEmpty($server);
         $this::assertNotEmpty($name);
@@ -40,9 +43,12 @@ class YamlConfigurationTest extends TestCase
         $this::assertEquals('insecurePassword', $password);
     }
 
+    /**
+     * @throws FrameworkException
+     */
     public function testReadArray(): void
     {
-        $array = $this->configuration->get('development');
+        $array = $this->configuration->getArray('development');
 
         $this::assertArrayHasKey('username', $array);
         $this::assertArrayHasKey('password', $array);
@@ -56,14 +62,17 @@ class YamlConfigurationTest extends TestCase
      */
     public function testAccessSubKey(): void
     {
-        $result = $this->configuration->getMultipleKeys(['development', 'username']);
+        $result = $this->configuration->getStringDeep(['development', 'username']);
 
         $this::assertEquals('randomUser', $result);
     }
 
+    /**
+     * @throws FrameworkException
+     */
     public function testInvalidKey(): void
     {
-        $result = $this->configuration->get('invalidKey');
+        $result = $this->configuration->getString('invalidKey');
 
         $this::assertEquals('', $result);
     }
@@ -73,7 +82,7 @@ class YamlConfigurationTest extends TestCase
      */
     public function testInvalidSubKey(): void
     {
-        $result = $this->configuration->getMultipleKeys(['development', 'invalidKey']);
+        $result = $this->configuration->getStringDeep(['development', 'invalidKey']);
 
         $this::assertEquals('', $result);
     }

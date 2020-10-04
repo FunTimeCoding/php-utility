@@ -24,6 +24,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      * @throws FrameworkException
+     * @SuppressWarnings(PHPMD.CountInLoopExpression)
      */
     private function mergeSort(array $elements): array
     {
@@ -54,6 +55,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      * @throws FrameworkException
+     * @SuppressWarnings(PHPMD.CountInLoopExpression)
      */
     private function merge(array $left, array $right): array
     {

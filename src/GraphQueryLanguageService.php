@@ -18,6 +18,7 @@ class GraphQueryLanguageService
 {
     /**
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function main(): void
     {
