@@ -8,12 +8,6 @@ use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use ZabbixApi\Exception;
 use ZabbixApi\ZabbixApi;
 
-/**
- * TODO: Try to remove with new Phan version when AST is updated.
- * @phan-file-suppress PhanUndeclaredClassMethod
- * @phan-file-suppress PhanUndeclaredTypeProperty
- * @phan-file-suppress PhanUndeclaredTypeThrowsType
- */
 class Client
 {
     private const DEFAULT_HOST_NAME = 'Zabbix server';

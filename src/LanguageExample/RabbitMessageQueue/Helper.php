@@ -8,12 +8,6 @@ use Exception;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
-/**
- * TODO: Try to remove with new Phan version when AST is updated.
- * @phan-file-suppress PhanUndeclaredClassMethod
- * @phan-file-suppress PhanUndeclaredTypeProperty
- * @phan-file-suppress PhanUndeclaredTypeReturnType
- */
 class Helper
 {
     /**
@@ -23,6 +17,8 @@ class Helper
 
     public function __construct()
     {
+        // Only an unused parameter is deprecated.
+        // @phan-suppress-next-line PhanDeprecatedFunction
         $this->connection = new AMQPStreamConnection('localhost', '5672', 'guest', 'guest');
     }
 

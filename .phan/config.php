@@ -61,6 +61,8 @@ return [
         'vendor/league/csv/src/',
         'vendor/webonyx/graphql-php/src/',
         'vendor/psr/http-message/src/',
+        'vendor/php-amqplib/php-amqplib/',
+        'vendor/confirm-it-solutions/php-zabbix-api/',
     ],
     'analyzed_file_extensions' => ['php'],
     'exclude_analysis_directory_list' => [
