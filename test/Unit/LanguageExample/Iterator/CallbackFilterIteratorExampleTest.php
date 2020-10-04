@@ -15,7 +15,7 @@ class CallbackFilterIteratorExampleTest extends TestCase
     public function testCallbackFilterIterator(): void
     {
         $this::markTestSkipped('CallbackFilterIterator requires php 5.6');
-
+        // @phpstan-ignore-next-line
         $example = new CallbackFilterIteratorExample();
 
         $example->callbackFilterIterator();

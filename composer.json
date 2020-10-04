@@ -36,7 +36,7 @@
         "league/csv": "9.*",
         "webonyx/graphql-php": "14.*",
         "php-amqplib/php-amqplib": "2.*",
-        "sentry/sdk": "3.",
+        "sentry/sdk": "3.*",
         "confirm-it-solutions/php-zabbix-api": "2.*"
     },
     "require-dev": {
@@ -50,7 +50,7 @@
         "phpstan/phpstan": "0.*",
         "phpstan/phpstan-strict-rules": "0.*",
         "phpstan/phpstan-phpunit": "0.*",
-        "phan/phan": "3.*",
+        "phan/phan": "1.*",
         "vimeo/psalm": "3.*",
         "infection/infection": "0.*",
         "roave/security-advisories": "dev-master",

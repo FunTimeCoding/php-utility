@@ -13,7 +13,7 @@ class CallbackFilterIteratorExample
     {
         // Not all parameters have to be used.
         // @phan-suppress-next-line PhanUnusedClosureParameter
-        $appleFilterCallback = static function ($current, $key, $iterator) {
+        $appleFilterCallback = static function ($current, $key, $iterator): bool {
             $result = false;
 
             if ($current === 'apple') {

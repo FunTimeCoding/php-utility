@@ -104,7 +104,7 @@ class IteratorExample
     {
         $arrayIterator = new ArrayIterator(['apple', 'banana', 'strawberry']);
 
-        $pickFruit = static function (ArrayIterator $iterator) {
+        $pickFruit = static function (ArrayIterator $iterator): bool {
             echo 'Picking: ' . $iterator->current() . PHP_EOL;
 
             return true;
@@ -114,7 +114,7 @@ class IteratorExample
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function iteratorToArray(): array
     {

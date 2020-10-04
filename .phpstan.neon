@@ -3,8 +3,7 @@ includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
 parameters:
-    ignoreErrors:
-        # TODO: I do not understand this error. Maybe it will go away in the future.
-        - '#Property FunTimeCoding\\PhpSkeleton\\Test\\Integration\\WebTest::\$process type has no value type specified in iterable type Symfony\\Component\\Process\\Process.#'
-        # Comment this out to ignore MockObject errors.
-        - '#PHPUnit\\Framework\\MockObject\\MockObject given#'
+    excludes_analyse:
+        # TODO: Try again in the future or investigate further.
+        # Reason: Child process error (exit code 255): PHP Fatal error:  Cannot declare class ZabbixApi\Exception
+        - src/LanguageExample/Zabbix/Client.php

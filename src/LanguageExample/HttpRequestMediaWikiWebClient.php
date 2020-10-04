@@ -43,10 +43,6 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
     {
         $helper = new MediaWikiHelper();
 
-        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
-        /**
-         * @psalm-suppress InvalidCatch
-         */
         try {
             $response = $this->client->request('GET', $this->locator . '/' . $page);
         } catch (GuzzleException $e) {
@@ -65,10 +61,6 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
     {
         $helper = new MediaWikiHelper();
 
-        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
-        /**
-         * @psalm-suppress InvalidCatch
-         */
         try {
             $response = $this->client->request(
                 'GET',
@@ -86,10 +78,6 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
             throw new FrameworkException('Could not find token.');
         }
 
-        // TODO: Remove after this is resolved https://github.com/guzzle/guzzle/issues/2184
-        /**
-         * @psalm-suppress InvalidCatch
-         */
         try {
             $response = $this->client->request(
                 'POST',
@@ -112,7 +100,7 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @return array<string>
+     * @return array<string, string>
      */
     public function createFormDataWithToken(string $token): array
     {

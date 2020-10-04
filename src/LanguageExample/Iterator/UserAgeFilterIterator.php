@@ -19,6 +19,9 @@ class UserAgeFilterIterator extends FilterIterator
      */
     private $maximum;
 
+    /**
+     * @param Iterator<bool|float|int|mixed|string|null, mixed|null> $iterator
+     */
     public function __construct(Iterator $iterator, int $minimum = -1, int $maximum = -1)
     {
         parent::__construct($iterator);

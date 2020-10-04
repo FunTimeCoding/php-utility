@@ -6,6 +6,9 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
 
 use Iterator;
 
+/**
+ * @implements Iterator<bool|float|int|mixed|string|null, mixed|null>
+ */
 class MySplObjectHashStorage implements Iterator, Attachable
 {
     /**
@@ -19,39 +22,39 @@ class MySplObjectHashStorage implements Iterator, Attachable
     private $length = 0;
 
     /**
-     * @var array
+     * @var array<string>
      */
     private $hashes = [];
 
     /**
-     * @var CustomStorageObject[]
+     * @var array<int, CustomStorageObject>
      */
-    private $objects = [];
+    private $keys = [];
 
     /**
-     * @var array
+     * @var array<int, mixed|null>
      */
-    private $objectData = [];
+    private $values = [];
 
     /**
-     * @param mixed $object
-     * @param mixed|null $data
+     * @param mixed $key
+     * @param mixed|null $value
      */
-    public function attach($object, $data = null): void
+    public function attach($key, $value = null): void
     {
-        $this->hashes[] = spl_object_hash($object);
-        $this->objects[$this->position] = $object;
-        $this->objectData[$this->position] = $data;
+        $this->hashes[] = spl_object_hash($key);
+        $this->keys[$this->position] = $key;
+        $this->values[$this->position] = $value;
         ++$this->length;
         ++$this->position;
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function current()
     {
-        return $this->objectData[$this->position];
+        return $this->values[$this->position];
     }
 
     public function next(): void
@@ -59,9 +62,12 @@ class MySplObjectHashStorage implements Iterator, Attachable
         ++$this->position;
     }
 
-    public function key(): string
+    /**
+     * @return bool|float|int|mixed|string|null
+     */
+    public function key()
     {
-        return (string)$this->objects[$this->position];
+        return $this->keys[$this->position];
     }
 
     public function valid(): bool

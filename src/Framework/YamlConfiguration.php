@@ -40,9 +40,9 @@ class YamlConfiguration
     }
 
     /**
-     * @param array<string> $keys
+     * @param array<int, string> $keys
      * @param array<string, mixed> $heap
-     * @return string|array<string> Empty string if not found.
+     * @return string|array<int, string> Empty string if not found.
      */
     public function getFromMultidimensionalArray(array $keys, array $heap)
     {
@@ -77,6 +77,8 @@ class YamlConfiguration
                 throw new FrameworkException('Key does not contain a string: ' . $key);
             }
 
+            // TODO: Try to remove with new Phan version when AST is updated.
+            /** @phan-suppress-next-line PhanPartialTypeMismatchReturn */
             return $this->configuration[$key];
         }
 
@@ -84,7 +86,7 @@ class YamlConfiguration
     }
 
     /**
-     * @return array<string> Empty array if not found.
+     * @return array<string, string> Empty array if not found.
      * @throws FrameworkException If found value is not an array.
      */
     public function getArray(string $key): array
@@ -94,6 +96,8 @@ class YamlConfiguration
                 throw new FrameworkException('Key does not contain an array: ' . $key);
             }
 
+            // TODO: Try to remove with new Phan version when AST is updated.
+            /** @phan-suppress-next-line PhanPartialTypeMismatchReturn */
             return $this->configuration[$key];
         }
 
@@ -101,7 +105,7 @@ class YamlConfiguration
     }
 
     /**
-     * @param array<string> $pathOfKeys
+     * @param array<int, string> $pathOfKeys
      * @return string Empty string if not found.
      * @throws FrameworkException If found value is not a string.
      */
@@ -117,8 +121,8 @@ class YamlConfiguration
     }
 
     /**
-     * @param array<string> $pathOfKeys
-     * @return array<string> Empty array if not found.
+     * @param array<int, string> $pathOfKeys
+     * @return array<int, string> Empty array if not found.
      * @throws FrameworkException If found value is not an array.
      */
     public function getArrayDeep(array $pathOfKeys): array

@@ -6,6 +6,10 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
 
 use ErrorException;
 
+/**
+ * TODO: Try to remove with new Phan version when AST is updated.
+ * @phan-file-suppress PhanUndeclaredClassMethod
+ */
 class Consumer
 {
     /**

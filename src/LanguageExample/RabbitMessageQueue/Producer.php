@@ -7,6 +7,10 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
 use Exception;
 use PhpAmqpLib\Message\AMQPMessage;
 
+/**
+ * TODO: Try to remove with new Phan version when AST is updated.
+ * @phan-file-suppress PhanUndeclaredClassMethod
+ */
 class Producer
 {
     /**
