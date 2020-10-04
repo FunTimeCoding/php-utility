@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\LanguageExample;
@@ -18,7 +19,7 @@ class MediaWikiWebClientTest extends TestCase
     public function testLoginWithHttpRequestLibrary(): void
     {
         $configuration = new YamlConfiguration('~/.php-utility.yaml');
-        $locator = $configuration->get('wiki-locator');
+        $locator = $configuration->getString('mediawiki-server');
         $clients = [
             new HttpRequestMediaWikiWebClient($locator),
             new CurlMediaWikiWebClient($locator)
@@ -26,8 +27,8 @@ class MediaWikiWebClientTest extends TestCase
 
         foreach ($clients as $client) {
             /* @var MediaWikiWebClient $client */
-            $client->setUsername($configuration->get('wpName'));
-            $client->setPassword($configuration->get('wpPassword'));
+            $client->setUsername($configuration->getString('mediawiki-username'));
+            $client->setPassword($configuration->getString('mediawiki-password'));
             $client->login();
             $content = $client->getPage('Main_Page');
             $this::assertStringContainsString('MediaWiki has been installed', $content);

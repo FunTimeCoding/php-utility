@@ -1,22 +1,22 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Framework;
 
 use Symfony\Component\Yaml\Parser;
 
-class YamlConfiguration implements ConfigInterface
+class YamlConfiguration
 {
     /**
-     * @var array
+     * @var array<string|array>
      */
     private $configuration;
 
     /**
-     * @param string $filename
      * @throws FrameworkException
      */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         $path = $this->expandTilde($filename);
         $content = file_get_contents($path);
@@ -29,11 +29,6 @@ class YamlConfiguration implements ConfigInterface
         $this->configuration = $parser->parse($content);
     }
 
-    /**
-     * @param string $path
-     *
-     * @return string
-     */
     public function expandTilde(string $path): string
     {
         if (function_exists('posix_getuid') && strpos($path, '~') !== false) {
@@ -45,11 +40,9 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param array $keys
-     * @param array $heap
-     *
-     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
-     * @throws FrameworkException
+     * @param array<string> $keys
+     * @param array<string, mixed> $heap
+     * @return string|array<string> Empty string if not found.
      */
     public function getFromMultidimensionalArray(array $keys, array $heap)
     {
@@ -57,10 +50,6 @@ class YamlConfiguration implements ConfigInterface
         $depth = 0;
 
         foreach ($keys as $key) {
-            if (is_int($key) === false && is_string($key) === false) {
-                throw new FrameworkException('Invalid key type.');
-            }
-
             if (array_key_exists($key, $heap)) {
                 if ($depth === $length) {
                     break;
@@ -78,13 +67,16 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param string $key
-     *
-     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
+     * @return string Empty string if not found.
+     * @throws FrameworkException If found value is not a string.
      */
-    public function get(string $key)
+    public function getString(string $key): string
     {
         if (array_key_exists($key, $this->configuration)) {
+            if (is_string($this->configuration[$key]) === false) {
+                throw new FrameworkException('Key does not contain a string: ' . $key);
+            }
+
             return $this->configuration[$key];
         }
 
@@ -92,13 +84,53 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param array $keys
-     *
-     * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
-     * @throws FrameworkException
+     * @return array<string> Empty array if not found.
+     * @throws FrameworkException If found value is not an array.
      */
-    public function getMultipleKeys(array $keys)
+    public function getArray(string $key): array
     {
-        return $this->getFromMultidimensionalArray($keys, $this->configuration);
+        if (array_key_exists($key, $this->configuration)) {
+            if (is_array($this->configuration[$key]) === false) {
+                throw new FrameworkException('Key does not contain an array: ' . $key);
+            }
+
+            return $this->configuration[$key];
+        }
+
+        return [];
+    }
+
+    /**
+     * @param array<string> $pathOfKeys
+     * @return string Empty string if not found.
+     * @throws FrameworkException If found value is not a string.
+     */
+    public function getStringDeep(array $pathOfKeys): string
+    {
+        $result = $this->getFromMultidimensionalArray($pathOfKeys, $this->configuration);
+
+        if (is_string($result) === false) {
+            throw new FrameworkException('Path of keys does not lead to a string: ' . join(',', $pathOfKeys));
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<string> $pathOfKeys
+     * @return array<string> Empty array if not found.
+     * @throws FrameworkException If found value is not an array.
+     */
+    public function getArrayDeep(array $pathOfKeys): array
+    {
+        $result = $this->getFromMultidimensionalArray($pathOfKeys, $this->configuration);
+
+        if ($result == '') {
+            $result = [];
+        } elseif (is_array($result) === false) {
+            throw new FrameworkException('Path of keys does not lead to an array: ' . join(',', $pathOfKeys));
+        }
+
+        return $result;
     }
 }

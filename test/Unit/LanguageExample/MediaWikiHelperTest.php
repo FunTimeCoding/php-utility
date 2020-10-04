@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
@@ -28,7 +29,7 @@ class MediaWikiHelperTest extends TestCase
     {
         $helper = new MediaWikiHelper();
         $token = 'MyToken';
-        $html = '<form><input name="wpLoginToken" value="'.$token.'"></form>';
+        $html = '<form><input name="wpLoginToken" value="' . $token . '"></form>';
         $dom = new DOMDocument();
         $dom->loadHTML($html);
         $xpath = new DOMXPath($dom);
@@ -45,7 +46,7 @@ class MediaWikiHelperTest extends TestCase
     {
         $helper = new MediaWikiHelper();
         $content = 'MyContent';
-        $html = '<div id="mw-content-text">'.$content.'</div>';
+        $html = '<div id="mw-content-text">' . $content . '</div>';
         $dom = new DOMDocument();
         $dom->loadHTML($html);
         $xpath = new DOMXPath($dom);

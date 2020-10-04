@@ -1,4 +1,4 @@
 ---
-wiki-locator: LOCATOR
-wpName: Admin
-wpPassword: PASSWORD
+mediawiki-server: LOCATOR
+mediawiki-username: Admin
+mediawiki-password: PASSWORD

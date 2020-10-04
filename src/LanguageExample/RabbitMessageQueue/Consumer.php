@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
@@ -15,7 +16,7 @@ class Consumer
         $helper = new Helper();
 
         $channel = $helper->connect();
-        $callback = static function ($msg) {
+        $callback = static function ($msg): void {
             echo $msg->body . PHP_EOL;
         };
         $channel->basic_consume(

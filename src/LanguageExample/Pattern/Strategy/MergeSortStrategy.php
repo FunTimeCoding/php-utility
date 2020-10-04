@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
@@ -8,14 +9,14 @@ use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 class MergeSortStrategy implements SortStrategyInterface
 {
     /**
-     * @param int[] $elements
+     * @param int[] $unsortedIntegers
      *
      * @return int[]
      * @throws FrameworkException
      */
-    public function sort(array $elements): array
+    public function sort(array $unsortedIntegers): array
     {
-        return $this->mergeSort($elements);
+        return $this->mergeSort($unsortedIntegers);
     }
 
     /**
@@ -23,6 +24,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      * @throws FrameworkException
+     * @SuppressWarnings(PHPMD.CountInLoopExpression)
      */
     private function mergeSort(array $elements): array
     {
@@ -53,6 +55,7 @@ class MergeSortStrategy implements SortStrategyInterface
      *
      * @return int[]
      * @throws FrameworkException
+     * @SuppressWarnings(PHPMD.CountInLoopExpression)
      */
     private function merge(array $left, array $right): array
     {

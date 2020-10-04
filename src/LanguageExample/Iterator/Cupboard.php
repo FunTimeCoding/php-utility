@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
@@ -39,7 +40,6 @@ class Cupboard implements Iterator
 
     /**
      * TODO: Maybe use array_filter with a callback?
-     * @param array $theArray
      * @return string[]
      */
     private static function arrayKeysAssociative(array $theArray): array

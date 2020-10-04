@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
@@ -6,15 +7,15 @@ namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
 class QuickSortStrategy implements SortStrategyInterface
 {
     /**
-     * @param int[] $elements
+     * @param int[] $unsortedIntegers
      *
      * @return int[]
      */
-    public function sort(array $elements): array
+    public function sort(array $unsortedIntegers): array
     {
-        $size = count($elements);
+        $size = count($unsortedIntegers);
 
-        return $this->quickSort($elements, 0, $size - 1);
+        return $this->quickSort($unsortedIntegers, 0, $size - 1);
     }
 
     /**

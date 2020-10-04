@@ -1,36 +1,36 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration;
 
-use DirectoryIterator;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use SplFileInfo;
 
 class MetricsTest extends TestCase
 {
-    public static function isFile(DirectoryIterator $iterator): bool
+    private static function isFile(SplFileInfo $file): bool
     {
-        return $iterator->isFile();
+        return $file->isFile();
     }
 
-    public static function getFileName(DirectoryIterator $iterator): string
+    private static function getFileName(SplFileInfo $file): string
     {
-        return $iterator->getFilename();
+        return $file->getFilename();
     }
 
-    public static function getPathName(DirectoryIterator $iterator): string
+    private static function getPathName(SplFileInfo $file): string
     {
-        return $iterator->getPathname();
+        return $file->getPathname();
     }
 
     /**
-     * @param string $testDirectory
      * @return string[]
      */
-    public static function collectFiles(string $testDirectory): array
+    private static function collectFiles(string $testDirectory): array
     {
         $files = [];
         $iteratorIterator = new RecursiveIteratorIterator(
@@ -90,7 +90,7 @@ class MetricsTest extends TestCase
         }
     }
 
-    public static function endsWith(string $haystack, string $needle): bool
+    private static function endsWith(string $haystack, string $needle): bool
     {
         $length = strlen($needle);
 
@@ -101,7 +101,7 @@ class MetricsTest extends TestCase
         return substr($haystack, -$length) === $needle;
     }
 
-    public static function startsWith(string $haystack, string $needle): bool
+    private static function startsWith(string $haystack, string $needle): bool
     {
         return strpos($haystack, $needle) === 0;
     }

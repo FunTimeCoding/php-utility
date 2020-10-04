@@ -73,7 +73,7 @@ fi
 RETURN_CODE=0
 
 if [ "${CONTINUOUS_INTEGRATION_MODE}" = true ]; then
-    vendor/bin/phpcs --report=checkstyle --report-file=build/log/checkstyle-result.xml --standard=PSR12 src test || RETURN_CODE="${?}"
+    vendor/bin/phpcs --standard=PSR12 --report=checkstyle --report-file=build/log/checkstyle-result.xml src test || RETURN_CODE="${?}"
 else
     vendor/bin/phpcs --standard=PSR12 src test || RETURN_CODE="${?}"
 fi

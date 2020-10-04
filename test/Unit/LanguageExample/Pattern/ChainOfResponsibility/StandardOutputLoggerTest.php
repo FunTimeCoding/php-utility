@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\ChainOfResponsibility;
@@ -18,7 +19,7 @@ class StandardOutputLoggerTest extends TestCase
 
         $logger->message('test_error', AbstractLogger::LEVEL_ERROR);
 
-        $this->expectOutputString('Writing to standard output file descriptor: test_error'.PHP_EOL);
+        $this->expectOutputString('Writing to standard output file descriptor: test_error' . PHP_EOL);
     }
 
     /**

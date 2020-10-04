@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Adapter;
@@ -21,10 +22,7 @@ class MaleToFemaleAdapter
         $this->socket = $socket;
     }
 
-    /**
-     * @return string
-     */
-    public function driveMale()
+    public function driveMale(): string
     {
         return $this->socket->driveFemale();
     }

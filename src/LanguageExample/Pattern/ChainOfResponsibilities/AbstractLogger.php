@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\ChainOfResponsibilities;
@@ -21,8 +22,6 @@ abstract class AbstractLogger
 
     /**
      * This constructor has to be called from all child classes. This is problematic because it cannot be enforced.
-     *
-     * @param int $logLevelMask
      */
     public function __construct(int $logLevelMask)
     {

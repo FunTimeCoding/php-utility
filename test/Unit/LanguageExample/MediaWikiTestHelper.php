@@ -1,21 +1,26 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample;
 
 class MediaWikiTestHelper
 {
-    public function validateQueryData(array $queryData): bool
+    /**
+     * @param array<string> $query
+     * @return bool
+     */
+    public function validateQueryData(array $query): bool
     {
-        if (!array_key_exists('title', $queryData)) {
+        if (!array_key_exists('title', $query)) {
             return false;
         }
 
-        if (!array_key_exists('action', $queryData)) {
+        if (!array_key_exists('action', $query)) {
             return false;
         }
 
-        if (!array_key_exists('type', $queryData)) {
+        if (!array_key_exists('type', $query)) {
             return false;
         }
 

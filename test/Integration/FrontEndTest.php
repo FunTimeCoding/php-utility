@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration;
@@ -11,7 +12,7 @@ class FrontEndTest extends TestCase
     public function testIndexHandler(): void
     {
         $application = new FrontEnd();
-        $this::assertRegExp(
+        $this::assertMatchesRegularExpression(
             '/Hello friend./',
             $application->run('/', FrontEnd::GET)
         );
@@ -20,7 +21,7 @@ class FrontEndTest extends TestCase
     public function testSettingsHandler(): void
     {
         $application = new FrontEnd();
-        $this::assertRegExp(
+        $this::assertMatchesRegularExpression(
             '/Settings/',
             $application->run('/settings', FrontEnd::GET)
         );

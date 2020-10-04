@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample;
@@ -29,19 +30,13 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
      */
     private $client;
 
-    /**
-     * @param string $domainName
-     */
-    public function __construct($domainName)
+    public function __construct(string $locator)
     {
-        $this->locator = 'http://' . $domainName;
+        $this->locator = $locator;
         $this->client = new Client(['cookies' => true]);
     }
 
     /**
-     * @param string $page
-     *
-     * @return string
      * @throws FrameworkException
      */
     public function getPage(string $page): string
@@ -109,12 +104,16 @@ class HttpRequestMediaWikiWebClient implements MediaWikiWebClient
         }
 
         $xpath = $helper->createDomXpathForBody((string)$response->getBody());
+        $node = $xpath->query('//li[@id="pt-logout"]');
 
-        if (1 !== $xpath->query('//li[@id="pt-logout"]')->length) {
+        if ($node === false || $node->length !== 1) {
             throw new FrameworkException('Login failed.');
         }
     }
 
+    /**
+     * @return array<string>
+     */
     public function createFormDataWithToken(string $token): array
     {
         return [

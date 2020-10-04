@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Pattern\Strategy;
@@ -20,8 +21,13 @@ class SortContext
         $this->strategy = $strategy;
     }
 
-    public function sort(array $elements): array
+    /**
+     * @param int[] $unsortedIntegers
+     *
+     * @return int[] sorted integers
+     */
+    public function sort(array $unsortedIntegers): array
     {
-        return $this->strategy->sort($elements);
+        return $this->strategy->sort($unsortedIntegers);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Inheritance;
@@ -12,6 +13,6 @@ class Cat extends Animal
 
     public function meow(): void
     {
-        echo 'The cat says meow.'.PHP_EOL;
+        echo 'The cat says meow.' . PHP_EOL;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample;
@@ -27,17 +28,12 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
      */
     private $cookieJar = '/tmp/php-cookie-jar';
 
-    /**
-     * @param string $domainName
-     */
-    public function __construct($domainName)
+    public function __construct(string $locator)
     {
-        $this->wikiLocator = 'http://' . $domainName . '/index.php';
+        $this->wikiLocator = $locator . '/index.php';
     }
 
     /**
-     * @param string $page
-     * @return string
      * @throws FrameworkException
      */
     public function getPage(string $page): string
@@ -51,8 +47,6 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @param string $locator
-     * @return string
      * @throws FrameworkException
      */
     public function makeCurlGetRequestAndReadCookies(string $locator): string
@@ -65,7 +59,6 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @param string $locator
      * @return resource
      * @throws FrameworkException
      */
@@ -121,14 +114,14 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
             )
         );
 
-        if (1 !== $xpath->query('//li[@id="pt-logout"]')->length) {
+        $node = $xpath->query('//li[@id="pt-logout"]');
+
+        if ($node === false || $node->length !== 1) {
             throw new FrameworkException('Login failed.');
         }
     }
 
     /**
-     * @param string $locator
-     * @return string
      * @throws FrameworkException
      */
     public function makeCurlGetRequestAndWriteCookies(string $locator): string
@@ -140,6 +133,9 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
         return $this->executeCurlRequest($request);
     }
 
+    /**
+     * @return array<string>
+     */
     public function createFormDataWithToken(string $token): array
     {
         return [
@@ -153,8 +149,7 @@ class CurlMediaWikiWebClient implements MediaWikiWebClient
     }
 
     /**
-     * @param string $locator
-     * @param array $formData
+     * @param array<string> $formData
      * @return string
      * @throws FrameworkException
      */

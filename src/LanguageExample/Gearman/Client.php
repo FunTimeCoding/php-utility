@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Gearman;
@@ -11,12 +12,15 @@ class Client
     {
         $client = new GearmanClient();
         $client->addServer();
-        $client->doBackground(
-            'write_file',
-            json_encode(
-                ['path' => '/tmp/test.txt', 'content' => 'example']
-            )
+        $encoded = json_encode(
+            ['path' => '/tmp/test.txt', 'content' => 'example']
         );
-        echo $client->doNormal('reverse', 'Hello World!') . PHP_EOL;
+
+        if ($encoded !== false) {
+            $client->doBackground('write_file', $encoded);
+            echo $client->doNormal('reverse', 'Hello World!') . PHP_EOL;
+        } else {
+            echo 'JSON encode failed: ' . json_last_error_msg() . PHP_EOL;
+        }
     }
 }

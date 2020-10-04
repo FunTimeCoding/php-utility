@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility;
@@ -17,46 +18,53 @@ class GraphQueryLanguageService
 {
     /**
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function main(): void
     {
         try {
-            $queryType = new ObjectType([
-                'name' => 'Query',
-                'fields' => [
-                    'echo' => [
-                        'type' => Type::string(),
-                        'args' => [
-                            'message' => ['type' => Type::string()],
+            $queryType = new ObjectType(
+                [
+                    'name' => 'Query',
+                    'fields' => [
+                        'echo' => [
+                            'type' => Type::string(),
+                            'args' => [
+                                'message' => ['type' => Type::string()],
+                            ],
+                            'resolve' => static function ($rootValue, $args) {
+                                return $rootValue['prefix'] . $args['message'];
+                            }
                         ],
-                        'resolve' => static function ($rootValue, $args) {
-                            return $rootValue['prefix'] . $args['message'];
-                        }
                     ],
-                ],
-            ]);
-            $mutationType = new ObjectType([
-                'name' => 'Calc',
-                'fields' => [
-                    'sum' => [
-                        'type' => Type::int(),
-                        'args' => [
-                            'x' => ['type' => Type::int()],
-                            'y' => ['type' => Type::int()],
+                ]
+            );
+            $mutationType = new ObjectType(
+                [
+                    'name' => 'Calc',
+                    'fields' => [
+                        'sum' => [
+                            'type' => Type::int(),
+                            'args' => [
+                                'x' => ['type' => Type::int()],
+                                'y' => ['type' => Type::int()],
+                            ],
+                            // @phan-suppress-next-line PhanUnusedClosureParameter
+                            'resolve' => static function ($calc, $args) {
+                                return $args['x'] + $args['y'];
+                            },
                         ],
-                        // @phan-suppress-next-line PhanUnusedClosureParameter
-                        'resolve' => static function ($calc, $args) {
-                            return $args['x'] + $args['y'];
-                        },
                     ],
-                ],
-            ]);
+                ]
+            );
             // See docs on schema options:
             // http://webonyx.github.io/graphql-php/type-system/schema/#configuration-options
-            $schema = new Schema([
-                'query' => $queryType,
-                'mutation' => $mutationType,
-            ]);
+            $schema = new Schema(
+                [
+                    'query' => $queryType,
+                    'mutation' => $mutationType,
+                ]
+            );
             $rawInput = file_get_contents('php://input');
 
             if ($rawInput === false) {

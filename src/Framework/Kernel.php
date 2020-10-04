@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Framework;
@@ -24,7 +25,6 @@ class Kernel
     }
 
     /**
-     * @return string
      * @throws FrameworkException
      */
     public function getProjectRoot(): string
@@ -53,9 +53,6 @@ class Kernel
     }
 
     /**
-     * @param string $fileName
-     * @param string $directory
-     * @return bool
      * @throws FrameworkException
      */
     private function isFileInDirectory(string $fileName, string $directory): bool
