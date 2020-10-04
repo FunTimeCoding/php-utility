@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-vendor/bin/phpcbf --standard=Doctrine src test
+vendor/bin/phpcbf --standard=PSR12 src test
