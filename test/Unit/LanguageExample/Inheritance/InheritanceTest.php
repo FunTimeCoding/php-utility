@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Inheritance;
@@ -16,9 +17,11 @@ class InheritanceTest extends TestCase
         $application = new InheritanceExample();
         $application->inherit();
 
-        $this->expectOutputString('AnimalFood has been eaten.
+        $this->expectOutputString(
+            'AnimalFood has been eaten.
 CatFood has been eaten.
 The cat says meow.
-');
+'
+        );
     }
 }

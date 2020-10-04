@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility;
@@ -10,6 +11,7 @@ use Twig\Error\Error;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function FastRoute\simpleDispatcher;
 
 class FrontEnd
@@ -41,7 +43,7 @@ class FrontEnd
     public function run(string $resourceIdentifier, string $method): string
     {
         $dispatcher = simpleDispatcher(
-            static function (RouteCollector $collector) {
+            static function (RouteCollector $collector): void {
                 $collector->addRoute(self::GET, '/', self::INDEX_HANDLER);
                 $collector->addRoute(self::GET, '/settings', self::SETTINGS_HANDLER);
                 $collector->addRoute(self::GET, '/form', self::FORM_GET_HANDLER);
@@ -72,6 +74,8 @@ class FrontEnd
                     $output = $exception->getMessage() . PHP_EOL;
                 } catch (ReflectionException $exception) {
                     $output = $exception->getMessage() . PHP_EOL;
+                } catch (Framework\FrameworkException $exception) {
+                    $output = $exception->getMessage() . PHP_EOL;
                 }
 
                 break;
@@ -85,7 +89,6 @@ class FrontEnd
     }
 
     /**
-     * @throws ReflectionException
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError

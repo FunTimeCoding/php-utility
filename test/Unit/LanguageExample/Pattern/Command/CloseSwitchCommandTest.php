@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Command;
@@ -17,7 +18,6 @@ class CloseSwitchCommandTest extends TestCase
     public function testExecute(): void
     {
         $mock = $this->getMockBuilder(SwitchableInterface::class)->getMock();
-        /* @var MockObject $mock */
         $mock->expects($this::once())->method('powerOn');
 
         /* @var SwitchableInterface $mock */

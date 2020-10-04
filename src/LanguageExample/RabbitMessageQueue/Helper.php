@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\RabbitMessageQueue;
@@ -16,7 +17,7 @@ class Helper
 
     public function __construct()
     {
-        $this->connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $this->connection = new AMQPStreamConnection('localhost', '5672', 'guest', 'guest');
     }
 
     public function connect(): AMQPChannel

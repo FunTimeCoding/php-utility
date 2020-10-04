@@ -1,5 +1,6 @@
-wpName: randomUser
-wpPassword: insecurePassword
+mediawiki-server: http://localhost
+mediawiki-username: randomUser
+mediawiki-password: insecurePassword
 
 development:
     username: randomUser

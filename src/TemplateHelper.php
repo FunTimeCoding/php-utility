@@ -1,11 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility;
 
 use FunTimeCoding\PhpUtility\Framework\FrameworkException;
 use ReflectionClass;
-use ReflectionException;
 use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Bridge\Twig\Form\TwigRendererEngine;
@@ -17,8 +17,6 @@ use Twig\Loader\FilesystemLoader;
 class TemplateHelper
 {
     /**
-     * @return Environment
-     * @throws ReflectionException
      * @throws FrameworkException
      */
     public function createTwigEnvironment(): Environment
@@ -52,7 +50,7 @@ class TemplateHelper
         $twig->addRuntimeLoader(
             new FactoryRuntimeLoader(
                 [
-                    FormRenderer::class => static function () use ($formEngine) {
+                    FormRenderer::class => static function () use ($formEngine): FormRenderer {
                         return new FormRenderer($formEngine);
                     },
                 ]

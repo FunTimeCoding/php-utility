@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\LanguageExample\Iterator;
@@ -51,8 +52,8 @@ class ObjectStorageExample
     public function printIterator(Iterator $iterator): void
     {
         foreach ($iterator as $key => $value) {
-            echo 'Object: '.print_r($key, true).PHP_EOL;
-            echo 'Data: '.print_r($value, true).PHP_EOL;
+            echo 'Object: ' . print_r($key, true) . PHP_EOL;
+            echo 'Data: ' . print_r($value, true) . PHP_EOL;
         }
     }
 }

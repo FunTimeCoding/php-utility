@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Framework;
@@ -13,10 +14,9 @@ class YamlConfiguration implements ConfigInterface
     private $configuration;
 
     /**
-     * @param string $filename
      * @throws FrameworkException
      */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         $path = $this->expandTilde($filename);
         $content = file_get_contents($path);
@@ -29,11 +29,6 @@ class YamlConfiguration implements ConfigInterface
         $this->configuration = $parser->parse($content);
     }
 
-    /**
-     * @param string $path
-     *
-     * @return string
-     */
     public function expandTilde(string $path): string
     {
         if (function_exists('posix_getuid') && strpos($path, '~') !== false) {
@@ -45,9 +40,6 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param array $keys
-     * @param array $heap
-     *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      * @throws FrameworkException
      */
@@ -78,8 +70,6 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param string $key
-     *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      */
     public function get(string $key)
@@ -92,8 +82,6 @@ class YamlConfiguration implements ConfigInterface
     }
 
     /**
-     * @param array $keys
-     *
      * @return mixed Can be all the types YAML allows, like array. Empty string if not found.
      * @throws FrameworkException
      */

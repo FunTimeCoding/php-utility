@@ -1,13 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration;
 
+use League\Csv\Exception;
 use League\Csv\Reader;
 use PHPUnit\Framework\TestCase;
 
 class CommaSeparatedValueTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testUseLibrary(): void
     {
         $reader = Reader::createFromPath(__DIR__ . '/Fixture/example.csv');

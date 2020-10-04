@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Integration\Framework;
@@ -26,12 +27,15 @@ class YamlConfigurationTest extends TestCase
 
     public function testReadConfig(): void
     {
-        $name = $this->configuration->get('wpName');
-        $password = $this->configuration->get('wpPassword');
+        $server = $this->configuration->get('mediawiki-server');
+        $name = $this->configuration->get('mediawiki-username');
+        $password = $this->configuration->get('mediawiki-password');
 
+        $this::assertNotEmpty($server);
         $this::assertNotEmpty($name);
         $this::assertNotEmpty($password);
 
+        $this::assertEquals('http://localhost', $server);
         $this::assertEquals('randomUser', $name);
         $this::assertEquals('insecurePassword', $password);
     }

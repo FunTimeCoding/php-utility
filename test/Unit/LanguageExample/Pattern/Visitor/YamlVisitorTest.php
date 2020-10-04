@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FunTimeCoding\PhpUtility\Test\Unit\LanguageExample\Pattern\Visitor;
@@ -20,7 +21,7 @@ class YamlVisitorTest extends TestCase
 
         $node->accept($visitor);
 
-        $this->expectOutputString('root: MyValue'.PHP_EOL);
+        $this->expectOutputString('root: MyValue' . PHP_EOL);
     }
 
     /**
@@ -35,6 +36,6 @@ class YamlVisitorTest extends TestCase
 
         $node->accept($visitor);
 
-        $this->expectOutputString('root:'.PHP_EOL.'    leaf'.PHP_EOL);
+        $this->expectOutputString('root:' . PHP_EOL . '    leaf' . PHP_EOL);
     }
 }
